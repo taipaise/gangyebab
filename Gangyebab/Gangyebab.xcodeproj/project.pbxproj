@@ -1,0 +1,660 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3172542B2B99AE2600ED3E25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3172542A2B99AE2600ED3E25 /* AppDelegate.swift */; };
+		3172542D2B99AE2600ED3E25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3172542C2B99AE2600ED3E25 /* SceneDelegate.swift */; };
+		317254342B99AE2700ED3E25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 317254332B99AE2700ED3E25 /* Assets.xcassets */; };
+		317254372B99AE2700ED3E25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 317254352B99AE2700ED3E25 /* LaunchScreen.storyboard */; };
+		317254422B99AE2800ED3E25 /* GangyebabTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317254412B99AE2800ED3E25 /* GangyebabTests.swift */; };
+		3172544C2B99AE2800ED3E25 /* GangyebabUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3172544B2B99AE2800ED3E25 /* GangyebabUITests.swift */; };
+		3172544E2B99AE2800ED3E25 /* GangyebabUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3172544D2B99AE2800ED3E25 /* GangyebabUITestsLaunchTests.swift */; };
+		3172545D2B99AFC800ED3E25 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3172545C2B99AFC800ED3E25 /* NavigationViewController.swift */; };
+		3172545F2B99B00700ED3E25 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3172545E2B99B00700ED3E25 /* TabViewController.swift */; };
+		317254662B99B17E00ED3E25 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317254642B99B17E00ED3E25 /* HomeViewController.swift */; };
+		317254672B99B17E00ED3E25 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 317254652B99B17E00ED3E25 /* HomeViewController.xib */; };
+		3172546B2B99B19200ED3E25 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317254692B99B19200ED3E25 /* SettingViewController.swift */; };
+		3172546C2B99B19200ED3E25 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3172546A2B99B19200ED3E25 /* SettingViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3172543E2B99AE2800ED3E25 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3172541F2B99AE2600ED3E25 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 317254262B99AE2600ED3E25;
+			remoteInfo = Gangyebab;
+		};
+		317254482B99AE2800ED3E25 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3172541F2B99AE2600ED3E25 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 317254262B99AE2600ED3E25;
+			remoteInfo = Gangyebab;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		317254272B99AE2600ED3E25 /* Gangyebab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gangyebab.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3172542A2B99AE2600ED3E25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3172542C2B99AE2600ED3E25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		317254332B99AE2700ED3E25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		317254362B99AE2700ED3E25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		317254382B99AE2700ED3E25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3172543D2B99AE2800ED3E25 /* GangyebabTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GangyebabTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		317254412B99AE2800ED3E25 /* GangyebabTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GangyebabTests.swift; sourceTree = "<group>"; };
+		317254472B99AE2800ED3E25 /* GangyebabUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GangyebabUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3172544B2B99AE2800ED3E25 /* GangyebabUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GangyebabUITests.swift; sourceTree = "<group>"; };
+		3172544D2B99AE2800ED3E25 /* GangyebabUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GangyebabUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3172545C2B99AFC800ED3E25 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		3172545E2B99B00700ED3E25 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		317254642B99B17E00ED3E25 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		317254652B99B17E00ED3E25 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		317254692B99B19200ED3E25 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		3172546A2B99B19200ED3E25 /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		317254242B99AE2600ED3E25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3172543A2B99AE2800ED3E25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		317254442B99AE2800ED3E25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3172541E2B99AE2600ED3E25 = {
+			isa = PBXGroup;
+			children = (
+				317254292B99AE2600ED3E25 /* Gangyebab */,
+				317254402B99AE2800ED3E25 /* GangyebabTests */,
+				3172544A2B99AE2800ED3E25 /* GangyebabUITests */,
+				317254282B99AE2600ED3E25 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		317254282B99AE2600ED3E25 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				317254272B99AE2600ED3E25 /* Gangyebab.app */,
+				3172543D2B99AE2800ED3E25 /* GangyebabTests.xctest */,
+				317254472B99AE2800ED3E25 /* GangyebabUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		317254292B99AE2600ED3E25 /* Gangyebab */ = {
+			isa = PBXGroup;
+			children = (
+				3172542A2B99AE2600ED3E25 /* AppDelegate.swift */,
+				3172542C2B99AE2600ED3E25 /* SceneDelegate.swift */,
+				317254332B99AE2700ED3E25 /* Assets.xcassets */,
+				317254352B99AE2700ED3E25 /* LaunchScreen.storyboard */,
+				317254382B99AE2700ED3E25 /* Info.plist */,
+				317254602B99B00E00ED3E25 /* Core */,
+				317254612B99B14100ED3E25 /* Home */,
+				317254622B99B15600ED3E25 /* Setting */,
+			);
+			path = Gangyebab;
+			sourceTree = "<group>";
+		};
+		317254402B99AE2800ED3E25 /* GangyebabTests */ = {
+			isa = PBXGroup;
+			children = (
+				317254412B99AE2800ED3E25 /* GangyebabTests.swift */,
+			);
+			path = GangyebabTests;
+			sourceTree = "<group>";
+		};
+		3172544A2B99AE2800ED3E25 /* GangyebabUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3172544B2B99AE2800ED3E25 /* GangyebabUITests.swift */,
+				3172544D2B99AE2800ED3E25 /* GangyebabUITestsLaunchTests.swift */,
+			);
+			path = GangyebabUITests;
+			sourceTree = "<group>";
+		};
+		317254602B99B00E00ED3E25 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3172545C2B99AFC800ED3E25 /* NavigationViewController.swift */,
+				3172545E2B99B00700ED3E25 /* TabViewController.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		317254612B99B14100ED3E25 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				317254632B99B16800ED3E25 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		317254622B99B15600ED3E25 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				317254682B99B18300ED3E25 /* View */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		317254632B99B16800ED3E25 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				317254642B99B17E00ED3E25 /* HomeViewController.swift */,
+				317254652B99B17E00ED3E25 /* HomeViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		317254682B99B18300ED3E25 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				317254692B99B19200ED3E25 /* SettingViewController.swift */,
+				3172546A2B99B19200ED3E25 /* SettingViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		317254262B99AE2600ED3E25 /* Gangyebab */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 317254512B99AE2800ED3E25 /* Build configuration list for PBXNativeTarget "Gangyebab" */;
+			buildPhases = (
+				317254232B99AE2600ED3E25 /* Sources */,
+				317254242B99AE2600ED3E25 /* Frameworks */,
+				317254252B99AE2600ED3E25 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Gangyebab;
+			productName = Gangyebab;
+			productReference = 317254272B99AE2600ED3E25 /* Gangyebab.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3172543C2B99AE2800ED3E25 /* GangyebabTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 317254542B99AE2800ED3E25 /* Build configuration list for PBXNativeTarget "GangyebabTests" */;
+			buildPhases = (
+				317254392B99AE2800ED3E25 /* Sources */,
+				3172543A2B99AE2800ED3E25 /* Frameworks */,
+				3172543B2B99AE2800ED3E25 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3172543F2B99AE2800ED3E25 /* PBXTargetDependency */,
+			);
+			name = GangyebabTests;
+			productName = GangyebabTests;
+			productReference = 3172543D2B99AE2800ED3E25 /* GangyebabTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		317254462B99AE2800ED3E25 /* GangyebabUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 317254572B99AE2800ED3E25 /* Build configuration list for PBXNativeTarget "GangyebabUITests" */;
+			buildPhases = (
+				317254432B99AE2800ED3E25 /* Sources */,
+				317254442B99AE2800ED3E25 /* Frameworks */,
+				317254452B99AE2800ED3E25 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				317254492B99AE2800ED3E25 /* PBXTargetDependency */,
+			);
+			name = GangyebabUITests;
+			productName = GangyebabUITests;
+			productReference = 317254472B99AE2800ED3E25 /* GangyebabUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3172541F2B99AE2600ED3E25 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					317254262B99AE2600ED3E25 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					3172543C2B99AE2800ED3E25 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 317254262B99AE2600ED3E25;
+					};
+					317254462B99AE2800ED3E25 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 317254262B99AE2600ED3E25;
+					};
+				};
+			};
+			buildConfigurationList = 317254222B99AE2600ED3E25 /* Build configuration list for PBXProject "Gangyebab" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3172541E2B99AE2600ED3E25;
+			productRefGroup = 317254282B99AE2600ED3E25 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				317254262B99AE2600ED3E25 /* Gangyebab */,
+				3172543C2B99AE2800ED3E25 /* GangyebabTests */,
+				317254462B99AE2800ED3E25 /* GangyebabUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		317254252B99AE2600ED3E25 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				317254372B99AE2700ED3E25 /* LaunchScreen.storyboard in Resources */,
+				317254342B99AE2700ED3E25 /* Assets.xcassets in Resources */,
+				317254672B99B17E00ED3E25 /* HomeViewController.xib in Resources */,
+				3172546C2B99B19200ED3E25 /* SettingViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3172543B2B99AE2800ED3E25 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		317254452B99AE2800ED3E25 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		317254232B99AE2600ED3E25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				317254662B99B17E00ED3E25 /* HomeViewController.swift in Sources */,
+				3172545F2B99B00700ED3E25 /* TabViewController.swift in Sources */,
+				3172545D2B99AFC800ED3E25 /* NavigationViewController.swift in Sources */,
+				3172542B2B99AE2600ED3E25 /* AppDelegate.swift in Sources */,
+				3172542D2B99AE2600ED3E25 /* SceneDelegate.swift in Sources */,
+				3172546B2B99B19200ED3E25 /* SettingViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		317254392B99AE2800ED3E25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				317254422B99AE2800ED3E25 /* GangyebabTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		317254432B99AE2800ED3E25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3172544C2B99AE2800ED3E25 /* GangyebabUITests.swift in Sources */,
+				3172544E2B99AE2800ED3E25 /* GangyebabUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3172543F2B99AE2800ED3E25 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 317254262B99AE2600ED3E25 /* Gangyebab */;
+			targetProxy = 3172543E2B99AE2800ED3E25 /* PBXContainerItemProxy */;
+		};
+		317254492B99AE2800ED3E25 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 317254262B99AE2600ED3E25 /* Gangyebab */;
+			targetProxy = 317254482B99AE2800ED3E25 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		317254352B99AE2700ED3E25 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				317254362B99AE2700ED3E25 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3172544F2B99AE2800ED3E25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		317254502B99AE2800ED3E25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		317254522B99AE2800ED3E25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VKW8W27KRV;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Gangyebab/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = taipaise.Gangyebab;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		317254532B99AE2800ED3E25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VKW8W27KRV;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Gangyebab/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = taipaise.Gangyebab;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		317254552B99AE2800ED3E25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VKW8W27KRV;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = taipaise.GangyebabTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gangyebab.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Gangyebab";
+			};
+			name = Debug;
+		};
+		317254562B99AE2800ED3E25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VKW8W27KRV;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = taipaise.GangyebabTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gangyebab.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Gangyebab";
+			};
+			name = Release;
+		};
+		317254582B99AE2800ED3E25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VKW8W27KRV;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = taipaise.GangyebabUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Gangyebab;
+			};
+			name = Debug;
+		};
+		317254592B99AE2800ED3E25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VKW8W27KRV;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = taipaise.GangyebabUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Gangyebab;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		317254222B99AE2600ED3E25 /* Build configuration list for PBXProject "Gangyebab" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3172544F2B99AE2800ED3E25 /* Debug */,
+				317254502B99AE2800ED3E25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		317254512B99AE2800ED3E25 /* Build configuration list for PBXNativeTarget "Gangyebab" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				317254522B99AE2800ED3E25 /* Debug */,
+				317254532B99AE2800ED3E25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		317254542B99AE2800ED3E25 /* Build configuration list for PBXNativeTarget "GangyebabTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				317254552B99AE2800ED3E25 /* Debug */,
+				317254562B99AE2800ED3E25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		317254572B99AE2800ED3E25 /* Build configuration list for PBXNativeTarget "GangyebabUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				317254582B99AE2800ED3E25 /* Debug */,
+				317254592B99AE2800ED3E25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3172541F2B99AE2600ED3E25 /* Project object */;
+}
