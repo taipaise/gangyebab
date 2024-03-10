@@ -20,6 +20,11 @@
 		317254672B99B17E00ED3E25 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 317254652B99B17E00ED3E25 /* HomeViewController.xib */; };
 		3172546B2B99B19200ED3E25 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317254692B99B19200ED3E25 /* SettingViewController.swift */; };
 		3172546C2B99B19200ED3E25 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3172546A2B99B19200ED3E25 /* SettingViewController.xib */; };
+		31B880422B9E0FDE0087A7A8 /* Font+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B880412B9E0FDE0087A7A8 /* Font+Extensions.swift */; };
+		31B880442B9E10770087A7A8 /* NSObject+extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B880432B9E10770087A7A8 /* NSObject+extenstions.swift */; };
+		31B880452B9E147D0087A7A8 /* omyu-pretty.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31B8803F2B9E0F8E0087A7A8 /* omyu-pretty.ttf */; };
+		31B880462B9E147D0087A7A8 /* SOYO-Maple-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31B8803E2B9E0F6C0087A7A8 /* SOYO-Maple-Bold.otf */; };
+		31B880472B9E147D0087A7A8 /* SOYO-Maple-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31B8803D2B9E0F6C0087A7A8 /* SOYO-Maple-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +62,11 @@
 		317254652B99B17E00ED3E25 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		317254692B99B19200ED3E25 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		3172546A2B99B19200ED3E25 /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		31B8803D2B9E0F6C0087A7A8 /* SOYO-Maple-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SOYO-Maple-Regular.otf"; sourceTree = "<group>"; };
+		31B8803E2B9E0F6C0087A7A8 /* SOYO-Maple-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SOYO-Maple-Bold.otf"; sourceTree = "<group>"; };
+		31B8803F2B9E0F8E0087A7A8 /* omyu-pretty.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "omyu-pretty.ttf"; sourceTree = "<group>"; };
+		31B880412B9E0FDE0087A7A8 /* Font+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extensions.swift"; sourceTree = "<group>"; };
+		31B880432B9E10770087A7A8 /* NSObject+extenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+extenstions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,10 +119,10 @@
 			children = (
 				3172542A2B99AE2600ED3E25 /* AppDelegate.swift */,
 				3172542C2B99AE2600ED3E25 /* SceneDelegate.swift */,
-				317254332B99AE2700ED3E25 /* Assets.xcassets */,
 				317254352B99AE2700ED3E25 /* LaunchScreen.storyboard */,
 				317254382B99AE2700ED3E25 /* Info.plist */,
 				317254602B99B00E00ED3E25 /* Core */,
+				31B8803B2B9E0F3A0087A7A8 /* Resources */,
 				317254612B99B14100ED3E25 /* Home */,
 				317254622B99B15600ED3E25 /* Setting */,
 			);
@@ -139,6 +149,7 @@
 		317254602B99B00E00ED3E25 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				31B880402B9E0FC60087A7A8 /* Extensions */,
 				3172545C2B99AFC800ED3E25 /* NavigationViewController.swift */,
 				3172545E2B99B00700ED3E25 /* TabViewController.swift */,
 			);
@@ -177,6 +188,34 @@
 				3172546A2B99B19200ED3E25 /* SettingViewController.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		31B8803B2B9E0F3A0087A7A8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				31B8803C2B9E0F460087A7A8 /* Fonts */,
+				317254332B99AE2700ED3E25 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		31B8803C2B9E0F460087A7A8 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				31B8803F2B9E0F8E0087A7A8 /* omyu-pretty.ttf */,
+				31B8803E2B9E0F6C0087A7A8 /* SOYO-Maple-Bold.otf */,
+				31B8803D2B9E0F6C0087A7A8 /* SOYO-Maple-Regular.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		31B880402B9E0FC60087A7A8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				31B880412B9E0FDE0087A7A8 /* Font+Extensions.swift */,
+				31B880432B9E10770087A7A8 /* NSObject+extenstions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +322,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31B880452B9E147D0087A7A8 /* omyu-pretty.ttf in Resources */,
+				31B880462B9E147D0087A7A8 /* SOYO-Maple-Bold.otf in Resources */,
+				31B880472B9E147D0087A7A8 /* SOYO-Maple-Regular.otf in Resources */,
 				317254372B99AE2700ED3E25 /* LaunchScreen.storyboard in Resources */,
 				317254342B99AE2700ED3E25 /* Assets.xcassets in Resources */,
 				317254672B99B17E00ED3E25 /* HomeViewController.xib in Resources */,
@@ -314,6 +356,8 @@
 				317254662B99B17E00ED3E25 /* HomeViewController.swift in Sources */,
 				3172545F2B99B00700ED3E25 /* TabViewController.swift in Sources */,
 				3172545D2B99AFC800ED3E25 /* NavigationViewController.swift in Sources */,
+				31B880422B9E0FDE0087A7A8 /* Font+Extensions.swift in Sources */,
+				31B880442B9E10770087A7A8 /* NSObject+extenstions.swift in Sources */,
 				3172542B2B99AE2600ED3E25 /* AppDelegate.swift in Sources */,
 				3172542D2B99AE2600ED3E25 /* SceneDelegate.swift in Sources */,
 				3172546B2B99B19200ED3E25 /* SettingViewController.swift in Sources */,
