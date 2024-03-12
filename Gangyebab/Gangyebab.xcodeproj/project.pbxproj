@@ -30,6 +30,7 @@
 		31D496E52BA019DC001FA5FE /* UIView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D496E42BA019DC001FA5FE /* UIView+extensions.swift */; };
 		31D496E72BA01A98001FA5FE /* UIButton+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D496E62BA01A98001FA5FE /* UIButton+extension.swift */; };
 		31D496EA2BA01AF4001FA5FE /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 31D496E92BA01AF4001FA5FE /* CombineCocoa */; };
+		31D496ED2BA021E2001FA5FE /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 31D496EC2BA021E2001FA5FE /* FSCalendar */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31D496EA2BA01AF4001FA5FE /* CombineCocoa in Frameworks */,
+				31D496ED2BA021E2001FA5FE /* FSCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +252,7 @@
 			name = Gangyebab;
 			packageProductDependencies = (
 				31D496E92BA01AF4001FA5FE /* CombineCocoa */,
+				31D496EC2BA021E2001FA5FE /* FSCalendar */,
 			);
 			productName = Gangyebab;
 			productReference = 317254272B99AE2600ED3E25 /* Gangyebab.app */;
@@ -325,6 +328,7 @@
 			mainGroup = 3172541E2B99AE2600ED3E25;
 			packageReferences = (
 				31D496E82BA01AF4001FA5FE /* XCRemoteSwiftPackageReference "CombineCocoa" */,
+				31D496EB2BA021E2001FA5FE /* XCRemoteSwiftPackageReference "FSCalendar" */,
 			);
 			productRefGroup = 317254282B99AE2600ED3E25 /* Products */;
 			projectDirPath = "";
@@ -733,6 +737,14 @@
 				minimumVersion = 0.4.1;
 			};
 		};
+		31D496EB2BA021E2001FA5FE /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -740,6 +752,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 31D496E82BA01AF4001FA5FE /* XCRemoteSwiftPackageReference "CombineCocoa" */;
 			productName = CombineCocoa;
+		};
+		31D496EC2BA021E2001FA5FE /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 31D496EB2BA021E2001FA5FE /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
