@@ -62,6 +62,8 @@ extension HomeSegmentedControl {
         [dayButton, monthButton].forEach { button in
             button?.safeTap
                 .sink { [weak self] in
+                    guard let tag = button?.tag else { return }
+                    self?.currentIndex = tag
                     self?.transformCurrentIndexView(to: button?.tag ?? 0)
                 }
                 .store(in: &cancellables)
@@ -74,12 +76,13 @@ extension HomeSegmentedControl {
     
     private func transformCurrentIndexView(to index: Int) {
         let buttonWidth = frame.width / 2
-        UIView.animate(withDuration: 0.3) {
-            if index == homeType.day.rawValue {
-                self.currentIndexView.transform = CGAffineTransform(translationX: buttonWidth, y: 0)
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            if index == homeType.month.rawValue {
+                self?.currentIndexView.transform = CGAffineTransform(translationX: buttonWidth, y: 0)
             } else {
-                self.currentIndexView.transform = .identity
+                self?.currentIndexView.transform = .identity
             }
+            self?.updateTextColors()
         }
     }
     
