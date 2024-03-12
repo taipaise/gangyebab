@@ -25,8 +25,8 @@
 		31B880452B9E147D0087A7A8 /* omyu-pretty.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31B8803F2B9E0F8E0087A7A8 /* omyu-pretty.ttf */; };
 		31B880462B9E147D0087A7A8 /* SOYO-Maple-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31B8803E2B9E0F6C0087A7A8 /* SOYO-Maple-Bold.otf */; };
 		31B880472B9E147D0087A7A8 /* SOYO-Maple-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31B8803D2B9E0F6C0087A7A8 /* SOYO-Maple-Regular.otf */; };
-		31D496E12BA017D5001FA5FE /* gangyeSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D496E02BA017D5001FA5FE /* gangyeSegmentedControl.swift */; };
-		31D496E32BA01871001FA5FE /* gangyeSegmentedControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31D496E22BA01871001FA5FE /* gangyeSegmentedControl.xib */; };
+		31D496E12BA017D5001FA5FE /* HomeSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D496E02BA017D5001FA5FE /* HomeSegmentedControl.swift */; };
+		31D496E32BA01871001FA5FE /* HomeSegmentedControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31D496E22BA01871001FA5FE /* HomeSegmentedControl.xib */; };
 		31D496E52BA019DC001FA5FE /* UIView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D496E42BA019DC001FA5FE /* UIView+extensions.swift */; };
 		31D496E72BA01A98001FA5FE /* UIButton+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D496E62BA01A98001FA5FE /* UIButton+extension.swift */; };
 		31D496EA2BA01AF4001FA5FE /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 31D496E92BA01AF4001FA5FE /* CombineCocoa */; };
@@ -72,8 +72,8 @@
 		31B8803F2B9E0F8E0087A7A8 /* omyu-pretty.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "omyu-pretty.ttf"; sourceTree = "<group>"; };
 		31B880412B9E0FDE0087A7A8 /* Font+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extensions.swift"; sourceTree = "<group>"; };
 		31B880432B9E10770087A7A8 /* NSObject+extenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+extenstions.swift"; sourceTree = "<group>"; };
-		31D496E02BA017D5001FA5FE /* gangyeSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gangyeSegmentedControl.swift; sourceTree = "<group>"; };
-		31D496E22BA01871001FA5FE /* gangyeSegmentedControl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = gangyeSegmentedControl.xib; sourceTree = "<group>"; };
+		31D496E02BA017D5001FA5FE /* HomeSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSegmentedControl.swift; sourceTree = "<group>"; };
+		31D496E22BA01871001FA5FE /* HomeSegmentedControl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeSegmentedControl.xib; sourceTree = "<group>"; };
 		31D496E42BA019DC001FA5FE /* UIView+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extensions.swift"; sourceTree = "<group>"; };
 		31D496E62BA01A98001FA5FE /* UIButton+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -187,8 +187,8 @@
 			children = (
 				317254642B99B17E00ED3E25 /* HomeViewController.swift */,
 				317254652B99B17E00ED3E25 /* HomeViewController.xib */,
-				31D496E02BA017D5001FA5FE /* gangyeSegmentedControl.swift */,
-				31D496E22BA01871001FA5FE /* gangyeSegmentedControl.xib */,
+				31D496E02BA017D5001FA5FE /* HomeSegmentedControl.swift */,
+				31D496E22BA01871001FA5FE /* HomeSegmentedControl.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -345,7 +345,7 @@
 				31B880452B9E147D0087A7A8 /* omyu-pretty.ttf in Resources */,
 				31B880462B9E147D0087A7A8 /* SOYO-Maple-Bold.otf in Resources */,
 				31B880472B9E147D0087A7A8 /* SOYO-Maple-Regular.otf in Resources */,
-				31D496E32BA01871001FA5FE /* gangyeSegmentedControl.xib in Resources */,
+				31D496E32BA01871001FA5FE /* HomeSegmentedControl.xib in Resources */,
 				317254372B99AE2700ED3E25 /* LaunchScreen.storyboard in Resources */,
 				317254342B99AE2700ED3E25 /* Assets.xcassets in Resources */,
 				317254672B99B17E00ED3E25 /* HomeViewController.xib in Resources */,
@@ -375,7 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				317254662B99B17E00ED3E25 /* HomeViewController.swift in Sources */,
-				31D496E12BA017D5001FA5FE /* gangyeSegmentedControl.swift in Sources */,
+				31D496E12BA017D5001FA5FE /* HomeSegmentedControl.swift in Sources */,
 				31D496E72BA01A98001FA5FE /* UIButton+extension.swift in Sources */,
 				3172545F2B99B00700ED3E25 /* TabViewController.swift in Sources */,
 				3172545D2B99AFC800ED3E25 /* NavigationViewController.swift in Sources */,

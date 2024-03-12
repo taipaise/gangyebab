@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeSegmentedControl" customModule="Gangyebab" customModuleProvider="target">
+            <connections>
+                <outlet property="currentIndexView" destination="rnM-aH-L9M" id="MEd-aL-AFC"/>
+                <outlet property="dayButton" destination="F62-HY-urR" id="aM9-Yc-rI6"/>
+                <outlet property="monthButton" destination="upI-7m-PtM" id="b5X-H2-oN3"/>
+                <outlet property="stackView" destination="dR9-zE-M1m" id="vlW-PP-C5A"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="146" height="36"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rnM-aH-L9M">
+                    <rect key="frame" x="0.0" y="0.0" width="73" height="36"/>
+                    <color key="backgroundColor" name="point1"/>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dR9-zE-M1m">
+                    <rect key="frame" x="0.0" y="0.0" width="146" height="36"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F62-HY-urR">
+                            <rect key="frame" x="0.0" y="0.0" width="73" height="36"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="일간">
+                                <fontDescription key="titleFontDescription" name="Galada-Regular" family="Galada" pointSize="16"/>
+                            </buttonConfiguration>
+                        </button>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upI-7m-PtM">
+                            <rect key="frame" x="73" y="0.0" width="73" height="36"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" name="stringColor1"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="월간">
+                                <fontDescription key="titleFontDescription" name="Galada-Regular" family="Galada" pointSize="16"/>
+                            </buttonConfiguration>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="3MG-xS-AKq"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" name="background2"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="dR9-zE-M1m" secondAttribute="trailing" id="08a-R1-iqe"/>
+                <constraint firstAttribute="bottom" secondItem="dR9-zE-M1m" secondAttribute="bottom" id="56G-vw-AV5"/>
+                <constraint firstItem="dR9-zE-M1m" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="5Qs-Vd-1h9"/>
+                <constraint firstItem="dR9-zE-M1m" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="FJl-d9-87m"/>
+                <constraint firstItem="rnM-aH-L9M" firstAttribute="width" secondItem="dR9-zE-M1m" secondAttribute="width" multiplier="0.5" id="GrA-yy-3OD"/>
+                <constraint firstItem="rnM-aH-L9M" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="HV6-rI-KCs"/>
+                <constraint firstAttribute="bottom" secondItem="rnM-aH-L9M" secondAttribute="bottom" id="PXd-kT-3aJ"/>
+                <constraint firstItem="rnM-aH-L9M" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="RZm-DB-YcO"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="6" y="21"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="background2">
+            <color red="0.93725490196078431" green="0.8901960784313725" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="point1">
+            <color red="0.43137254901960786" green="0.27058823529411763" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="stringColor1">
+            <color red="0.34509803921568627" green="0.18823529411764706" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
