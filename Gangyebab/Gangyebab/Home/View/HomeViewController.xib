@@ -130,7 +130,7 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="plus.circle.fill" catalog="system" title=""/>
                 </button>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp_icon" translatesAutoresizingMaskIntoConstraints="NO" id="G8q-X5-rX4">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gangyebab" translatesAutoresizingMaskIntoConstraints="NO" id="G8q-X5-rX4">
                     <rect key="frame" x="283" y="708" width="80" height="80"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="80" id="0il-xy-0Gw"/>
@@ -164,8 +164,8 @@
     <resources>
         <image name="chevron.left" catalog="system" width="97" height="128"/>
         <image name="chevron.right" catalog="system" width="97" height="128"/>
+        <image name="gangyebab" width="650" height="650"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="temp_icon" width="125" height="125"/>
         <namedColor name="background1">
             <color red="0.99607843137254903" green="0.97254901960784312" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
