@@ -64,6 +64,7 @@ extension SceneDelegate {
             bundle: HomeViewController.bundle
         )
         vc.viewControllers = [mainVC]
+        vc.navigationBar.isHidden = true
         
         return vc
     }
