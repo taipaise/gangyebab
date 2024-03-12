@@ -77,7 +77,7 @@ extension HomeSegmentedControl {
     private func transformCurrentIndexView(to index: Int) {
         let buttonWidth = frame.width / 2
         UIView.animate(withDuration: 0.3) { [weak self] in
-            if index == homeType.month.rawValue {
+            if index == HomeType.month.rawValue {
                 self?.currentIndexView.transform = CGAffineTransform(translationX: buttonWidth, y: 0)
             } else {
                 self?.currentIndexView.transform = .identity
@@ -98,7 +98,7 @@ extension HomeSegmentedControl {
     }
 }
 
-enum homeType: Int {
+enum HomeType: Int {
     case day
     case month
 }

@@ -11,6 +11,8 @@
 		315A9FA42BA03BA000C1CF63 /* TodoHeaderSupplementaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 315A9FA32BA03BA000C1CF63 /* TodoHeaderSupplementaryView.xib */; };
 		315A9FA52BA03BA000C1CF63 /* TodoHeaderSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A9FA22BA03BA000C1CF63 /* TodoHeaderSupplementaryView.swift */; };
 		315A9FA72BA03D0F00C1CF63 /* TodoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A9FA62BA03D0F00C1CF63 /* TodoSection.swift */; };
+		315A9FA92BA03EB900C1CF63 /* HomeSegmentedControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 315A9FA82BA03EB900C1CF63 /* HomeSegmentedControl.xib */; };
+		315A9FAB2BA0413700C1CF63 /* UICollectionView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A9FAA2BA0413700C1CF63 /* UICollectionView+extension.swift */; };
 		3172542B2B99AE2600ED3E25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3172542A2B99AE2600ED3E25 /* AppDelegate.swift */; };
 		3172542D2B99AE2600ED3E25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3172542C2B99AE2600ED3E25 /* SceneDelegate.swift */; };
 		317254342B99AE2700ED3E25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 317254332B99AE2700ED3E25 /* Assets.xcassets */; };
@@ -27,7 +29,6 @@
 		31B880422B9E0FDE0087A7A8 /* Font+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B880412B9E0FDE0087A7A8 /* Font+Extensions.swift */; };
 		31B880442B9E10770087A7A8 /* NSObject+extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B880432B9E10770087A7A8 /* NSObject+extenstions.swift */; };
 		31D496E12BA017D5001FA5FE /* HomeSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D496E02BA017D5001FA5FE /* HomeSegmentedControl.swift */; };
-		31D496E32BA01871001FA5FE /* HomeSegmentedControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31D496E22BA01871001FA5FE /* HomeSegmentedControl.xib */; };
 		31D496E52BA019DC001FA5FE /* UIView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D496E42BA019DC001FA5FE /* UIView+extensions.swift */; };
 		31D496E72BA01A98001FA5FE /* UIButton+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D496E62BA01A98001FA5FE /* UIButton+extension.swift */; };
 		31D496EA2BA01AF4001FA5FE /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 31D496E92BA01AF4001FA5FE /* CombineCocoa */; };
@@ -62,6 +63,8 @@
 		315A9FA22BA03BA000C1CF63 /* TodoHeaderSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoHeaderSupplementaryView.swift; sourceTree = "<group>"; };
 		315A9FA32BA03BA000C1CF63 /* TodoHeaderSupplementaryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoHeaderSupplementaryView.xib; sourceTree = "<group>"; };
 		315A9FA62BA03D0F00C1CF63 /* TodoSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoSection.swift; sourceTree = "<group>"; };
+		315A9FA82BA03EB900C1CF63 /* HomeSegmentedControl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeSegmentedControl.xib; sourceTree = "<group>"; };
+		315A9FAA2BA0413700C1CF63 /* UICollectionView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+extension.swift"; sourceTree = "<group>"; };
 		317254272B99AE2600ED3E25 /* Gangyebab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gangyebab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3172542A2B99AE2600ED3E25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3172542C2B99AE2600ED3E25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,7 +88,6 @@
 		31B880412B9E0FDE0087A7A8 /* Font+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extensions.swift"; sourceTree = "<group>"; };
 		31B880432B9E10770087A7A8 /* NSObject+extenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+extenstions.swift"; sourceTree = "<group>"; };
 		31D496E02BA017D5001FA5FE /* HomeSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSegmentedControl.swift; sourceTree = "<group>"; };
-		31D496E22BA01871001FA5FE /* HomeSegmentedControl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeSegmentedControl.xib; sourceTree = "<group>"; };
 		31D496E42BA019DC001FA5FE /* UIView+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extensions.swift"; sourceTree = "<group>"; };
 		31D496E62BA01A98001FA5FE /* UIButton+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+extension.swift"; sourceTree = "<group>"; };
 		31D496EE2BA02BB4001FA5FE /* TodoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -205,7 +207,7 @@
 				317254642B99B17E00ED3E25 /* HomeViewController.swift */,
 				317254652B99B17E00ED3E25 /* HomeViewController.xib */,
 				31D496E02BA017D5001FA5FE /* HomeSegmentedControl.swift */,
-				31D496E22BA01871001FA5FE /* HomeSegmentedControl.xib */,
+				315A9FA82BA03EB900C1CF63 /* HomeSegmentedControl.xib */,
 				315A9FA22BA03BA000C1CF63 /* TodoHeaderSupplementaryView.swift */,
 				315A9FA32BA03BA000C1CF63 /* TodoHeaderSupplementaryView.xib */,
 				31D496F22BA02BB8001FA5FE /* Cell */,
@@ -248,6 +250,7 @@
 				315A9FA02BA036E900C1CF63 /* String+extension.swift */,
 				31D496E62BA01A98001FA5FE /* UIButton+extension.swift */,
 				31B880432B9E10770087A7A8 /* NSObject+extenstions.swift */,
+				315A9FAA2BA0413700C1CF63 /* UICollectionView+extension.swift */,
 				31D496E42BA019DC001FA5FE /* UIView+extensions.swift */,
 			);
 			path = Extensions;
@@ -386,13 +389,13 @@
 				31D496FA2BA02EAB001FA5FE /* omyu_pretty.ttf in Resources */,
 				31D496FB2BA02EAB001FA5FE /* SOYO-Maple-Bold.otf in Resources */,
 				31D496FC2BA02EAB001FA5FE /* SOYO-Maple-Regular.otf in Resources */,
-				31D496E32BA01871001FA5FE /* HomeSegmentedControl.xib in Resources */,
 				317254372B99AE2700ED3E25 /* LaunchScreen.storyboard in Resources */,
 				315A9FA42BA03BA000C1CF63 /* TodoHeaderSupplementaryView.xib in Resources */,
 				317254342B99AE2700ED3E25 /* Assets.xcassets in Resources */,
 				317254672B99B17E00ED3E25 /* HomeViewController.xib in Resources */,
 				3172546C2B99B19200ED3E25 /* SettingViewController.xib in Resources */,
 				31D496F02BA02BB4001FA5FE /* TodoCollectionViewCell.xib in Resources */,
+				315A9FA92BA03EB900C1CF63 /* HomeSegmentedControl.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +429,7 @@
 				31B880422B9E0FDE0087A7A8 /* Font+Extensions.swift in Sources */,
 				315A9FA72BA03D0F00C1CF63 /* TodoSection.swift in Sources */,
 				31B880442B9E10770087A7A8 /* NSObject+extenstions.swift in Sources */,
+				315A9FAB2BA0413700C1CF63 /* UICollectionView+extension.swift in Sources */,
 				31D496E52BA019DC001FA5FE /* UIView+extensions.swift in Sources */,
 				3172542B2B99AE2600ED3E25 /* AppDelegate.swift in Sources */,
 				3172542D2B99AE2600ED3E25 /* SceneDelegate.swift in Sources */,

@@ -98,7 +98,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="6FD-4l-bYF" userLabel="Todo Collection View">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="379"/>
+                                    <rect key="frame" x="20" y="0.0" width="353" height="379"/>
                                     <color key="backgroundColor" name="background1"/>
                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hph-GI-ywU">
                                         <size key="itemSize" width="128" height="128"/>
@@ -112,16 +112,16 @@
                             <constraints>
                                 <constraint firstItem="oSE-U1-6dh" firstAttribute="centerY" secondItem="1EA-bA-yIO" secondAttribute="centerY" id="JAB-g7-4QE"/>
                                 <constraint firstItem="6FD-4l-bYF" firstAttribute="top" secondItem="1EA-bA-yIO" secondAttribute="top" id="TyG-Ai-5eT"/>
-                                <constraint firstAttribute="trailing" secondItem="6FD-4l-bYF" secondAttribute="trailing" id="Ums-nd-Hd0"/>
+                                <constraint firstAttribute="trailing" secondItem="6FD-4l-bYF" secondAttribute="trailing" constant="20" id="Ums-nd-Hd0"/>
                                 <constraint firstAttribute="bottom" secondItem="6FD-4l-bYF" secondAttribute="bottom" id="u6T-JZ-J5P"/>
-                                <constraint firstItem="6FD-4l-bYF" firstAttribute="leading" secondItem="1EA-bA-yIO" secondAttribute="leading" id="x8W-dR-ul9"/>
+                                <constraint firstItem="6FD-4l-bYF" firstAttribute="leading" secondItem="1EA-bA-yIO" secondAttribute="leading" constant="20" id="x8W-dR-ul9"/>
                                 <constraint firstItem="oSE-U1-6dh" firstAttribute="centerX" secondItem="1EA-bA-yIO" secondAttribute="centerX" id="yNN-10-ZcH"/>
                             </constraints>
                         </view>
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d4H-zp-SIe">
-                    <rect key="frame" x="348" y="705" width="20" height="20"/>
+                    <rect key="frame" x="348" y="709" width="20" height="20"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="20" id="bnR-g5-SsQ"/>
                         <constraint firstAttribute="height" constant="20" id="isv-1Z-EO9"/>
@@ -142,7 +142,7 @@
             <color key="backgroundColor" name="background1"/>
             <constraints>
                 <constraint firstItem="5T3-QJ-ZX4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="FPL-PR-uMV"/>
-                <constraint firstItem="d4H-zp-SIe" firstAttribute="top" secondItem="G8q-X5-rX4" secondAttribute="top" constant="-3" id="Idt-7k-6KS"/>
+                <constraint firstItem="d4H-zp-SIe" firstAttribute="top" secondItem="G8q-X5-rX4" secondAttribute="top" constant="1" id="Idt-7k-6KS"/>
                 <constraint firstItem="oFr-Q2-4sJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="9" id="JIV-1X-BGM"/>
                 <constraint firstItem="ZVz-wb-exh" firstAttribute="leading" secondItem="lJl-Pt-QsZ" secondAttribute="trailing" constant="10" id="LYh-yX-wKI"/>
                 <constraint firstItem="lJl-Pt-QsZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="OIM-d3-EfQ"/>

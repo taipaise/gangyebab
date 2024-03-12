@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct TodoCellModel {
+struct TodoCellModel: Hashable {
     let content: String
     let importance: Importance
     var isCompleted: Bool = false
