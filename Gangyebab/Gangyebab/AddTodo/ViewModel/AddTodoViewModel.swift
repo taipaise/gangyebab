@@ -17,12 +17,12 @@ final class AddTodoViewModel: ViewModel {
 
     private(set) var importance = CurrentValueSubject<Importance, Never>(.none)
     private(set) var repeatType = CurrentValueSubject<RepeatType, Never>(.none)
-    private var title = ""
+    private(set) var title = CurrentValueSubject<String, Never>("")
     private var todoCellModel: TodoCellModel?
     
     func configure(_ todo: TodoCellModel) {
         todoCellModel = todo
-        title = todo.title
+        title.send(todo.title)
         importance.send(todo.importance)
         repeatType.send(todo.repeatType)
     }
@@ -34,8 +34,7 @@ final class AddTodoViewModel: ViewModel {
         case .updateRepeatType(let type):
             changeRepeatType(type)
         case .updateTitle(let title):
-            print("update title to \(title)")
-            self.title = title
+            changeTitle(title)
         }
     }
 }
@@ -44,17 +43,15 @@ final class AddTodoViewModel: ViewModel {
 extension AddTodoViewModel {
     func getTodo() -> TodoCellModel {
         if let todo = todoCellModel {
-            print(title)
             return TodoCellModel(
                 uuid: todo.uuid,
-                title: title,
+                title: title.value,
                 importance: importance.value,
                 repeatType: repeatType.value
             )
         } else {
-            print(title)
             return TodoCellModel(
-                title: title,
+                title: title.value,
                 importance: importance.value,
                 repeatType: repeatType.value
             )
@@ -76,5 +73,9 @@ extension AddTodoViewModel {
     
     private func changeRepeatType(_ type: RepeatType) {
         repeatType.send(type)
+    }
+    
+    private func changeTitle(_ title: String) {
+        self.title.send(title)
     }
 }

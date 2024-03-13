@@ -40,7 +40,6 @@ final class AddTodoViewController: UIViewController {
     }
     
     func configure(_ todo: TodoCellModel) {
-        todoTextField.text = todo.title
         viewModel.configure(todo)
     }
 }
@@ -106,6 +105,7 @@ extension AddTodoViewController {
         completeButton.safeTap
             .sink { [weak self] _ in
                 guard let self = self else { return }
+                
                 self.delegate?.transferTodo(self.viewModel.getTodo())
                 self.dismiss(animated: false)
             }
@@ -113,7 +113,13 @@ extension AddTodoViewController {
     }
     
     private func bindViewModel() {
-
+        viewModel.title
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] title in
+                self?.todoTextField.text = title
+            }
+            .store(in: &cancellables)
+        
         viewModel.importance
             .receive(on: DispatchQueue.main)
             .sink { [weak self] importance in

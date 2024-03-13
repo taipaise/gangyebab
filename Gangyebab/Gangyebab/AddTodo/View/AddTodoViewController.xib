@@ -31,10 +31,10 @@
                 <outlet property="repeatLabel" destination="DpJ-DQ-sN0" id="Hsq-X7-0mh"/>
                 <outlet property="todoTextField" destination="xu6-aG-JjZ" id="DP5-Ru-0DA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outletCollection property="importanceLabels" destination="NZr-Qu-szJ" collectionClass="NSMutableArray" id="dYo-kn-X0B"/>
-                <outletCollection property="importanceLabels" destination="xoi-ok-2BD" collectionClass="NSMutableArray" id="h7b-qu-9pQ"/>
-                <outletCollection property="importanceLabels" destination="EP2-84-r7T" collectionClass="NSMutableArray" id="iAR-cW-CEM"/>
-                <outletCollection property="importanceLabels" destination="thg-pZ-rOv" collectionClass="NSMutableArray" id="EI3-Bo-fXp"/>
+                <outletCollection property="importanceLabels" destination="NZr-Qu-szJ" collectionClass="NSMutableArray" id="YsW-kX-pXr"/>
+                <outletCollection property="importanceLabels" destination="xoi-ok-2BD" collectionClass="NSMutableArray" id="1v5-NG-ldx"/>
+                <outletCollection property="importanceLabels" destination="EP2-84-r7T" collectionClass="NSMutableArray" id="EJn-eo-epx"/>
+                <outletCollection property="importanceLabels" destination="thg-pZ-rOv" collectionClass="NSMutableArray" id="3hK-qH-5OU"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

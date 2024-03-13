@@ -64,21 +64,12 @@ extension HomeViewController {
             }
             .store(in: &cancellables)
         
-        viewModel.inprogressCellModels
+        viewModel.cellModels
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 guard case .failure(_) = completion else { return }
-            } receiveValue: { [weak self] inProgress in
-                self?.updateItems(section: .inProgress, items: inProgress)
-            }
-            .store(in: &cancellables)
-        
-        viewModel.completedCellModels
-            .receive(on: DispatchQueue.main)
-            .sink { completion in
-                guard case .failure(_) = completion else { return }
-            } receiveValue: { [weak self] completed in
-                self?.updateItems(section: .completed, items: completed)
+            } receiveValue: { [weak self] cellModels in
+                self?.applyItems(cellModels: cellModels)
             }
             .store(in: &cancellables)
     }
@@ -113,6 +104,7 @@ extension HomeViewController {
 extension HomeViewController {
     
     private func configureCollectionView()  {
+        todoCollectionView.delegate = self
         todoCollectionView.collectionViewLayout = createCollectionViewLayout()
         todoCollectionView.register(cells: [TodoCell.self])
         todoCollectionView.register(
@@ -163,10 +155,11 @@ extension HomeViewController {
         todoCollectionView.addGestureRecognizer(doubleTapGestureRecognizer)
     }
     
-    private func updateItems(section: TodoSection, items: [TodoCellModel]) {
-        guard var snapshot = dataSource?.snapshot() else { return }
-        snapshot.deleteItems(snapshot.itemIdentifiers(inSection: section))
-        snapshot.appendItems(items, toSection: section)
+    private func applyItems(cellModels: TodoCellModels) {
+        var snapshot = Snapshot()
+        snapshot.appendSections([.inProgress, .completed])
+        snapshot.appendItems(cellModels.inProgress, toSection: .inProgress)
+        snapshot.appendItems(cellModels.completed, toSection: .completed)
         dataSource?.apply(snapshot)
     }
     
@@ -235,7 +228,21 @@ extension HomeViewController {
 }
 
 extension HomeViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let section = indexPath.section
+        let row = indexPath.row
+        
+        guard section == TodoSection.inProgress.rawValue else { return }
+        
+        let cellModels = viewModel.inprogressCellModels
+        let cellModel = cellModels[row]
+
+        let nextVC = AddTodoViewController()
+        nextVC.delegate = self
+        nextVC.configure(cellModel)
+        nextVC.modalPresentationStyle = .overFullScreen
+        present(nextVC, animated: false)
+    }
 }
 
 // MARK: - segemted control delegate
