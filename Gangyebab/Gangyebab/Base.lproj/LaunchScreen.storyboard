@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,15 +13,55 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gangyebab" translatesAutoresizingMaskIntoConstraints="NO" id="mQK-NR-9C9">
+                                <rect key="frame" x="106.66666666666669" y="336" width="180" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="555-Cc-6Jd"/>
+                                    <constraint firstAttribute="height" constant="180" id="Kbh-UB-xdr"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gan gye bab" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHN-hL-x9q">
+                                <rect key="frame" x="153.33333333333334" y="536" width="86.666666666666657" height="18"/>
+                                <color key="backgroundColor" name="background1"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" name="stringColor1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="바쁜 일상을 간단하고 계획적으로!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8h-OM-Nft">
+                                <rect key="frame" x="97.333333333333329" y="308" width="198.33333333333337" height="18"/>
+                                <color key="backgroundColor" name="background1"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" name="stringColor1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" name="background1"/>
+                        <constraints>
+                            <constraint firstItem="mQK-NR-9C9" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="5ae-E1-52J"/>
+                            <constraint firstItem="DHN-hL-x9q" firstAttribute="top" secondItem="mQK-NR-9C9" secondAttribute="bottom" constant="20" id="5iT-Fm-mJy"/>
+                            <constraint firstItem="DHN-hL-x9q" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="76p-ER-KeS"/>
+                            <constraint firstItem="mQK-NR-9C9" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Mey-pA-rQv"/>
+                            <constraint firstItem="mQK-NR-9C9" firstAttribute="top" secondItem="P8h-OM-Nft" secondAttribute="bottom" constant="10" id="pfp-ac-pJQ"/>
+                            <constraint firstItem="P8h-OM-Nft" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="zWA-7U-kuU"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="gangyebab" width="650" height="650"/>
+        <namedColor name="background1">
+            <color red="0.99607843137254903" green="0.97254901960784312" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="stringColor1">
+            <color red="0.34509803921568627" green="0.18823529411764706" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
