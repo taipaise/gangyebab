@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TodoSection {
+enum TodoSection: Int {
     case inProgress
     case completed
 }

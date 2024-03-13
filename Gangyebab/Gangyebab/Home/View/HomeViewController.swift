@@ -7,8 +7,10 @@
 
 import UIKit
 import FSCalendar
+import Combine
 
 final class HomeViewController: UIViewController {
+    typealias TodoHeaderView = TodoHeaderSupplementaryView
     typealias TodoCell = TodoCollectionViewCell
     typealias DataSource = UICollectionViewDiffableDataSource<TodoSection, TodoCellModel>
     typealias Snapshot = NSDiffableDataSourceSnapshot<TodoSection, TodoCellModel>
@@ -19,10 +21,15 @@ final class HomeViewController: UIViewController {
     @IBOutlet private weak var calendar: FSCalendar!
     @IBOutlet private weak var todoCollectionView: UICollectionView!
     private var dataSource: DataSource?
+    private var viewModel = HomeViewModel()
+    private var cancellables: Set<AnyCancellable> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+        configureCollectionView()
+        bindViewModel()
+        bindView()
     }
 }
 
@@ -38,12 +45,68 @@ extension HomeViewController {
     }
 }
 
+// MARK: - biding
+extension HomeViewController {
+    func bindViewModel() {
+        viewModel.homeType
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] type in
+                self?.homeSegmentedControl.configure(type)
+                switch type {
+                case .day:
+                    self?.calendar.isHidden = true
+                case .month:
+                    self?.calendar.isHidden = false
+                }
+            }
+            .store(in: &cancellables)
+        
+        viewModel.inprogressCellModels
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                guard case .failure(_) = completion else { return }
+            } receiveValue: { [weak self] inProgress in
+                self?.updateItems(section: .inProgress, items: inProgress)
+            }
+            .store(in: &cancellables)
+        
+        viewModel.completedCellModels
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                guard case .failure(_) = completion else { return }
+            } receiveValue: { [weak self] completed in
+                self?.updateItems(section: .completed, items: completed)
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func bindView() {
+        previousButton.safeTap
+            .sink { [weak self] _ in
+                self?.viewModel.action(.previousButton)
+            }
+            .store(in: &cancellables)
+        
+        nextButton.safeTap
+            .sink { [weak self] _ in
+                self?.viewModel.action(.nextButton)
+            }
+            .store(in: &cancellables)
+    }
+}
+
 // MARK: - CollectionView 설정
 extension HomeViewController {
     
     private func configureCollectionView()  {
         todoCollectionView.collectionViewLayout = createCollectionViewLayout()
         todoCollectionView.register(cells: [TodoCell.self])
+        todoCollectionView.register(
+            UINib.init(nibName: TodoHeaderView.className, bundle: nil),
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: TodoHeaderView.className
+        )
+        
         dataSource = .init(collectionView: todoCollectionView) {
             collectionView, indexPath, cellModel in
             let cell = collectionView.dequeueReusableCell(
@@ -54,9 +117,43 @@ extension HomeViewController {
             if let cell = cell as? TodoCell {
                 cell.configure(cellModel)
             }
-            
+    
             return cell
         }
+        
+        var snapshot = Snapshot()
+        snapshot.appendSections([.inProgress, .completed])
+        snapshot.appendItems([])
+        
+        dataSource?.supplementaryViewProvider = { [weak self] view, kind, indexPath in
+            let header = self?.todoCollectionView.dequeueReusableSupplementaryView(
+                ofKind: UICollectionView.elementKindSectionHeader,
+                withReuseIdentifier: TodoHeaderView.className,
+                for: indexPath
+            ) as? TodoHeaderView
+            
+            if indexPath.section == TodoSection.inProgress.rawValue {
+                header?.configure(.inProgress)
+            } else {
+                header?.configure(.completed)
+            }
+        
+            return header
+        }
+        
+        dataSource?.apply(snapshot, animatingDifferences: true)
+        
+        let doubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(doubleTapTodo))
+        doubleTapGestureRecognizer.numberOfTapsRequired = 2
+        doubleTapGestureRecognizer.delaysTouchesBegan = true
+        todoCollectionView.addGestureRecognizer(doubleTapGestureRecognizer)
+    }
+    
+    private func updateItems(section: TodoSection, items: [TodoCellModel]) {
+        guard var snapshot = dataSource?.snapshot() else { return }
+        snapshot.deleteItems(snapshot.itemIdentifiers(inSection: section))
+        snapshot.appendItems(items, toSection: section)
+        dataSource?.apply(snapshot)
     }
     
     private func createCollectionViewLayout() -> UICollectionViewLayout {
@@ -70,7 +167,7 @@ extension HomeViewController {
 
             let groupSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .fractionalWidth(1.0)
+                heightDimension: .absolute(30)
             )
 
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 1)
@@ -83,7 +180,7 @@ extension HomeViewController {
             
             group.edgeSpacing = NSCollectionLayoutEdgeSpacing(
                 leading: .fixed(0),
-                top: .fixed(30),
+                top: .fixed(7),
                 trailing: .fixed(0),
                 bottom: .fixed(0)
             )
@@ -91,16 +188,36 @@ extension HomeViewController {
             let section = NSCollectionLayoutSection(group: group)
             section.contentInsets =
             NSDirectionalEdgeInsets(
-                top: 0,
+                top: 5,
                 leading: 0,
-                bottom: 0,
+                bottom: 30,
                 trailing: 0
             )
+            
+            let headerSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .estimated(30)
+            )
+            
+            let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: headerSize,
+                elementKind: UICollectionView.elementKindSectionHeader,
+                alignment: .top
+            )
+            section.boundarySupplementaryItems = [sectionHeader]
+            
             return section
         }
         return layout
     }
+    
+    @objc private func doubleTapTodo(_ gestureRecognizer: UIGestureRecognizer) {
 
+        let location = gestureRecognizer.location(in: todoCollectionView)
+        
+        guard let indexPath = todoCollectionView.indexPathForItem(at: location) else { return }
+        viewModel.action(.toggleComplete(indexPath))
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegate {
@@ -110,6 +227,6 @@ extension HomeViewController: UICollectionViewDelegate {
 // MARK: - segemted control delegate
 extension HomeViewController: HomeSegmentedControlDelegate {
     func segmentChanged() {
-        // TODO: - 달력 처리 로직
+        viewModel.action(.toggleHomeType)
     }
 }

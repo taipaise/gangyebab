@@ -25,7 +25,7 @@ public extension UIFont {
         guard let fontURL = bundle.path(forResource: fontName, ofType: nil) else {
             fatalError("Couldn't find font \(fontName)")
         }
-        print(fontURL)
+        
         guard let fontData = NSData(contentsOfFile: fontURL) else {
             fatalError("Couldn't load data from the font \(fontName)")
         }
@@ -37,7 +37,7 @@ public extension UIFont {
         guard let font = CGFont(fontDataProvider) else {
             fatalError("Couldn't create font from data")
         }
-        print(font)
+        
         var error: Unmanaged<CFError>?
         let _ = CTFontManagerRegisterGraphicsFont(font, &error)
     }

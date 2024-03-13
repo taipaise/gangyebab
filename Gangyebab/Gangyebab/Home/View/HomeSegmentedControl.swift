@@ -19,7 +19,6 @@ final class HomeSegmentedControl: UIView {
     @IBOutlet private weak var monthButton: UIButton!
     @IBOutlet private weak var currentIndexView: UIView!
     
-    private var currentIndex: Int = 0
     weak var delegate: HomeSegmentedControlDelegate?
     private var cancellables: Set<AnyCancellable> = []
     
@@ -54,46 +53,46 @@ final class HomeSegmentedControl: UIView {
         layer.masksToBounds = true
     }
     
+    func configure(_ homeType: HomeType) {
+        transformCurrentIndexView(type: homeType)
+    }
 }
 
 // MARK: - Binding
 extension HomeSegmentedControl {
-    func bindView() {
+    private func bindView() {
         [dayButton, monthButton].forEach { button in
             button?.safeTap
                 .sink { [weak self] in
-                    guard let tag = button?.tag else { return }
-                    self?.currentIndex = tag
-                    self?.transformCurrentIndexView(to: button?.tag ?? 0)
+                    self?.delegate?.segmentChanged()
                 }
                 .store(in: &cancellables)
         }
     }
 }
 
-// MARK: - segment 버튼 선택시 동작
+
 extension HomeSegmentedControl {
     
-    private func transformCurrentIndexView(to index: Int) {
+    private func transformCurrentIndexView(type: HomeType) {
         let buttonWidth = frame.width / 2
         UIView.animate(withDuration: 0.3) { [weak self] in
-            if index == HomeType.month.rawValue {
+            if type == HomeType.month {
                 self?.currentIndexView.transform = CGAffineTransform(translationX: buttonWidth, y: 0)
             } else {
                 self?.currentIndexView.transform = .identity
             }
-            self?.updateTextColors()
-        }
-    }
-    
-    private func updateTextColors() {
-        stackView.subviews.enumerated().forEach { index, view in
-            let button: UIButton? = view as? UIButton
-            if index == currentIndex {
-                button?.tintColor = .gangyeWhite
-            } else {
-                button?.tintColor = .stringColor1
-            }
+            
+            self?.stackView.subviews
+                .enumerated()
+                .forEach { index, view in
+                    let button: UIButton? = view as? UIButton
+                    if index == type.rawValue {
+                        button?.tintColor = .gangyeWhite
+                    } else {
+                        button?.tintColor = .stringColor1
+                    }
+                }
         }
     }
 }

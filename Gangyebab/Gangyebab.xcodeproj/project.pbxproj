@@ -13,6 +13,8 @@
 		315A9FA72BA03D0F00C1CF63 /* TodoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A9FA62BA03D0F00C1CF63 /* TodoSection.swift */; };
 		315A9FA92BA03EB900C1CF63 /* HomeSegmentedControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 315A9FA82BA03EB900C1CF63 /* HomeSegmentedControl.xib */; };
 		315A9FAB2BA0413700C1CF63 /* UICollectionView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A9FAA2BA0413700C1CF63 /* UICollectionView+extension.swift */; };
+		315A9FAE2BA0441F00C1CF63 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A9FAD2BA0441F00C1CF63 /* HomeViewModel.swift */; };
+		315A9FB02BA044BD00C1CF63 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A9FAF2BA044BD00C1CF63 /* ViewModel.swift */; };
 		3172542B2B99AE2600ED3E25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3172542A2B99AE2600ED3E25 /* AppDelegate.swift */; };
 		3172542D2B99AE2600ED3E25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3172542C2B99AE2600ED3E25 /* SceneDelegate.swift */; };
 		317254342B99AE2700ED3E25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 317254332B99AE2700ED3E25 /* Assets.xcassets */; };
@@ -65,6 +67,8 @@
 		315A9FA62BA03D0F00C1CF63 /* TodoSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoSection.swift; sourceTree = "<group>"; };
 		315A9FA82BA03EB900C1CF63 /* HomeSegmentedControl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeSegmentedControl.xib; sourceTree = "<group>"; };
 		315A9FAA2BA0413700C1CF63 /* UICollectionView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+extension.swift"; sourceTree = "<group>"; };
+		315A9FAD2BA0441F00C1CF63 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		315A9FAF2BA044BD00C1CF63 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		317254272B99AE2600ED3E25 /* Gangyebab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gangyebab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3172542A2B99AE2600ED3E25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3172542C2B99AE2600ED3E25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +126,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		315A9FAC2BA0441400C1CF63 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				315A9FAD2BA0441F00C1CF63 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		3172541E2B99AE2600ED3E25 = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +193,7 @@
 				31B880402B9E0FC60087A7A8 /* Extensions */,
 				3172545C2B99AFC800ED3E25 /* NavigationViewController.swift */,
 				3172545E2B99B00700ED3E25 /* TabViewController.swift */,
+				315A9FAF2BA044BD00C1CF63 /* ViewModel.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -188,6 +201,7 @@
 		317254612B99B14100ED3E25 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				315A9FAC2BA0441400C1CF63 /* ViewModel */,
 				317254632B99B16800ED3E25 /* View */,
 			);
 			path = Home;
@@ -421,6 +435,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				317254662B99B17E00ED3E25 /* HomeViewController.swift in Sources */,
+				315A9FAE2BA0441F00C1CF63 /* HomeViewModel.swift in Sources */,
 				31D496E12BA017D5001FA5FE /* HomeSegmentedControl.swift in Sources */,
 				31D496E72BA01A98001FA5FE /* UIButton+extension.swift in Sources */,
 				3172545F2B99B00700ED3E25 /* TabViewController.swift in Sources */,
@@ -430,6 +445,7 @@
 				315A9FA72BA03D0F00C1CF63 /* TodoSection.swift in Sources */,
 				31B880442B9E10770087A7A8 /* NSObject+extenstions.swift in Sources */,
 				315A9FAB2BA0413700C1CF63 /* UICollectionView+extension.swift in Sources */,
+				315A9FB02BA044BD00C1CF63 /* ViewModel.swift in Sources */,
 				31D496E52BA019DC001FA5FE /* UIView+extensions.swift in Sources */,
 				3172542B2B99AE2600ED3E25 /* AppDelegate.swift in Sources */,
 				3172542D2B99AE2600ED3E25 /* SceneDelegate.swift in Sources */,

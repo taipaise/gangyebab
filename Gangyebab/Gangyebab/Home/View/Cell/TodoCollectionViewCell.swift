@@ -7,10 +7,15 @@
 
 import UIKit
 
-struct TodoCellModel: Hashable {
+struct TodoCellModel: Hashable, Comparable {
+    let uuid = UUID()
     let content: String
     let importance: Importance
     var isCompleted: Bool = false
+    
+    static func < (lhs: TodoCellModel, rhs: TodoCellModel) -> Bool {
+        return lhs.importance.rawValue > rhs.importance.rawValue
+    }
 }
 
 final class TodoCollectionViewCell: UICollectionViewCell {
@@ -22,6 +27,12 @@ final class TodoCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        importanceColor.isHidden = false
+        contentLabel.attributedText = nil
     }
 }
 
@@ -41,6 +52,7 @@ extension TodoCollectionViewCell {
         }
         
         if cellModel.isCompleted {
+            importanceColor.isHidden = true
             contentLabel.attributedText = cellModel.content.strikeThrough()
             contentLabel.textColor = .stringColor2
             underLine.backgroundColor = .stringColor2
