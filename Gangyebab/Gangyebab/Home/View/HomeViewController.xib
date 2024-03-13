@@ -18,7 +18,10 @@
             <connections>
                 <outlet property="addButton1" destination="jdH-HW-RoE" id="Wmr-qb-mhm"/>
                 <outlet property="addButton2" destination="d4H-zp-SIe" id="CzK-nX-QfP"/>
+                <outlet property="addImage" destination="G8q-X5-rX4" id="p8e-LL-HR9"/>
                 <outlet property="calendar" destination="sYX-eS-rKF" id="tF1-9Y-Ma0"/>
+                <outlet property="deleteButton" destination="o2f-30-obV" id="PcE-At-v5q"/>
+                <outlet property="editButton" destination="ZLe-1u-4zv" id="uI7-Al-vij"/>
                 <outlet property="homeSegmentedControl" destination="oFr-Q2-4sJ" id="4Cj-mc-87d"/>
                 <outlet property="nextButton" destination="ZVz-wb-exh" id="0cF-di-w7V"/>
                 <outlet property="previousButton" destination="7IZ-EG-1Je" id="1rt-yq-fMT"/>
@@ -40,13 +43,13 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24.03.05 (화)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJl-Pt-QsZ">
-                    <rect key="frame" x="148.66666666666666" y="119" width="96" height="20"/>
+                    <rect key="frame" x="148.66666666666666" y="119" width="96" height="9.3333333333333428"/>
                     <fontDescription key="fontDescription" name="omyu_pretty" family="omyu pretty" pointSize="20"/>
                     <color key="textColor" name="stringColor1"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZVz-wb-exh" userLabel="nextButton">
-                    <rect key="frame" x="254.66666666666663" y="119" width="20" height="20"/>
+                    <rect key="frame" x="254.66666666666663" y="113.66666666666667" width="20" height="20.000000000000014"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="D81-Vs-T73"/>
                         <constraint firstAttribute="width" constant="20" id="nxD-Av-b0J"/>
@@ -56,7 +59,7 @@
                     <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system" title=""/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7IZ-EG-1Je" userLabel="previousButton">
-                    <rect key="frame" x="118.66666666666669" y="119" width="20" height="20"/>
+                    <rect key="frame" x="118.66666666666669" y="113.66666666666667" width="20" height="20.000000000000014"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="20" id="SIQ-dh-FGw"/>
                         <constraint firstAttribute="height" constant="20" id="pse-vH-paI"/>
@@ -65,65 +68,93 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system"/>
                 </button>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5T3-QJ-ZX4">
-                    <rect key="frame" x="0.0" y="169" width="393" height="629"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aFt-AX-VPI">
+                    <rect key="frame" x="0.0" y="158.33333333333331" width="393" height="649.66666666666674"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sYX-eS-rKF" customClass="FSCalendar">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="250"/>
-                            <color key="backgroundColor" name="background2"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5T3-QJ-ZX4">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="594.66666666666663"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sYX-eS-rKF" customClass="FSCalendar">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="250"/>
+                                    <color key="backgroundColor" name="background2"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="250" id="ety-nn-Egn"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="selectionColor">
+                                            <color key="value" name="point1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="weekdayTextColor">
+                                            <color key="value" name="stringColor1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="titleDefaultColor">
+                                            <color key="value" name="stringColor1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="allowsMultipleSelection" value="NO"/>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="headerTitleTextSize">
+                                            <real key="value" value="0.0"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="titleSelectionColor">
+                                            <color key="value" name="gangyeWhite"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1EA-bA-yIO" userLabel="Todo View">
+                                    <rect key="frame" x="0.0" y="270" width="393" height="324.66666666666674"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="해야 할 일을 추가해 보세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSE-U1-6dh">
+                                            <rect key="frame" x="102.66666666666669" y="122.33333333333331" width="188" height="20"/>
+                                            <fontDescription key="fontDescription" name="omyu_pretty" family="omyu pretty" pointSize="20"/>
+                                            <color key="textColor" name="stringColor1"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="6FD-4l-bYF" userLabel="Todo Collection View">
+                                            <rect key="frame" x="20" y="0.0" width="353" height="324.66666666666669"/>
+                                            <color key="backgroundColor" name="background1"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hph-GI-ywU">
+                                                <size key="itemSize" width="128" height="128"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                        </collectionView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="oSE-U1-6dh" firstAttribute="centerY" secondItem="1EA-bA-yIO" secondAttribute="centerY" constant="-30" id="JAB-g7-4QE"/>
+                                        <constraint firstItem="6FD-4l-bYF" firstAttribute="top" secondItem="1EA-bA-yIO" secondAttribute="top" id="TyG-Ai-5eT"/>
+                                        <constraint firstAttribute="trailing" secondItem="6FD-4l-bYF" secondAttribute="trailing" constant="20" id="Ums-nd-Hd0"/>
+                                        <constraint firstAttribute="bottom" secondItem="6FD-4l-bYF" secondAttribute="bottom" id="u6T-JZ-J5P"/>
+                                        <constraint firstItem="6FD-4l-bYF" firstAttribute="leading" secondItem="1EA-bA-yIO" secondAttribute="leading" constant="20" id="x8W-dR-ul9"/>
+                                        <constraint firstItem="oSE-U1-6dh" firstAttribute="centerX" secondItem="1EA-bA-yIO" secondAttribute="centerX" id="yNN-10-ZcH"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2f-30-obV">
+                            <rect key="frame" x="20" y="604.66666666666663" width="353" height="45"/>
+                            <color key="backgroundColor" name="point1"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="250" id="ety-nn-Egn"/>
+                                <constraint firstAttribute="height" constant="45" id="Rb0-kk-lKe"/>
                             </constraints>
+                            <color key="tintColor" name="gangyeWhite"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="삭제하기">
+                                <fontDescription key="titleFontDescription" name="omyu_pretty" family="omyu pretty" pointSize="18"/>
+                            </buttonConfiguration>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="color" keyPath="selectionColor">
-                                    <color key="value" name="point1"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="color" keyPath="weekdayTextColor">
-                                    <color key="value" name="stringColor1"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="color" keyPath="titleDefaultColor">
-                                    <color key="value" name="stringColor1"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="allowsMultipleSelection" value="NO"/>
-                                <userDefinedRuntimeAttribute type="number" keyPath="headerTitleTextSize">
-                                    <real key="value" value="0.0"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="color" keyPath="titleSelectionColor">
-                                    <color key="value" name="gangyeWhite"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="15"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
-                        </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1EA-bA-yIO" userLabel="Todo View">
-                            <rect key="frame" x="0.0" y="270" width="393" height="359"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="해야 할 일을 추가해 보세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSE-U1-6dh">
-                                    <rect key="frame" x="102.66666666666669" y="169.66666666666663" width="188" height="20"/>
-                                    <fontDescription key="fontDescription" name="omyu_pretty" family="omyu pretty" pointSize="20"/>
-                                    <color key="textColor" name="stringColor1"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="6FD-4l-bYF" userLabel="Todo Collection View">
-                                    <rect key="frame" x="20" y="0.0" width="353" height="359"/>
-                                    <color key="backgroundColor" name="background1"/>
-                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hph-GI-ywU">
-                                        <size key="itemSize" width="128" height="128"/>
-                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    </collectionViewFlowLayout>
-                                </collectionView>
-                            </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstItem="oSE-U1-6dh" firstAttribute="centerY" secondItem="1EA-bA-yIO" secondAttribute="centerY" id="JAB-g7-4QE"/>
-                                <constraint firstItem="6FD-4l-bYF" firstAttribute="top" secondItem="1EA-bA-yIO" secondAttribute="top" id="TyG-Ai-5eT"/>
-                                <constraint firstAttribute="trailing" secondItem="6FD-4l-bYF" secondAttribute="trailing" constant="20" id="Ums-nd-Hd0"/>
-                                <constraint firstAttribute="bottom" secondItem="6FD-4l-bYF" secondAttribute="bottom" id="u6T-JZ-J5P"/>
-                                <constraint firstItem="6FD-4l-bYF" firstAttribute="leading" secondItem="1EA-bA-yIO" secondAttribute="leading" constant="20" id="x8W-dR-ul9"/>
-                                <constraint firstItem="oSE-U1-6dh" firstAttribute="centerX" secondItem="1EA-bA-yIO" secondAttribute="centerX" id="yNN-10-ZcH"/>
-                            </constraints>
-                        </view>
+                        </button>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="5T3-QJ-ZX4" firstAttribute="leading" secondItem="aFt-AX-VPI" secondAttribute="leading" id="4xY-jA-INv"/>
+                        <constraint firstAttribute="trailing" secondItem="o2f-30-obV" secondAttribute="trailing" constant="20" id="QuB-hE-eY1"/>
+                        <constraint firstItem="o2f-30-obV" firstAttribute="leading" secondItem="aFt-AX-VPI" secondAttribute="leading" constant="20" id="niu-2g-9dH"/>
+                        <constraint firstAttribute="trailing" secondItem="5T3-QJ-ZX4" secondAttribute="trailing" id="wDz-tQ-Bo4"/>
+                    </constraints>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d4H-zp-SIe">
                     <rect key="frame" x="348" y="709" width="20" height="20"/>
@@ -148,13 +179,28 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title=""/>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLe-1u-4zv">
+                    <rect key="frame" x="325.66666666666669" y="79" width="47.333333333333314" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" name="stringColor1"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="편집">
+                        <fontDescription key="titleFontDescription" name="omyu_pretty" family="omyu pretty" pointSize="16"/>
+                    </buttonConfiguration>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="background1"/>
             <constraints>
+                <constraint firstItem="ZLe-1u-4zv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="3NN-8V-vW7"/>
                 <constraint firstItem="jdH-HW-RoE" firstAttribute="height" secondItem="G8q-X5-rX4" secondAttribute="height" id="AVH-9o-8FF"/>
                 <constraint firstItem="jdH-HW-RoE" firstAttribute="leading" secondItem="G8q-X5-rX4" secondAttribute="leading" id="D4h-R6-mAl"/>
-                <constraint firstItem="5T3-QJ-ZX4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="FPL-PR-uMV"/>
+                <constraint firstAttribute="trailing" secondItem="aFt-AX-VPI" secondAttribute="trailing" id="E4P-RA-mB9"/>
                 <constraint firstItem="jdH-HW-RoE" firstAttribute="top" secondItem="G8q-X5-rX4" secondAttribute="top" id="HPp-Yx-ce4"/>
                 <constraint firstItem="d4H-zp-SIe" firstAttribute="top" secondItem="G8q-X5-rX4" secondAttribute="top" constant="1" id="Idt-7k-6KS"/>
                 <constraint firstItem="jdH-HW-RoE" firstAttribute="width" secondItem="G8q-X5-rX4" secondAttribute="width" id="IfW-Od-Vkr"/>
@@ -163,13 +209,14 @@
                 <constraint firstItem="jdH-HW-RoE" firstAttribute="bottom" secondItem="G8q-X5-rX4" secondAttribute="bottom" id="NHF-fa-AWe"/>
                 <constraint firstItem="lJl-Pt-QsZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="OIM-d3-EfQ"/>
                 <constraint firstItem="lJl-Pt-QsZ" firstAttribute="leading" secondItem="7IZ-EG-1Je" secondAttribute="trailing" constant="10" id="P4b-Ne-G5Y"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5T3-QJ-ZX4" secondAttribute="trailing" id="Q1R-TT-NzF"/>
-                <constraint firstItem="5T3-QJ-ZX4" firstAttribute="top" secondItem="lJl-Pt-QsZ" secondAttribute="bottom" constant="30" id="Q2b-9m-aHd"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="5T3-QJ-ZX4" secondAttribute="bottom" constant="20" id="Wxy-zY-BUL"/>
+                <constraint firstItem="aFt-AX-VPI" firstAttribute="top" secondItem="lJl-Pt-QsZ" secondAttribute="bottom" constant="30" id="SJs-hS-wwf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="aFt-AX-VPI" secondAttribute="bottom" constant="10" id="ZW6-Kl-QOJ"/>
                 <constraint firstItem="lJl-Pt-QsZ" firstAttribute="top" secondItem="oFr-Q2-4sJ" secondAttribute="bottom" constant="15" id="aPw-X0-xOD"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="d4H-zp-SIe" secondAttribute="trailing" constant="25" id="e6b-fO-uoU"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZLe-1u-4zv" secondAttribute="trailing" constant="20" id="g7n-OU-3Ew"/>
                 <constraint firstItem="jdH-HW-RoE" firstAttribute="trailing" secondItem="G8q-X5-rX4" secondAttribute="trailing" id="gBJ-BU-wis"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="G8q-X5-rX4" secondAttribute="bottom" constant="30" id="gSi-3V-cQc"/>
+                <constraint firstItem="aFt-AX-VPI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="iiO-SO-JGS"/>
                 <constraint firstItem="7IZ-EG-1Je" firstAttribute="centerY" secondItem="lJl-Pt-QsZ" secondAttribute="centerY" id="kOv-ie-tcb"/>
                 <constraint firstItem="oFr-Q2-4sJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="or9-kT-YSi"/>
                 <constraint firstItem="ZVz-wb-exh" firstAttribute="centerY" secondItem="lJl-Pt-QsZ" secondAttribute="centerY" id="ph1-P3-QPi"/>

@@ -15,6 +15,8 @@
 		315A9FAB2BA0413700C1CF63 /* UICollectionView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A9FAA2BA0413700C1CF63 /* UICollectionView+extension.swift */; };
 		315A9FAE2BA0441F00C1CF63 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A9FAD2BA0441F00C1CF63 /* HomeViewModel.swift */; };
 		315A9FB02BA044BD00C1CF63 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A9FAF2BA044BD00C1CF63 /* ViewModel.swift */; };
+		315D0DF72BA1A85100F647DB /* AddTodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315D0DF62BA1A85100F647DB /* AddTodoViewModel.swift */; };
+		315D0DF92BA1B85900F647DB /* RepeatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315D0DF82BA1B85900F647DB /* RepeatType.swift */; };
 		3172542B2B99AE2600ED3E25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3172542A2B99AE2600ED3E25 /* AppDelegate.swift */; };
 		3172542D2B99AE2600ED3E25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3172542C2B99AE2600ED3E25 /* SceneDelegate.swift */; };
 		317254342B99AE2700ED3E25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 317254332B99AE2700ED3E25 /* Assets.xcassets */; };
@@ -71,6 +73,8 @@
 		315A9FAA2BA0413700C1CF63 /* UICollectionView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+extension.swift"; sourceTree = "<group>"; };
 		315A9FAD2BA0441F00C1CF63 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		315A9FAF2BA044BD00C1CF63 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		315D0DF62BA1A85100F647DB /* AddTodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoViewModel.swift; sourceTree = "<group>"; };
+		315D0DF82BA1B85900F647DB /* RepeatType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatType.swift; sourceTree = "<group>"; };
 		317254272B99AE2600ED3E25 /* Gangyebab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gangyebab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3172542A2B99AE2600ED3E25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3172542C2B99AE2600ED3E25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +138,14 @@
 			isa = PBXGroup;
 			children = (
 				315A9FAD2BA0441F00C1CF63 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		315D0DF52BA1A84300F647DB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				315D0DF62BA1A85100F647DB /* AddTodoViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -246,6 +258,7 @@
 		317696B42BA1959B00B2C6BF /* AddTodo */ = {
 			isa = PBXGroup;
 			children = (
+				315D0DF52BA1A84300F647DB /* ViewModel */,
 				317696B52BA195A600B2C6BF /* View */,
 			);
 			path = AddTodo;
@@ -306,6 +319,7 @@
 			children = (
 				31D496F82BA02CA1001FA5FE /* Importance.swift */,
 				315A9FA62BA03D0F00C1CF63 /* TodoSection.swift */,
+				315D0DF82BA1B85900F647DB /* RepeatType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -467,11 +481,13 @@
 				31B880422B9E0FDE0087A7A8 /* Font+Extensions.swift in Sources */,
 				315A9FA72BA03D0F00C1CF63 /* TodoSection.swift in Sources */,
 				31B880442B9E10770087A7A8 /* NSObject+extenstions.swift in Sources */,
+				315D0DF72BA1A85100F647DB /* AddTodoViewModel.swift in Sources */,
 				315A9FAB2BA0413700C1CF63 /* UICollectionView+extension.swift in Sources */,
 				315A9FB02BA044BD00C1CF63 /* ViewModel.swift in Sources */,
 				31D496E52BA019DC001FA5FE /* UIView+extensions.swift in Sources */,
 				3172542B2B99AE2600ED3E25 /* AppDelegate.swift in Sources */,
 				3172542D2B99AE2600ED3E25 /* SceneDelegate.swift in Sources */,
+				315D0DF92BA1B85900F647DB /* RepeatType.swift in Sources */,
 				3172546B2B99B19200ED3E25 /* SettingViewController.swift in Sources */,
 				317696B92BA195B000B2C6BF /* AddTodoViewController.swift in Sources */,
 				315A9FA52BA03BA000C1CF63 /* TodoHeaderSupplementaryView.swift in Sources */,
@@ -653,6 +669,7 @@
 				DEVELOPMENT_TEAM = VKW8W27KRV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Gangyebab/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "간계밥";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -681,6 +698,7 @@
 				DEVELOPMENT_TEAM = VKW8W27KRV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Gangyebab/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "간계밥";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";

@@ -8,6 +8,10 @@
 import UIKit
 import Combine
 
+protocol AddTodoDelegate: AnyObject {
+    func transferTodo(_ todo: TodoCellModel)
+}
+
 final class AddTodoViewController: UIViewController {
 
     @IBOutlet private weak var dismissButton1: UIButton!
@@ -17,12 +21,26 @@ final class AddTodoViewController: UIViewController {
     @IBOutlet private weak var lowButton: UIButton!
     @IBOutlet private weak var mediumButton: UIButton!
     @IBOutlet private weak var highButton: UIButton!
+    @IBOutlet private weak var importanceView: UIView!
+    @IBOutlet private weak var importanceSelectView: UIView!
+    @IBOutlet private var importanceLabels: [UILabel]!
+    @IBOutlet private weak var repeatButton: UIButton!
+    @IBOutlet private weak var repeatLabel: UILabel!
+    @IBOutlet private weak var completeButton: UIButton!
     
+    weak var delegate: AddTodoDelegate?
+    private var viewModel = AddTodoViewModel()
     private var cancellables: Set<AnyCancellable> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUI()
         bindView()
+        bindViewModel()
+    }
+    
+    func configure(_ todo: TodoCellModel) {
+        viewModel.configure(todo)
     }
 }
 
@@ -30,6 +48,31 @@ final class AddTodoViewController: UIViewController {
 extension AddTodoViewController {
     private func setUI() {
         todoTextField.font = .soyo(size: 15, weight: .regular)
+        todoTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        todoTextField.delegate = self
+        
+        var repeatActions: [UIAction] = []
+
+        for type in RepeatType.allCases {
+            let action = UIAction(
+                title: type.description,
+                image: nil,
+                handler: { [weak self] _ in
+                    self?.repeatLabel.text = type.description
+                    self?.viewModel.action(.updateRepeatType(type))
+                }
+            )
+            repeatActions.append(action)
+            repeatButton.showsMenuAsPrimaryAction = true
+        }
+
+        repeatButton.menu = UIMenu(
+            title: "",
+            image: nil,
+            identifier: nil,
+            options: .displayInline,
+            children: repeatActions
+        )
     }
 }
 
@@ -49,19 +92,71 @@ extension AddTodoViewController {
             lowButton,
             mediumButton,
             highButton
-        ].forEach { button in
-            button?.safeTap
-                .sink(receiveValue: { [weak self] in
-                    //ViewModel로 중요도 설정
-                })
-                .store(in: &cancellables)
-        }
+        ]
+            .forEach { button in
+                guard let button = button else { return }
+                button.safeTap
+                    .sink(receiveValue: { [weak self] in
+                        self?.viewModel.action(.updateImportance(button.tag))
+                    })
+                    .store(in: &cancellables)
+            }
+        
+        completeButton.safeTap
+            .sink { [weak self] _ in
+                guard let self = self else { return }
+                
+                self.delegate?.transferTodo(self.viewModel.getTodo())
+                self.dismiss(animated: false)
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func bindViewModel() {
+        viewModel.title
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] title in
+                self?.todoTextField.text = title
+            }
+            .store(in: &cancellables)
+        
+        viewModel.importance
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] importance in
+                self?.transformCurrentIndexView(type: importance)
+            }
+            .store(in: &cancellables)
+        
+        viewModel.repeatType
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] repeatType in
+                self?.repeatLabel.text = repeatType.description
+            }
+            .store(in: &cancellables)
     }
 }
 
 // MARK: - Method
 extension AddTodoViewController {
     private func transformCurrentIndexView(type: Importance) {
+        let width = importanceView.frame.width / 4
         
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            let transLationX = CGFloat(type.rawValue) * width
+            self?.importanceSelectView.transform = CGAffineTransform(translationX: transLationX, y: 0)
+               
+            self?.importanceLabels.forEach { label in
+                label.textColor = .stringColor1
+            }
+            self?.importanceLabels[type.rawValue].textColor = .gangyeWhite
+        }
+    }
+}
+
+// MARK: - textField Delegate
+extension AddTodoViewController: UITextFieldDelegate {
+    @objc func textFieldDidChange(_ sender: Any?) {
+        guard let text = todoTextField.text else { return }
+        viewModel.action(.updateTitle(text))
     }
 }
