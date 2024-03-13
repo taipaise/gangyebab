@@ -7,11 +7,16 @@
 
 import UIKit
 
-struct TodoCellModel: Hashable, Comparable {
-    let uuid = UUID()
-    let content: String
+struct TodoCellModel: Hashable, Comparable, Equatable {
+    var uuid = UUID()
+    let title: String
     let importance: Importance
     var isCompleted: Bool = false
+    var repeatType: RepeatType
+    
+    static func == (lhs: TodoCellModel, rhs: TodoCellModel) -> Bool {
+        return lhs.uuid == rhs.uuid
+    }
     
     static func < (lhs: TodoCellModel, rhs: TodoCellModel) -> Bool {
         return lhs.importance.rawValue > rhs.importance.rawValue
@@ -38,7 +43,7 @@ final class TodoCollectionViewCell: UICollectionViewCell {
 
 extension TodoCollectionViewCell {
     func configure(_ cellModel: TodoCellModel) {
-        contentLabel.text = cellModel.content
+        contentLabel.text = cellModel.title
         
         switch cellModel.importance {
         case .none:
@@ -53,11 +58,11 @@ extension TodoCollectionViewCell {
         
         if cellModel.isCompleted {
             importanceColor.isHidden = true
-            contentLabel.attributedText = cellModel.content.strikeThrough()
+            contentLabel.attributedText = cellModel.title.strikeThrough()
             contentLabel.textColor = .stringColor2
             underLine.backgroundColor = .stringColor2
         } else {
-            contentLabel.text = cellModel.content
+            contentLabel.text = cellModel.title
             contentLabel.textColor = .stringColor1
             underLine.backgroundColor = .stringColor1
         }

@@ -100,6 +100,7 @@ extension HomeViewController {
             button?.safeTap
                 .sink(receiveValue: { [weak self] in
                     let nextVC = AddTodoViewController()
+                    nextVC.delegate = self
                     nextVC.modalPresentationStyle = .overFullScreen
                     self?.present(nextVC, animated: false)
                 })
@@ -241,5 +242,13 @@ extension HomeViewController: UICollectionViewDelegate {
 extension HomeViewController: HomeSegmentedControlDelegate {
     func segmentChanged() {
         viewModel.action(.toggleHomeType)
+    }
+}
+
+
+// MARK: - add todo delegate
+extension HomeViewController: AddTodoDelegate {
+    func transferTodo(_ todo: TodoCellModel) {
+        viewModel.action(.updateTodo(todo))
     }
 }

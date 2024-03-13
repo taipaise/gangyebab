@@ -14,6 +14,7 @@ final class HomeViewModel: ViewModel {
         case toggleComplete(_ indexPath: IndexPath)
         case nextButton
         case previousButton
+        case updateTodo(_ todo: TodoCellModel)
     }
     
     private(set) var inprogressCellModels = CurrentValueSubject<[TodoCellModel], Error>([])
@@ -32,6 +33,8 @@ final class HomeViewModel: ViewModel {
             print()
         case .previousButton:
             print()
+        case .updateTodo(let todo):
+            updateTodo(todo)
         }
     }
     
@@ -69,27 +72,37 @@ extension HomeViewModel {
         inprogressCellModels.send(inProgress.sorted())
         completedCellModels.send(completed)
     }
+    
+    private func updateTodo(_ todo: TodoCellModel) {
+        var todoCellModels = inprogressCellModels.value
+        
+        var newTodoCellModels = todoCellModels.filter {
+            $0.uuid != todo.uuid
+        }
+        newTodoCellModels.append(todo)
+        inprogressCellModels.send(newTodoCellModels.sorted())
+    }
 }
 
 // MARK: - Dummy
 extension HomeViewModel {
     func makeDummy() {
         var progressDummy = [
-            TodoCellModel(content: "현정이랑 데이트1", importance: .high, isCompleted: false),
-            TodoCellModel(content: "현정이랑 데이트2", importance: .medium, isCompleted: false),
-            TodoCellModel(content: "현정이랑 데이트3", importance: .low, isCompleted: false),
-            TodoCellModel(content: "현정이랑 데이트4", importance: .medium, isCompleted: false),
-            TodoCellModel(content: "현정이랑 데이트5", importance: .none, isCompleted: false),
-            TodoCellModel(content: "현정이랑 데이트6", importance: .high, isCompleted: false)
+            TodoCellModel(title: "현정이랑 데이트1", importance: .high, isCompleted: false, repeatType: .none),
+            TodoCellModel(title: "현정이랑 데이트2", importance: .medium, isCompleted: false, repeatType: .none),
+            TodoCellModel(title: "현정이랑 데이트3", importance: .low, isCompleted: false, repeatType: .none),
+            TodoCellModel(title: "현정이랑 데이트4", importance: .medium, isCompleted: false, repeatType: .none),
+            TodoCellModel(title: "현정이랑 데이트5", importance: .none, isCompleted: false, repeatType: .none),
+            TodoCellModel(title: "현정이랑 데이트6", importance: .high, isCompleted: false, repeatType: .none)
         ]
     
         var completeDummy = [
-            TodoCellModel(content: "현정이랑 데이트7", importance: .high, isCompleted: true),
-            TodoCellModel(content: "현정이랑 데이트8", importance: .none, isCompleted: true),
-            TodoCellModel(content: "현정이랑 데이트9", importance: .low, isCompleted: true),
-            TodoCellModel(content: "현정이랑 데이트10", importance: .medium, isCompleted: true),
-            TodoCellModel(content: "현정이랑 데이트11", importance: .high, isCompleted: true),
-            TodoCellModel(content: "현정이랑 데이트12", importance: .high, isCompleted: true)
+            TodoCellModel(title: "현정이랑 데이트7", importance: .high, isCompleted: true, repeatType: .none),
+            TodoCellModel(title: "현정이랑 데이트8", importance: .none, isCompleted: true, repeatType: .none),
+            TodoCellModel(title: "현정이랑 데이트9", importance: .low, isCompleted: true, repeatType: .none),
+            TodoCellModel(title: "현정이랑 데이트10", importance: .medium, isCompleted: true, repeatType: .none),
+            TodoCellModel(title: "현정이랑 데이트11", importance: .high, isCompleted: true, repeatType: .none),
+            TodoCellModel(title: "현정이랑 데이트12", importance: .high, isCompleted: true, repeatType: .none)
         ]
         
         inprogressCellModels.send(progressDummy.sorted())
