@@ -20,6 +20,9 @@ final class HomeViewController: UIViewController {
     @IBOutlet private weak var previousButton: UIButton!
     @IBOutlet private weak var calendar: FSCalendar!
     @IBOutlet private weak var todoCollectionView: UICollectionView!
+    @IBOutlet private weak var addButton1: UIButton!
+    @IBOutlet private weak var addButton2: UIButton!
+    
     private var dataSource: DataSource?
     private var viewModel = HomeViewModel()
     private var cancellables: Set<AnyCancellable> = []
@@ -92,6 +95,16 @@ extension HomeViewController {
                 self?.viewModel.action(.nextButton)
             }
             .store(in: &cancellables)
+        
+        [addButton1, addButton2].forEach { button in
+            button?.safeTap
+                .sink(receiveValue: { [weak self] in
+                    let nextVC = AddTodoViewController()
+                    nextVC.modalPresentationStyle = .overFullScreen
+                    self?.present(nextVC, animated: false)
+                })
+                .store(in: &cancellables)
+        }
     }
 }
 
