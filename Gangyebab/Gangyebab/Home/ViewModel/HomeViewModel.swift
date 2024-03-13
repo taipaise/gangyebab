@@ -14,9 +14,13 @@ final class HomeViewModel: ViewModel {
         case toggleComplete(_ indexPath: IndexPath)
         case nextButton
         case previousButton
+        case editTapped
+        case checkTodo(_ indexPath: IndexPath)
         case updateTodo(_ todo: TodoCellModel)
+        case deleteTodo
     }
     
+    @Published private(set) var isEditing = false
     private(set) var homeType = CurrentValueSubject<HomeType,Never>(.day)
     private(set) var cellModels = CurrentValueSubject<TodoCellModels, Error>(TodoCellModels(inProgress: [], completed: []))
     private(set) var inprogressCellModels: [TodoCellModel] = []
@@ -36,6 +40,12 @@ final class HomeViewModel: ViewModel {
             print()
         case .updateTodo(let todo):
             updateTodo(todo)
+        case .deleteTodo:
+            deleteTodo()
+        case .editTapped:
+            toggleEditState()
+        case .checkTodo(let indexPath):
+            checkTodo(indexPath)
         }
     }
     
@@ -47,6 +57,8 @@ final class HomeViewModel: ViewModel {
 // MARK: - Action
 extension HomeViewModel {
     private func toggleHomeType() {
+        if isEditing { toggleEditState() }
+        
         if homeType.value == .day {
             homeType.send(.month)
         } else {
@@ -55,11 +67,6 @@ extension HomeViewModel {
     }
     
     private func toggleComplete(_ indexPath: IndexPath) {
-        if indexPath.section == 0 {
-            print(indexPath.row)
-            print(inprogressCellModels[indexPath.row])
-        }
-        
         switch indexPath.section {
         case TodoSection.inProgress.rawValue:
             var item = inprogressCellModels[indexPath.row]
@@ -95,6 +102,57 @@ extension HomeViewModel {
             inProgress: inprogressCellModels,
             completed: completedCellModels
         ))
+    }
+    
+    private func deleteTodo() {
+        inprogressCellModels = inprogressCellModels.filter { !$0.isChecked }
+        completedCellModels = completedCellModels.filter { !$0.isChecked }
+        let newCellModels = TodoCellModels(
+            inProgress: inprogressCellModels,
+            completed: completedCellModels
+        )
+        cellModels.send(newCellModels)
+        
+        if isEditing { toggleEditState() }
+    }
+    
+    private func toggleEditState() {
+        isEditing.toggle()
+        
+        inprogressCellModels = inprogressCellModels.map {
+            var newCellModel = $0
+            newCellModel.isEditing = isEditing
+            newCellModel.isChecked = false
+            return newCellModel
+        }
+        
+        completedCellModels = completedCellModels.map {
+            var newCellModel = $0
+            newCellModel.isEditing = isEditing
+            newCellModel.isChecked = false
+            return newCellModel
+        }
+        
+        let newCellModels = TodoCellModels(
+            inProgress: inprogressCellModels,
+            completed: completedCellModels
+        )
+        
+        cellModels.send(newCellModels)
+    }
+    
+    private func checkTodo(_ indexPath: IndexPath) {
+        if indexPath.section == TodoSection.inProgress.rawValue {
+            inprogressCellModels[indexPath.row].isChecked.toggle()
+        } else {
+            completedCellModels[indexPath.row].isChecked.toggle()
+        }
+        
+        let newCellModels = TodoCellModels(
+            inProgress: inprogressCellModels,
+            completed: completedCellModels
+        )
+        cellModels.send(newCellModels)
     }
 }
 

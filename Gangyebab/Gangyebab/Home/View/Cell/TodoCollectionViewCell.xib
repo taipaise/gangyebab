@@ -32,24 +32,34 @@
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="B1y-hc-FUV">
                         <rect key="frame" x="10" y="0.0" width="326" height="23"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.inset.filled" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hVj-YQ-NJh">
+                                <rect key="frame" x="0.0" y="0.99999999999999822" width="23" height="21.666666666666664"/>
+                                <color key="tintColor" name="stringColor1"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hVj-YQ-NJh" secondAttribute="height" multiplier="1:1" id="6v4-js-cz1"/>
+                                </constraints>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SX7-AS-bGQ" userLabel="Importance Color">
-                                <rect key="frame" x="0.0" y="0.0" width="5" height="23"/>
+                                <rect key="frame" x="28" y="0.0" width="5" height="23"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="5" id="PsM-He-gX0"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Qc-RF-VKx" userLabel="Content Label">
-                                <rect key="frame" x="10" y="0.0" width="41.666666666666664" height="23"/>
+                                <rect key="frame" x="38" y="0.0" width="37" height="23"/>
                                 <fontDescription key="fontDescription" name="SOYO-Maple-Regular" family="SOYO Maple" pointSize="15"/>
                                 <color key="textColor" name="stringColor1"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HNo-HF-cez">
-                                <rect key="frame" x="56.666666666666657" y="0.0" width="269.33333333333337" height="23"/>
+                                <rect key="frame" x="80" y="0.0" width="246" height="23"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="hVj-YQ-NJh" firstAttribute="height" secondItem="B1y-hc-FUV" secondAttribute="height" id="zh8-BY-mG2"/>
+                        </constraints>
                     </stackView>
                 </subviews>
             </view>
@@ -64,6 +74,7 @@
             </constraints>
             <size key="customSize" width="318" height="124"/>
             <connections>
+                <outlet property="checkImage" destination="hVj-YQ-NJh" id="hof-xo-J25"/>
                 <outlet property="contentLabel" destination="0Qc-RF-VKx" id="tqJ-18-tc4"/>
                 <outlet property="importanceColor" destination="SX7-AS-bGQ" id="Yvg-q9-DJG"/>
                 <outlet property="underLine" destination="4Qn-MH-44e" id="9GW-gM-McW"/>
@@ -72,6 +83,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="circle.inset.filled" catalog="system" width="128" height="123"/>
         <namedColor name="stringColor1">
             <color red="0.34509803921568627" green="0.18823529411764706" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

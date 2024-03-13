@@ -20,9 +20,14 @@ final class HomeViewController: UIViewController {
     @IBOutlet private weak var previousButton: UIButton!
     @IBOutlet private weak var calendar: FSCalendar!
     @IBOutlet private weak var todoCollectionView: UICollectionView!
+    @IBOutlet private weak var addImage: UIImageView!
     @IBOutlet private weak var addButton1: UIButton!
     @IBOutlet private weak var addButton2: UIButton!
+    @IBOutlet private weak var editButton: UIButton!
+    @IBOutlet private weak var deleteButton: UIButton!
     
+    
+    private var doubleTapGestureRecognizer: UITapGestureRecognizer?
     private var dataSource: DataSource?
     private var viewModel = HomeViewModel()
     private var cancellables: Set<AnyCancellable> = []
@@ -45,6 +50,10 @@ extension HomeViewController {
         calendar.headerHeight = 10
         calendar.locale = Locale(identifier: "ko_KR")
         calendar.appearance.weekdayFont = .omyu(size: 18)
+        
+        doubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(doubleTapTodo(_:)))
+        doubleTapGestureRecognizer?.numberOfTapsRequired = 2
+        doubleTapGestureRecognizer?.delaysTouchesBegan = true
     }
 }
 
@@ -69,7 +78,34 @@ extension HomeViewController {
             .sink { completion in
                 guard case .failure(_) = completion else { return }
             } receiveValue: { [weak self] cellModels in
-                self?.applyItems(cellModels: cellModels)
+                if
+                    cellModels.inProgress.isEmpty,
+                    cellModels.completed.isEmpty
+                {
+                    self?.editButton.isHidden = true
+                    self?.todoCollectionView.isHidden = true
+                } else {
+                    self?.editButton.isHidden = false
+                    self?.todoCollectionView.isHidden = false
+                    
+                    if self?.viewModel.isEditing ?? true {
+                        self?.applyItems(cellModels: cellModels, animating: false)
+                    } else {
+                        self?.applyItems(cellModels: cellModels, animating: true)
+                    }
+                    
+                }
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$isEditing
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] isEditing in
+                self?.setDoubleTapGestureRecognizer(isEditing)
+                self?.addImage.isHidden = isEditing
+                self?.addButton1.isHidden = isEditing
+                self?.addButton2.isHidden = isEditing
+                self?.deleteButton.isHidden = !isEditing
             }
             .store(in: &cancellables)
     }
@@ -97,6 +133,18 @@ extension HomeViewController {
                 })
                 .store(in: &cancellables)
         }
+        
+        editButton.safeTap
+            .sink { [weak self] _ in
+                self?.viewModel.action(.editTapped)
+            }
+            .store(in: &cancellables)
+        
+        deleteButton.safeTap
+            .sink { [weak self] _ in
+                self?.viewModel.action(.deleteTodo)
+            }
+            .store(in: &cancellables)
     }
 }
 
@@ -147,20 +195,17 @@ extension HomeViewController {
             return header
         }
         
-        dataSource?.apply(snapshot, animatingDifferences: true)
-        
-        let doubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(doubleTapTodo))
-        doubleTapGestureRecognizer.numberOfTapsRequired = 2
-        doubleTapGestureRecognizer.delaysTouchesBegan = true
-        todoCollectionView.addGestureRecognizer(doubleTapGestureRecognizer)
+        dataSource?.apply(snapshot, animatingDifferences: false)
     }
     
-    private func applyItems(cellModels: TodoCellModels) {
+    private func applyItems(cellModels: TodoCellModels, animating: Bool) {
         var snapshot = Snapshot()
+        
         snapshot.appendSections([.inProgress, .completed])
         snapshot.appendItems(cellModels.inProgress, toSection: .inProgress)
         snapshot.appendItems(cellModels.completed, toSection: .completed)
-        dataSource?.apply(snapshot)
+        
+        dataSource?.apply(snapshot, animatingDifferences: animating)
     }
     
     private func createCollectionViewLayout() -> UICollectionViewLayout {
@@ -225,23 +270,42 @@ extension HomeViewController {
         guard let indexPath = todoCollectionView.indexPathForItem(at: location) else { return }
         viewModel.action(.toggleComplete(indexPath))
     }
+    
+    private func setDoubleTapGestureRecognizer(_ isEditing: Bool) {
+        guard let doubleTapGestureRecognizer = doubleTapGestureRecognizer else { return }
+     
+        if isEditing {
+            editButton.setTitle("완료", for: .normal)
+            editButton.titleLabel?.font = .omyu(size: 18)
+            todoCollectionView.removeGestureRecognizer(doubleTapGestureRecognizer)
+        } else {
+            editButton.setTitle("편집", for: .normal)
+            editButton.titleLabel?.font = .omyu(size: 18)
+            todoCollectionView.addGestureRecognizer(doubleTapGestureRecognizer)
+        }
+    }
 }
 
+// MARK: - CollectionView delegate
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let section = indexPath.section
         let row = indexPath.row
         
-        guard section == TodoSection.inProgress.rawValue else { return }
-        
-        let cellModels = viewModel.inprogressCellModels
-        let cellModel = cellModels[row]
+        if viewModel.isEditing {
+            viewModel.action(.checkTodo(indexPath))
+        } else {
+            guard section == TodoSection.inProgress.rawValue else { return }
+            
+            let cellModels = viewModel.inprogressCellModels
+            let cellModel = cellModels[row]
 
-        let nextVC = AddTodoViewController()
-        nextVC.delegate = self
-        nextVC.configure(cellModel)
-        nextVC.modalPresentationStyle = .overFullScreen
-        present(nextVC, animated: false)
+            let nextVC = AddTodoViewController()
+            nextVC.delegate = self
+            nextVC.configure(cellModel)
+            nextVC.modalPresentationStyle = .overFullScreen
+            present(nextVC, animated: false)
+        }
     }
 }
 

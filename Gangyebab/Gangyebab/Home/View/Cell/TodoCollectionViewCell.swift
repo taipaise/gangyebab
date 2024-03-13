@@ -7,16 +7,14 @@
 
 import UIKit
 
-struct TodoCellModel: Hashable, Comparable, Equatable {
+struct TodoCellModel: Hashable, Comparable {
     var uuid = UUID()
     let title: String
     let importance: Importance
     var isCompleted: Bool = false
     var repeatType: RepeatType
-    
-    static func == (lhs: TodoCellModel, rhs: TodoCellModel) -> Bool {
-        return lhs.uuid == rhs.uuid
-    }
+    var isEditing: Bool = false
+    var isChecked: Bool = false
     
     static func < (lhs: TodoCellModel, rhs: TodoCellModel) -> Bool {
         return lhs.importance.rawValue > rhs.importance.rawValue
@@ -28,6 +26,7 @@ final class TodoCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var underLine: UIView!
     @IBOutlet private weak var importanceColor: UIView!
     @IBOutlet private weak var contentLabel: UILabel!
+    @IBOutlet private weak var checkImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,6 +43,18 @@ final class TodoCollectionViewCell: UICollectionViewCell {
 extension TodoCollectionViewCell {
     func configure(_ cellModel: TodoCellModel) {
         contentLabel.text = cellModel.title
+        
+        if cellModel.isEditing {
+            checkImage.isHidden = false
+        } else {
+            checkImage.isHidden = true
+        }
+        
+        if cellModel.isChecked {
+            checkImage.image = UIImage(systemName: "circle.inset.filled")
+        } else {
+            checkImage.image = UIImage(systemName: "circle")
+        }
         
         switch cellModel.importance {
         case .none:
