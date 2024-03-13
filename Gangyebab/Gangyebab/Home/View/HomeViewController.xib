@@ -16,6 +16,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Gangyebab" customModuleProvider="target">
             <connections>
+                <outlet property="addButton1" destination="jdH-HW-RoE" id="Wmr-qb-mhm"/>
+                <outlet property="addButton2" destination="d4H-zp-SIe" id="CzK-nX-QfP"/>
                 <outlet property="calendar" destination="sYX-eS-rKF" id="tF1-9Y-Ma0"/>
                 <outlet property="homeSegmentedControl" destination="oFr-Q2-4sJ" id="4Cj-mc-87d"/>
                 <outlet property="nextButton" destination="ZVz-wb-exh" id="0cF-di-w7V"/>
@@ -140,14 +142,25 @@
                         <constraint firstAttribute="width" constant="80" id="Xvw-TB-5qD"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdH-HW-RoE">
+                    <rect key="frame" x="283" y="708" width="80" height="80"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title=""/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="background1"/>
             <constraints>
+                <constraint firstItem="jdH-HW-RoE" firstAttribute="height" secondItem="G8q-X5-rX4" secondAttribute="height" id="AVH-9o-8FF"/>
+                <constraint firstItem="jdH-HW-RoE" firstAttribute="leading" secondItem="G8q-X5-rX4" secondAttribute="leading" id="D4h-R6-mAl"/>
                 <constraint firstItem="5T3-QJ-ZX4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="FPL-PR-uMV"/>
+                <constraint firstItem="jdH-HW-RoE" firstAttribute="top" secondItem="G8q-X5-rX4" secondAttribute="top" id="HPp-Yx-ce4"/>
                 <constraint firstItem="d4H-zp-SIe" firstAttribute="top" secondItem="G8q-X5-rX4" secondAttribute="top" constant="1" id="Idt-7k-6KS"/>
+                <constraint firstItem="jdH-HW-RoE" firstAttribute="width" secondItem="G8q-X5-rX4" secondAttribute="width" id="IfW-Od-Vkr"/>
                 <constraint firstItem="oFr-Q2-4sJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="9" id="JIV-1X-BGM"/>
                 <constraint firstItem="ZVz-wb-exh" firstAttribute="leading" secondItem="lJl-Pt-QsZ" secondAttribute="trailing" constant="10" id="LYh-yX-wKI"/>
+                <constraint firstItem="jdH-HW-RoE" firstAttribute="bottom" secondItem="G8q-X5-rX4" secondAttribute="bottom" id="NHF-fa-AWe"/>
                 <constraint firstItem="lJl-Pt-QsZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="OIM-d3-EfQ"/>
                 <constraint firstItem="lJl-Pt-QsZ" firstAttribute="leading" secondItem="7IZ-EG-1Je" secondAttribute="trailing" constant="10" id="P4b-Ne-G5Y"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5T3-QJ-ZX4" secondAttribute="trailing" id="Q1R-TT-NzF"/>
@@ -155,6 +168,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="5T3-QJ-ZX4" secondAttribute="bottom" constant="20" id="Wxy-zY-BUL"/>
                 <constraint firstItem="lJl-Pt-QsZ" firstAttribute="top" secondItem="oFr-Q2-4sJ" secondAttribute="bottom" constant="15" id="aPw-X0-xOD"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="d4H-zp-SIe" secondAttribute="trailing" constant="25" id="e6b-fO-uoU"/>
+                <constraint firstItem="jdH-HW-RoE" firstAttribute="trailing" secondItem="G8q-X5-rX4" secondAttribute="trailing" id="gBJ-BU-wis"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="G8q-X5-rX4" secondAttribute="bottom" constant="30" id="gSi-3V-cQc"/>
                 <constraint firstItem="7IZ-EG-1Je" firstAttribute="centerY" secondItem="lJl-Pt-QsZ" secondAttribute="centerY" id="kOv-ie-tcb"/>
                 <constraint firstItem="oFr-Q2-4sJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="or9-kT-YSi"/>

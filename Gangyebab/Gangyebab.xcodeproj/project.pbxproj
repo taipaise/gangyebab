@@ -28,6 +28,8 @@
 		317254672B99B17E00ED3E25 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 317254652B99B17E00ED3E25 /* HomeViewController.xib */; };
 		3172546B2B99B19200ED3E25 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317254692B99B19200ED3E25 /* SettingViewController.swift */; };
 		3172546C2B99B19200ED3E25 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3172546A2B99B19200ED3E25 /* SettingViewController.xib */; };
+		317696B82BA195B000B2C6BF /* AddTodoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 317696B72BA195B000B2C6BF /* AddTodoViewController.xib */; };
+		317696B92BA195B000B2C6BF /* AddTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317696B62BA195B000B2C6BF /* AddTodoViewController.swift */; };
 		31B880422B9E0FDE0087A7A8 /* Font+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B880412B9E0FDE0087A7A8 /* Font+Extensions.swift */; };
 		31B880442B9E10770087A7A8 /* NSObject+extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B880432B9E10770087A7A8 /* NSObject+extenstions.swift */; };
 		31D496E12BA017D5001FA5FE /* HomeSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D496E02BA017D5001FA5FE /* HomeSegmentedControl.swift */; };
@@ -86,6 +88,8 @@
 		317254652B99B17E00ED3E25 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		317254692B99B19200ED3E25 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		3172546A2B99B19200ED3E25 /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		317696B62BA195B000B2C6BF /* AddTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoViewController.swift; sourceTree = "<group>"; };
+		317696B72BA195B000B2C6BF /* AddTodoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTodoViewController.xib; sourceTree = "<group>"; };
 		31B8803D2B9E0F6C0087A7A8 /* SOYO-Maple-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SOYO-Maple-Regular.otf"; sourceTree = "<group>"; };
 		31B8803E2B9E0F6C0087A7A8 /* SOYO-Maple-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SOYO-Maple-Bold.otf"; sourceTree = "<group>"; };
 		31B8803F2B9E0F8E0087A7A8 /* omyu_pretty.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = omyu_pretty.ttf; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 				31B8803B2B9E0F3A0087A7A8 /* Resources */,
 				317254612B99B14100ED3E25 /* Home */,
 				317254622B99B15600ED3E25 /* Setting */,
+				317696B42BA1959B00B2C6BF /* AddTodo */,
 			);
 			path = Gangyebab;
 			sourceTree = "<group>";
@@ -234,6 +239,23 @@
 			children = (
 				317254692B99B19200ED3E25 /* SettingViewController.swift */,
 				3172546A2B99B19200ED3E25 /* SettingViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		317696B42BA1959B00B2C6BF /* AddTodo */ = {
+			isa = PBXGroup;
+			children = (
+				317696B52BA195A600B2C6BF /* View */,
+			);
+			path = AddTodo;
+			sourceTree = "<group>";
+		};
+		317696B52BA195A600B2C6BF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				317696B62BA195B000B2C6BF /* AddTodoViewController.swift */,
+				317696B72BA195B000B2C6BF /* AddTodoViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -407,6 +429,7 @@
 				315A9FA42BA03BA000C1CF63 /* TodoHeaderSupplementaryView.xib in Resources */,
 				317254342B99AE2700ED3E25 /* Assets.xcassets in Resources */,
 				317254672B99B17E00ED3E25 /* HomeViewController.xib in Resources */,
+				317696B82BA195B000B2C6BF /* AddTodoViewController.xib in Resources */,
 				3172546C2B99B19200ED3E25 /* SettingViewController.xib in Resources */,
 				31D496F02BA02BB4001FA5FE /* TodoCollectionViewCell.xib in Resources */,
 				315A9FA92BA03EB900C1CF63 /* HomeSegmentedControl.xib in Resources */,
@@ -450,6 +473,7 @@
 				3172542B2B99AE2600ED3E25 /* AppDelegate.swift in Sources */,
 				3172542D2B99AE2600ED3E25 /* SceneDelegate.swift in Sources */,
 				3172546B2B99B19200ED3E25 /* SettingViewController.swift in Sources */,
+				317696B92BA195B000B2C6BF /* AddTodoViewController.swift in Sources */,
 				315A9FA52BA03BA000C1CF63 /* TodoHeaderSupplementaryView.swift in Sources */,
 				315A9FA12BA036E900C1CF63 /* String+extension.swift in Sources */,
 				31D496F92BA02CA1001FA5FE /* Importance.swift in Sources */,
