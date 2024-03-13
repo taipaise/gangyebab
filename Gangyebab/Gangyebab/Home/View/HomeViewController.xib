@@ -63,7 +63,7 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system"/>
                 </button>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5T3-QJ-ZX4">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5T3-QJ-ZX4">
                     <rect key="frame" x="0.0" y="169" width="393" height="629"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sYX-eS-rKF" customClass="FSCalendar">
@@ -86,19 +86,22 @@
                                 <userDefinedRuntimeAttribute type="number" keyPath="headerTitleTextSize">
                                     <real key="value" value="0.0"/>
                                 </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="titleSelectionColor">
+                                    <color key="value" name="gangyeWhite"/>
+                                </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1EA-bA-yIO" userLabel="Todo View">
-                            <rect key="frame" x="0.0" y="250" width="393" height="379"/>
+                            <rect key="frame" x="0.0" y="270" width="393" height="359"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="해야 할 일을 추가해 보세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSE-U1-6dh">
-                                    <rect key="frame" x="102.66666666666669" y="179.66666666666663" width="188" height="20"/>
+                                    <rect key="frame" x="102.66666666666669" y="169.66666666666663" width="188" height="20"/>
                                     <fontDescription key="fontDescription" name="omyu_pretty" family="omyu pretty" pointSize="20"/>
                                     <color key="textColor" name="stringColor1"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="6FD-4l-bYF" userLabel="Todo Collection View">
-                                    <rect key="frame" x="20" y="0.0" width="353" height="379"/>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="6FD-4l-bYF" userLabel="Todo Collection View">
+                                    <rect key="frame" x="20" y="0.0" width="353" height="359"/>
                                     <color key="backgroundColor" name="background1"/>
                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hph-GI-ywU">
                                         <size key="itemSize" width="128" height="128"/>
@@ -171,6 +174,9 @@
         </namedColor>
         <namedColor name="background2">
             <color red="0.93725490196078431" green="0.8901960784313725" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gangyeWhite">
+            <color red="0.99607843137254903" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="point1">
             <color red="0.43137254901960786" green="0.27058823529411763" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
