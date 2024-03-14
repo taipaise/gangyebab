@@ -20,6 +20,7 @@
                 <outlet property="licenseButton" destination="dCL-MX-1C3" id="MLx-Yx-wHR"/>
                 <outlet property="notificatinSettingButton" destination="cvo-ai-12H" id="HJ6-jF-n2r"/>
                 <outlet property="reviewButton" destination="b4i-bZ-CNT" id="KrI-Pk-xp4"/>
+                <outlet property="versionLabel" destination="B5F-Qj-1V9" id="HGj-qI-bvj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

@@ -273,14 +273,13 @@ extension HomeViewController {
     
     private func setDoubleTapGestureRecognizer(_ isEditing: Bool) {
         guard let doubleTapGestureRecognizer = doubleTapGestureRecognizer else { return }
-     
+        
+        editButton.titleLabel?.font = .omyu(size: 18)
         if isEditing {
             editButton.setTitle("완료", for: .normal)
-            editButton.titleLabel?.font = .omyu(size: 18)
             todoCollectionView.removeGestureRecognizer(doubleTapGestureRecognizer)
         } else {
             editButton.setTitle("편집", for: .normal)
-            editButton.titleLabel?.font = .omyu(size: 18)
             todoCollectionView.addGestureRecognizer(doubleTapGestureRecognizer)
         }
     }

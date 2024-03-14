@@ -180,12 +180,12 @@
                     <buttonConfiguration key="configuration" style="plain" title=""/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLe-1u-4zv">
-                    <rect key="frame" x="325.66666666666669" y="79" width="47.333333333333314" height="30"/>
+                    <rect key="frame" x="322.66666666666669" y="79" width="50.333333333333314" height="32"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" name="stringColor1"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="편집">
-                        <fontDescription key="titleFontDescription" name="omyu_pretty" family="omyu pretty" pointSize="16"/>
+                        <fontDescription key="titleFontDescription" name="omyu_pretty" family="omyu pretty" pointSize="18"/>
                     </buttonConfiguration>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
