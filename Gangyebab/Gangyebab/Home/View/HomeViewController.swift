@@ -142,7 +142,17 @@ extension HomeViewController {
         
         deleteButton.safeTap
             .sink { [weak self] _ in
-                self?.viewModel.action(.deleteTodo)
+                guard let self = self else { return }
+                AlertBuilder(
+                    message: "삭제하시겠습니까?",
+                    confirmAction: CustomAlertAction(
+                        text: "삭제",
+                        action: { [weak self] in
+                            self?.viewModel.action(.deleteTodo)
+                        }),
+                    isCancelNeeded: true
+                )
+                .show(self)
             }
             .store(in: &cancellables)
     }

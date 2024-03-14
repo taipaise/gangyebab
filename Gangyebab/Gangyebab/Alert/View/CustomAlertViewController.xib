@@ -30,12 +30,10 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R4U-TV-KzI">
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CO2-sG-f4H">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                     <color key="backgroundColor" name="gangyeBlack"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain"/>
-                </button>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OCX-vT-kuc">
                     <rect key="frame" x="50" y="341" width="293" height="170"/>
                     <subviews>
@@ -110,13 +108,13 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="OCX-vT-kuc" secondAttribute="trailing" constant="50" id="3uJ-et-FWp"/>
-                <constraint firstAttribute="bottom" secondItem="R4U-TV-KzI" secondAttribute="bottom" id="BWW-jd-TdW"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="R4U-TV-KzI" secondAttribute="trailing" id="G4a-tI-fNP"/>
+                <constraint firstItem="CO2-sG-f4H" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="GBc-eo-eC3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CO2-sG-f4H" secondAttribute="trailing" id="ZnK-Gg-7wh"/>
                 <constraint firstItem="OCX-vT-kuc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gUW-yX-MKy"/>
                 <constraint firstItem="OCX-vT-kuc" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="iIj-ap-tM9"/>
-                <constraint firstItem="R4U-TV-KzI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="mTx-4T-tcz"/>
-                <constraint firstItem="R4U-TV-KzI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="paL-Z0-3fO"/>
                 <constraint firstItem="OCX-vT-kuc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="re5-x9-UAv"/>
+                <constraint firstItem="CO2-sG-f4H" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xgG-IY-R0s"/>
+                <constraint firstAttribute="bottom" secondItem="CO2-sG-f4H" secondAttribute="bottom" id="ycE-ns-Q4D"/>
             </constraints>
             <point key="canvasLocation" x="139" y="21"/>
         </view>

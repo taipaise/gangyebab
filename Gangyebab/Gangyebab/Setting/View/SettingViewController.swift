@@ -52,8 +52,15 @@ extension SettingViewController {
 extension SettingViewController {
     private func sendMail() {
         guard MFMailComposeViewController.canSendMail() else {
-            // TODO: - 커스텀 alert 등록
-            print("메일 전송 불가")
+            AlertBuilder(
+                message: "이메일을 사용할 수 없습니다.\n이메일 설정을 확인해주세요.",
+                confirmAction: CustomAlertAction(
+                    text: "확인",
+                    action: {}
+                ),
+                isCancelNeeded: false
+            )
+            .show(self)
             return
         }
         
@@ -82,19 +89,44 @@ extension SettingViewController {
 extension SettingViewController: MFMailComposeViewControllerDelegate {
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: (any Error)?) {
         // TODO: - custom alert 등록하기
+        dismiss(animated: true)
         switch result {
         case .cancelled:
-            print("메일 보내기 취소")
+            break
         case .saved:
-            print("임시 저장")
+            print("임시저장")
+            AlertBuilder(
+                message: "이메일이 임시 저장되었습니다.",
+                confirmAction: CustomAlertAction(
+                    text: "확인",
+                    action: {}
+                ),
+                isCancelNeeded: false
+            )
+            .show(self)
+            print(self)
         case .sent:
-            print("메일 보내기 성공")
+            AlertBuilder(
+                message: "문의를 성공적으로 보냈습니다.",
+                confirmAction: CustomAlertAction(
+                    text: "확인",
+                    action: {}
+                ),
+                isCancelNeeded: false
+            )
+            .show(self)
         case .failed:
-            print("메일 보내기 실패")
+            AlertBuilder(
+                message: "이메일 전송이 실패하였습니다.",
+                confirmAction: CustomAlertAction(
+                    text: "확인",
+                    action: {}
+                ),
+                isCancelNeeded: false
+            )
+            .show(self)
         @unknown default:
             break
         }
-        
-        dismiss(animated: true)
     }
 }

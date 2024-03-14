@@ -13,9 +13,8 @@ protocol AddTodoDelegate: AnyObject {
 }
 
 final class AddTodoViewController: UIViewController {
-
-    @IBOutlet private weak var dismissButton1: UIButton!
-    @IBOutlet private weak var dismissButton2: UIButton!
+    
+    @IBOutlet private weak var dismissButton: UIButton!
     @IBOutlet private weak var todoTextField: UITextField!
     @IBOutlet private weak var noneButton: UIButton!
     @IBOutlet private weak var lowButton: UIButton!
@@ -79,13 +78,12 @@ extension AddTodoViewController {
 // MARK: - binding
 extension AddTodoViewController {
     private func bindView() {
-        [dismissButton1, dismissButton2].forEach { button in
-            button?.safeTap
-                .sink(receiveValue: { [weak self] in
-                    self?.dismiss(animated: false)
-                })
-                .store(in: &cancellables)
-        }
+        dismissButton.safeTap
+            .sink { [weak self] _ in
+                guard let self = self else { return }
+                self.dismiss(animated: false)
+            }
+            .store(in: &cancellables)
         
         [
             noneButton,
@@ -106,8 +104,17 @@ extension AddTodoViewController {
             .sink { [weak self] _ in
                 guard let self = self else { return }
                 
-                self.delegate?.transferTodo(self.viewModel.getTodo())
-                self.dismiss(animated: false)
+                if viewModel.title.value.isEmpty {
+                    AlertBuilder(
+                        message: "할 일을 입력해 주세요.",
+                        confirmAction: CustomAlertAction(text: "확인", action: {}),
+                        isCancelNeeded: false
+                    )
+                    .show(self)
+                } else {
+                    self.delegate?.transferTodo(self.viewModel.getTodo())
+                    self.dismiss(animated: false)
+                }
             }
             .store(in: &cancellables)
     }
@@ -151,6 +158,10 @@ extension AddTodoViewController {
             self?.importanceLabels[type.rawValue].textColor = .gangyeWhite
         }
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
 }
 
 // MARK: - textField Delegate
@@ -158,5 +169,10 @@ extension AddTodoViewController: UITextFieldDelegate {
     @objc func textFieldDidChange(_ sender: Any?) {
         guard let text = todoTextField.text else { return }
         viewModel.action(.updateTitle(text))
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

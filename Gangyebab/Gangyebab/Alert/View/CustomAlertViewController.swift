@@ -61,5 +61,13 @@ extension CustomAlertViewController {
                 self?.cancelButton.isHidden = !state
             }
             .store(in: &cancellables)
+        
+        viewModel.$confirmTitle
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] title in
+                self?.confirmButton.setTitle(title, for: .normal)
+                self?.confirmButton.titleLabel?.font = .omyu(size: 18)
+            }
+            .store(in: &cancellables)
     }
 }

@@ -19,6 +19,7 @@ final class CustomAlertViewModel {
     }
     
     @Published private(set) var isCancelNeeded = false
+    @Published private(set) var confirmTitle = ""
     private(set) var message = CurrentValueSubject<String, Never>("")
     private var confirmAction: CustomAlertAction?
     
@@ -32,6 +33,8 @@ final class CustomAlertViewModel {
         self.message.send(message)
         self.confirmAction = confirmAction
         self.isCancelNeeded = isCancelNeeded
+        
+        if let title = confirmAction.text { confirmTitle = title }
     }
     
     func action(_ input: Input) {
