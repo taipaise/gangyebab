@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		310E78412BA2F52300E24C7E /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310E78402BA2F52300E24C7E /* SettingViewModel.swift */; };
 		310E78432BA2FC2000E24C7E /* UIDevice+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310E78422BA2FC2000E24C7E /* UIDevice+extension.swift */; };
+		310E784C2BA3051F00E24C7E /* CustomAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 310E784B2BA3051F00E24C7E /* CustomAlertViewController.xib */; };
+		310E784D2BA3051F00E24C7E /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310E784A2BA3051F00E24C7E /* CustomAlertViewController.swift */; };
 		315A9FA12BA036E900C1CF63 /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A9FA02BA036E900C1CF63 /* String+extension.swift */; };
 		315A9FA42BA03BA000C1CF63 /* TodoHeaderSupplementaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 315A9FA32BA03BA000C1CF63 /* TodoHeaderSupplementaryView.xib */; };
 		315A9FA52BA03BA000C1CF63 /* TodoHeaderSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A9FA22BA03BA000C1CF63 /* TodoHeaderSupplementaryView.swift */; };
@@ -69,6 +71,8 @@
 /* Begin PBXFileReference section */
 		310E78402BA2F52300E24C7E /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		310E78422BA2FC2000E24C7E /* UIDevice+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+extension.swift"; sourceTree = "<group>"; };
+		310E784A2BA3051F00E24C7E /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
+		310E784B2BA3051F00E24C7E /* CustomAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAlertViewController.xib; sourceTree = "<group>"; };
 		315A9FA02BA036E900C1CF63 /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
 		315A9FA22BA03BA000C1CF63 /* TodoHeaderSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoHeaderSupplementaryView.swift; sourceTree = "<group>"; };
 		315A9FA32BA03BA000C1CF63 /* TodoHeaderSupplementaryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoHeaderSupplementaryView.xib; sourceTree = "<group>"; };
@@ -146,6 +150,23 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		310E78442BA302C200E24C7E /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				310E78452BA304D100E24C7E /* View */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		310E78452BA304D100E24C7E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				310E784A2BA3051F00E24C7E /* CustomAlertViewController.swift */,
+				310E784B2BA3051F00E24C7E /* CustomAlertViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		315A9FAC2BA0441400C1CF63 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +215,7 @@
 				317254612B99B14100ED3E25 /* Home */,
 				317254622B99B15600ED3E25 /* Setting */,
 				317696B42BA1959B00B2C6BF /* AddTodo */,
+				310E78442BA302C200E24C7E /* Alert */,
 			);
 			path = Gangyebab;
 			sourceTree = "<group>";
@@ -454,6 +476,7 @@
 				31D496FB2BA02EAB001FA5FE /* SOYO-Maple-Bold.otf in Resources */,
 				31D496FC2BA02EAB001FA5FE /* SOYO-Maple-Regular.otf in Resources */,
 				317254372B99AE2700ED3E25 /* LaunchScreen.storyboard in Resources */,
+				310E784C2BA3051F00E24C7E /* CustomAlertViewController.xib in Resources */,
 				315A9FA42BA03BA000C1CF63 /* TodoHeaderSupplementaryView.xib in Resources */,
 				317254342B99AE2700ED3E25 /* Assets.xcassets in Resources */,
 				317254672B99B17E00ED3E25 /* HomeViewController.xib in Resources */,
@@ -496,6 +519,7 @@
 				31B880422B9E0FDE0087A7A8 /* Font+Extensions.swift in Sources */,
 				315A9FA72BA03D0F00C1CF63 /* TodoSection.swift in Sources */,
 				31B880442B9E10770087A7A8 /* NSObject+extenstions.swift in Sources */,
+				310E784D2BA3051F00E24C7E /* CustomAlertViewController.swift in Sources */,
 				315D0DF72BA1A85100F647DB /* AddTodoViewModel.swift in Sources */,
 				315A9FAB2BA0413700C1CF63 /* UICollectionView+extension.swift in Sources */,
 				315A9FB02BA044BD00C1CF63 /* ViewModel.swift in Sources */,
