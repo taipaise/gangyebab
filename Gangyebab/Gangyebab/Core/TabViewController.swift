@@ -13,11 +13,29 @@ enum TabBarItemType: Int {
 }
 
 extension TabBarItemType {
+    var description: String {
+        switch self {
+        case .home:
+            return "홈"
+        case .setting:
+            return "설정"
+        }
+    }
+    
+    var image: UIImage {
+        switch self {
+        case .home:
+            return UIImage(systemName: "house.fill")!
+        case .setting:
+            return UIImage(systemName: "gearshape.fill")!
+        }
+    }
+    
     func setTabBarItem() -> UITabBarItem {
         return UITabBarItem(
-            title: "",
-            image: .actions,
-            selectedImage: .add
+            title: description,
+            image: image,
+            selectedImage: image
         )
     }
 }
@@ -28,6 +46,8 @@ final class TabViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setTabBarItems()
+        setUI()
     }
     
     private func setTabBarItems() {
@@ -45,5 +65,15 @@ final class TabViewController: UITabBarController {
             .compactMap { $0.value }
         
         setViewControllers(viewControllers, animated: false)
+    }
+    
+    private func setUI() {
+        let fontAttributes = [NSAttributedString.Key.font: UIFont.omyu(size: 13)]
+        UITabBarItem.appearance().setTitleTextAttributes(fontAttributes, for: .normal)
+        
+        tabBar.backgroundColor = .background2
+        tabBar.tintColor = .point1
+        tabBar.layer.cornerRadius = 20
+        tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
 }
