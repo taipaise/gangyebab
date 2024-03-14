@@ -11,6 +11,8 @@
 		310E78432BA2FC2000E24C7E /* UIDevice+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310E78422BA2FC2000E24C7E /* UIDevice+extension.swift */; };
 		310E784C2BA3051F00E24C7E /* CustomAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 310E784B2BA3051F00E24C7E /* CustomAlertViewController.xib */; };
 		310E784D2BA3051F00E24C7E /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310E784A2BA3051F00E24C7E /* CustomAlertViewController.swift */; };
+		310E78502BA3098B00E24C7E /* CustomAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310E784F2BA3098B00E24C7E /* CustomAlertViewModel.swift */; };
+		310E78522BA312C400E24C7E /* AlertBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310E78512BA312C400E24C7E /* AlertBuilder.swift */; };
 		315A9FA12BA036E900C1CF63 /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A9FA02BA036E900C1CF63 /* String+extension.swift */; };
 		315A9FA42BA03BA000C1CF63 /* TodoHeaderSupplementaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 315A9FA32BA03BA000C1CF63 /* TodoHeaderSupplementaryView.xib */; };
 		315A9FA52BA03BA000C1CF63 /* TodoHeaderSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A9FA22BA03BA000C1CF63 /* TodoHeaderSupplementaryView.swift */; };
@@ -73,6 +75,8 @@
 		310E78422BA2FC2000E24C7E /* UIDevice+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+extension.swift"; sourceTree = "<group>"; };
 		310E784A2BA3051F00E24C7E /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		310E784B2BA3051F00E24C7E /* CustomAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAlertViewController.xib; sourceTree = "<group>"; };
+		310E784F2BA3098B00E24C7E /* CustomAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewModel.swift; sourceTree = "<group>"; };
+		310E78512BA312C400E24C7E /* AlertBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBuilder.swift; sourceTree = "<group>"; };
 		315A9FA02BA036E900C1CF63 /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
 		315A9FA22BA03BA000C1CF63 /* TodoHeaderSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoHeaderSupplementaryView.swift; sourceTree = "<group>"; };
 		315A9FA32BA03BA000C1CF63 /* TodoHeaderSupplementaryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoHeaderSupplementaryView.xib; sourceTree = "<group>"; };
@@ -153,7 +157,9 @@
 		310E78442BA302C200E24C7E /* Alert */ = {
 			isa = PBXGroup;
 			children = (
+				310E784E2BA3097E00E24C7E /* ViewModel */,
 				310E78452BA304D100E24C7E /* View */,
+				310E78512BA312C400E24C7E /* AlertBuilder.swift */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -165,6 +171,14 @@
 				310E784B2BA3051F00E24C7E /* CustomAlertViewController.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		310E784E2BA3097E00E24C7E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				310E784F2BA3098B00E24C7E /* CustomAlertViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		315A9FAC2BA0441400C1CF63 /* ViewModel */ = {
@@ -517,6 +531,7 @@
 				31D496F12BA02BB4001FA5FE /* TodoCollectionViewCell.swift in Sources */,
 				3172545D2B99AFC800ED3E25 /* NavigationViewController.swift in Sources */,
 				31B880422B9E0FDE0087A7A8 /* Font+Extensions.swift in Sources */,
+				310E78522BA312C400E24C7E /* AlertBuilder.swift in Sources */,
 				315A9FA72BA03D0F00C1CF63 /* TodoSection.swift in Sources */,
 				31B880442B9E10770087A7A8 /* NSObject+extenstions.swift in Sources */,
 				310E784D2BA3051F00E24C7E /* CustomAlertViewController.swift in Sources */,
@@ -526,6 +541,7 @@
 				31D496E52BA019DC001FA5FE /* UIView+extensions.swift in Sources */,
 				3172542B2B99AE2600ED3E25 /* AppDelegate.swift in Sources */,
 				310E78412BA2F52300E24C7E /* SettingViewModel.swift in Sources */,
+				310E78502BA3098B00E24C7E /* CustomAlertViewModel.swift in Sources */,
 				3172542D2B99AE2600ED3E25 /* SceneDelegate.swift in Sources */,
 				315D0DF92BA1B85900F647DB /* RepeatType.swift in Sources */,
 				3172546B2B99B19200ED3E25 /* SettingViewController.swift in Sources */,
