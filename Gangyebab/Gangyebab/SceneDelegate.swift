@@ -59,9 +59,9 @@ extension SceneDelegate {
     
     func getRootViewController() -> UIViewController {
         let vc = NavigationViewController(nibName: nil, bundle: nil)
-        let mainVC = HomeViewController(
-            nibName: HomeViewController.className,
-            bundle: HomeViewController.bundle
+        let mainVC = TabViewController(
+            nibName: TabViewController.className,
+            bundle: TabViewController.bundle
         )
         vc.viewControllers = [mainVC]
         vc.navigationBar.isHidden = true
