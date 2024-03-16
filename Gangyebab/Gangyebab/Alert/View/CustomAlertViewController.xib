@@ -38,13 +38,13 @@
                     <rect key="frame" x="50" y="341" width="293" height="170"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알림" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lAR-8e-Z9v">
-                            <rect key="frame" x="20" y="30" width="28.333333333333329" height="20"/>
+                            <rect key="frame" x="25" y="20" width="28.333333333333329" height="20"/>
                             <fontDescription key="fontDescription" name="omyu_pretty" family="omyu pretty" pointSize="20"/>
                             <color key="textColor" name="stringColor1"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어쩌고 저쩌고를 하시겠습니까?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cbo-8X-6Pv">
-                            <rect key="frame" x="20" y="60" width="200.66666666666666" height="18"/>
+                            <rect key="frame" x="25" y="50" width="200.66666666666666" height="18"/>
                             <fontDescription key="fontDescription" name="SOYO-Maple-Regular" family="SOYO Maple" pointSize="15"/>
                             <color key="textColor" name="stringColor1"/>
                             <nil key="highlightedColor"/>
@@ -90,9 +90,9 @@
                     <constraints>
                         <constraint firstItem="fW4-k1-7ij" firstAttribute="leading" secondItem="OCX-vT-kuc" secondAttribute="leading" constant="20" id="1xh-Aq-pzs"/>
                         <constraint firstAttribute="trailing" secondItem="fW4-k1-7ij" secondAttribute="trailing" constant="20" id="6qq-xz-840"/>
-                        <constraint firstItem="lAR-8e-Z9v" firstAttribute="leading" secondItem="OCX-vT-kuc" secondAttribute="leading" constant="20" id="LcK-Sj-Un9"/>
-                        <constraint firstItem="lAR-8e-Z9v" firstAttribute="top" secondItem="OCX-vT-kuc" secondAttribute="top" constant="30" id="SkQ-Sl-7kx"/>
-                        <constraint firstItem="Cbo-8X-6Pv" firstAttribute="leading" secondItem="OCX-vT-kuc" secondAttribute="leading" constant="20" id="Sox-Bp-mGj"/>
+                        <constraint firstItem="lAR-8e-Z9v" firstAttribute="leading" secondItem="OCX-vT-kuc" secondAttribute="leading" constant="25" id="LcK-Sj-Un9"/>
+                        <constraint firstItem="lAR-8e-Z9v" firstAttribute="top" secondItem="OCX-vT-kuc" secondAttribute="top" constant="20" id="SkQ-Sl-7kx"/>
+                        <constraint firstItem="Cbo-8X-6Pv" firstAttribute="leading" secondItem="OCX-vT-kuc" secondAttribute="leading" constant="25" id="Sox-Bp-mGj"/>
                         <constraint firstAttribute="bottom" secondItem="fW4-k1-7ij" secondAttribute="bottom" constant="20" id="cDJ-fu-g0b"/>
                         <constraint firstItem="Cbo-8X-6Pv" firstAttribute="top" secondItem="lAR-8e-Z9v" secondAttribute="bottom" constant="10" id="fbj-dg-pXb"/>
                         <constraint firstAttribute="height" constant="170" id="pfk-f7-PzT"/>

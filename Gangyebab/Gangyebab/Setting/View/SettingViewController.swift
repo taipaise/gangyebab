@@ -53,7 +53,7 @@ extension SettingViewController {
     private func sendMail() {
         guard MFMailComposeViewController.canSendMail() else {
             AlertBuilder(
-                message: "이메일을 사용할 수 없습니다.\n이메일 설정을 확인해주세요.",
+                message: "이메일 설정을 확인해주세요.",
                 confirmAction: CustomAlertAction(
                     text: "확인",
                     action: {}

@@ -9,8 +9,6 @@ import UIKit
 
 final class TodoHeaderSupplementaryView: UICollectionReusableView {
 
-    
-    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
 
     override init(frame: CGRect) {
@@ -29,10 +27,8 @@ final class TodoHeaderSupplementaryView: UICollectionReusableView {
     func configure(_ type: TodoSection) {
         switch type {
         case .inProgress:
-            imageView.image = .eggWhite
             titleLabel.text = "해야 할 일"
         case .completed:
-            imageView.image = .eggBrown
             titleLabel.text = "완료한 일"
         }
     }

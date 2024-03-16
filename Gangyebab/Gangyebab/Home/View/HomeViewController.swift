@@ -229,7 +229,7 @@ extension HomeViewController {
 
             let groupSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .absolute(30)
+                heightDimension: .absolute(33)
             )
 
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 1)
@@ -242,7 +242,7 @@ extension HomeViewController {
             
             group.edgeSpacing = NSCollectionLayoutEdgeSpacing(
                 leading: .fixed(0),
-                top: .fixed(7),
+                top: .fixed(10),
                 trailing: .fixed(0),
                 bottom: .fixed(0)
             )

@@ -19,15 +19,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="egg_white" translatesAutoresizingMaskIntoConstraints="NO" id="3LR-Qo-oZA">
-                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="L0w-dl-JaM"/>
-                        <constraint firstAttribute="width" constant="30" id="ba4-Pc-LCs"/>
-                    </constraints>
-                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UuB-d2-Xwp">
-                    <rect key="frame" x="29.999999999999996" y="2.6666666666666661" width="53.666666666666657" height="25"/>
+                    <rect key="frame" x="9.9999999999999964" y="2.6666666666666661" width="53.666666666666657" height="25"/>
                     <fontDescription key="fontDescription" name="omyu_pretty" family="omyu pretty" pointSize="25"/>
                     <color key="textColor" name="stringColor1"/>
                     <nil key="highlightedColor"/>
@@ -35,21 +28,16 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="3LR-Qo-oZA" secondAttribute="bottom" id="5uB-az-uJB"/>
                 <constraint firstItem="UuB-d2-Xwp" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="AaA-Rx-m8N"/>
-                <constraint firstItem="UuB-d2-Xwp" firstAttribute="leading" secondItem="3LR-Qo-oZA" secondAttribute="trailing" id="OuW-u6-aXJ"/>
-                <constraint firstItem="3LR-Qo-oZA" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="U8P-NA-HlB"/>
-                <constraint firstItem="3LR-Qo-oZA" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="ngf-i7-9Xg"/>
+                <constraint firstItem="UuB-d2-Xwp" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" constant="10" id="xlb-0b-XKB"/>
             </constraints>
             <connections>
-                <outlet property="imageView" destination="3LR-Qo-oZA" id="xxA-X3-nOP"/>
                 <outlet property="titleLabel" destination="UuB-d2-Xwp" id="cai-s6-TlW"/>
             </connections>
             <point key="canvasLocation" x="-31" y="20"/>
         </collectionReusableView>
     </objects>
     <resources>
-        <image name="egg_white" width="30" height="30"/>
         <namedColor name="stringColor1">
             <color red="0.34509803921568627" green="0.18823529411764706" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

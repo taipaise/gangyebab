@@ -58,7 +58,7 @@ extension TodoCollectionViewCell {
         
         switch cellModel.importance {
         case .none:
-            importanceColor.backgroundColor = .background1
+            importanceColor.backgroundColor = .white
         case .low:
             importanceColor.backgroundColor = .importanceLow
         case .medium:
