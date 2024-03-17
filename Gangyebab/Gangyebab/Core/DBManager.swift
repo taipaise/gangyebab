@@ -15,13 +15,30 @@ final class DBManager {
     var path = "todo.sqlite"
     
     private init() {
-        self.db = createDB()
+        createDB()
+    }
+    
+    func isTableExists(tableName: String) -> Bool {
+        let query = "SELECT name FROM sqlite_master WHERE type='table' AND name=?;"
+        var statement: OpaquePointer? = nil
+        
+        if sqlite3_prepare_v2(self.db, query, -1, &statement, nil) == SQLITE_OK {
+            sqlite3_bind_text(statement, 1, (tableName as NSString).utf8String, -1, nil)
+            
+            if sqlite3_step(statement) == SQLITE_ROW {
+                sqlite3_finalize(statement)
+                return true
+            }
+        }
+        
+        sqlite3_finalize(statement)
+        return false
     }
 }
 
 // MARK: - DDL
 extension DBManager {
-    func createDB() -> OpaquePointer? {
+    func createDB() {
         var db: OpaquePointer? = nil
         do {
             let filePath = try FileManager.default.url(
@@ -32,14 +49,15 @@ extension DBManager {
             
             if sqlite3_open(filePath.path, &db) == SQLITE_OK {
                 print("Success create db Path")
-                return db
+                self.db = db
+                return
             }
         }
         catch {
             print("error in createDB")
         }
         print("error in createDB - sqlite3_open")
-        return nil
+        self.db = nil
     }
     
     func createTodoTable() {
