@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 protocol AddTodoDelegate: AnyObject {
-    func transferTodo(_ todo: TodoCellModel)
+    func transferTodo(_ todo: TodoModel)
 }
 
 final class AddTodoViewController: UIViewController {
@@ -38,7 +38,7 @@ final class AddTodoViewController: UIViewController {
         bindViewModel()
     }
     
-    func configure(_ todo: TodoCellModel) {
+    func configure(_ todo: TodoModel) {
         viewModel.configure(todo)
     }
 }

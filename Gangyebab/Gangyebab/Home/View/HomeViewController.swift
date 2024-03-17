@@ -12,8 +12,8 @@ import Combine
 final class HomeViewController: UIViewController {
     typealias TodoHeaderView = TodoHeaderSupplementaryView
     typealias TodoCell = TodoCollectionViewCell
-    typealias DataSource = UICollectionViewDiffableDataSource<TodoSection, TodoCellModel>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<TodoSection, TodoCellModel>
+    typealias DataSource = UICollectionViewDiffableDataSource<TodoSection, TodoModel>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<TodoSection, TodoModel>
     
     @IBOutlet private weak var homeSegmentedControl: HomeSegmentedControl!
     @IBOutlet private weak var nextButton: UIButton!
@@ -328,7 +328,7 @@ extension HomeViewController: HomeSegmentedControlDelegate {
 
 // MARK: - add todo delegate
 extension HomeViewController: AddTodoDelegate {
-    func transferTodo(_ todo: TodoCellModel) {
+    func transferTodo(_ todo: TodoModel) {
         viewModel.action(.updateTodo(todo))
     }
 }

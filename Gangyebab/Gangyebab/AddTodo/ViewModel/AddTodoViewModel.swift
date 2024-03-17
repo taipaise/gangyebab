@@ -18,9 +18,9 @@ final class AddTodoViewModel: ViewModel {
     private(set) var importance = CurrentValueSubject<Importance, Never>(.none)
     private(set) var repeatType = CurrentValueSubject<RepeatType, Never>(.none)
     private(set) var title = CurrentValueSubject<String, Never>("")
-    private var todoCellModel: TodoCellModel?
+    private var todoCellModel: TodoModel?
     
-    func configure(_ todo: TodoCellModel) {
+    func configure(_ todo: TodoModel) {
         todoCellModel = todo
         title.send(todo.title)
         importance.send(todo.importance)
@@ -41,16 +41,16 @@ final class AddTodoViewModel: ViewModel {
 
 // MARK: - Action
 extension AddTodoViewModel {
-    func getTodo() -> TodoCellModel {
+    func getTodo() -> TodoModel {
         if let todo = todoCellModel {
-            return TodoCellModel(
+            return TodoModel(
                 uuid: todo.uuid,
                 title: title.value,
                 importance: importance.value,
                 repeatType: repeatType.value
             )
         } else {
-            return TodoCellModel(
+            return TodoModel(
                 title: title.value,
                 importance: importance.value,
                 repeatType: repeatType.value

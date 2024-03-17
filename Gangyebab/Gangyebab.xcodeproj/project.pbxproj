@@ -51,6 +51,8 @@
 		31D496FA2BA02EAB001FA5FE /* omyu_pretty.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31B8803F2B9E0F8E0087A7A8 /* omyu_pretty.ttf */; };
 		31D496FB2BA02EAB001FA5FE /* SOYO-Maple-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31B8803E2B9E0F6C0087A7A8 /* SOYO-Maple-Bold.otf */; };
 		31D496FC2BA02EAB001FA5FE /* SOYO-Maple-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31B8803D2B9E0F6C0087A7A8 /* SOYO-Maple-Regular.otf */; };
+		31E9CE842BA6BF7300B52CD8 /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9CE832BA6BF7300B52CD8 /* TodoModel.swift */; };
+		31E9CE862BA6BF7C00B52CD8 /* RepeatRuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9CE852BA6BF7C00B52CD8 /* RepeatRuleModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +119,8 @@
 		31D496EE2BA02BB4001FA5FE /* TodoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCollectionViewCell.swift; sourceTree = "<group>"; };
 		31D496EF2BA02BB4001FA5FE /* TodoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoCollectionViewCell.xib; sourceTree = "<group>"; };
 		31D496F82BA02CA1001FA5FE /* Importance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Importance.swift; sourceTree = "<group>"; };
+		31E9CE832BA6BF7300B52CD8 /* TodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
+		31E9CE852BA6BF7C00B52CD8 /* RepeatRuleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatRuleModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -370,6 +374,8 @@
 				31D496F82BA02CA1001FA5FE /* Importance.swift */,
 				315A9FA62BA03D0F00C1CF63 /* TodoSection.swift */,
 				315D0DF82BA1B85900F647DB /* RepeatType.swift */,
+				31E9CE832BA6BF7300B52CD8 /* TodoModel.swift */,
+				31E9CE852BA6BF7C00B52CD8 /* RepeatRuleModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -527,12 +533,14 @@
 				315A9FAE2BA0441F00C1CF63 /* HomeViewModel.swift in Sources */,
 				31D496E12BA017D5001FA5FE /* HomeSegmentedControl.swift in Sources */,
 				31D496E72BA01A98001FA5FE /* UIButton+extension.swift in Sources */,
+				31E9CE842BA6BF7300B52CD8 /* TodoModel.swift in Sources */,
 				3172545F2B99B00700ED3E25 /* TabViewController.swift in Sources */,
 				31D496F12BA02BB4001FA5FE /* TodoCollectionViewCell.swift in Sources */,
 				3172545D2B99AFC800ED3E25 /* NavigationViewController.swift in Sources */,
 				31B880422B9E0FDE0087A7A8 /* Font+Extensions.swift in Sources */,
 				310E78522BA312C400E24C7E /* AlertBuilder.swift in Sources */,
 				315A9FA72BA03D0F00C1CF63 /* TodoSection.swift in Sources */,
+				31E9CE862BA6BF7C00B52CD8 /* RepeatRuleModel.swift in Sources */,
 				31B880442B9E10770087A7A8 /* NSObject+extenstions.swift in Sources */,
 				310E784D2BA3051F00E24C7E /* CustomAlertViewController.swift in Sources */,
 				315D0DF72BA1A85100F647DB /* AddTodoViewModel.swift in Sources */,
