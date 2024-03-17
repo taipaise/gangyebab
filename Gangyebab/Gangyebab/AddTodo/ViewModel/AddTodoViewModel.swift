@@ -47,13 +47,15 @@ extension AddTodoViewModel {
                 uuid: todo.uuid,
                 title: title.value,
                 importance: importance.value,
-                repeatType: repeatType.value
+                repeatType: repeatType.value,
+                date: "11"
             )
         } else {
             return TodoModel(
                 title: title.value,
                 importance: importance.value,
-                repeatType: repeatType.value
+                repeatType: repeatType.value,
+                date: "1"
             )
         }
     }

@@ -30,17 +30,17 @@ extension TodoCollectionViewCell {
     func configure(_ cellModel: TodoModel) {
         contentLabel.text = cellModel.title
         
-        if cellModel.isEditing {
-            checkImage.isHidden = false
-        } else {
-            checkImage.isHidden = true
-        }
-        
-        if cellModel.isChecked {
-            checkImage.image = UIImage(systemName: "circle.inset.filled")
-        } else {
-            checkImage.image = UIImage(systemName: "circle")
-        }
+//        if cellModel.isEditing {
+//            checkImage.isHidden = false
+//        } else {
+//            checkImage.isHidden = true
+//        }
+//        
+//        if cellModel.isChecked {
+//            checkImage.image = UIImage(systemName: "circle.inset.filled")
+//        } else {
+//            checkImage.image = UIImage(systemName: "circle")
+//        }
         
         switch cellModel.importance {
         case .none:

@@ -13,8 +13,7 @@ struct TodoModel: Hashable, Comparable {
     let importance: Importance
     var isCompleted: Bool = false
     var repeatType: RepeatType
-    var isEditing: Bool = false
-    var isChecked: Bool = false
+    var date: String
     var repeatId: Int?
     
     static func < (lhs: TodoModel, rhs: TodoModel) -> Bool {
