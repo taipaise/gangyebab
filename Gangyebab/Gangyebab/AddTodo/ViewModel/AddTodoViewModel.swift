@@ -18,6 +18,8 @@ final class AddTodoViewModel: ViewModel {
     private(set) var importance = CurrentValueSubject<Importance, Never>(.none)
     private(set) var repeatType = CurrentValueSubject<RepeatType, Never>(.none)
     private(set) var title = CurrentValueSubject<String, Never>("")
+    private(set) var isEditing = false
+    private let dateManager = DateManager.shared
     private var todoCellModel: TodoModel?
     
     func configure(_ todo: TodoModel) {
@@ -25,6 +27,7 @@ final class AddTodoViewModel: ViewModel {
         title.send(todo.title)
         importance.send(todo.importance)
         repeatType.send(todo.repeatType)
+        isEditing = true 
     }
     
     func action(_ input: Input) {
@@ -42,20 +45,23 @@ final class AddTodoViewModel: ViewModel {
 // MARK: - Action
 extension AddTodoViewModel {
     func getTodo() -> TodoModel {
-        if let todo = todoCellModel {
+        if 
+            let todo = todoCellModel,
+            isEditing
+        {
             return TodoModel(
                 uuid: todo.uuid,
                 title: title.value,
                 importance: importance.value,
                 repeatType: repeatType.value,
-                date: "11"
+                date: todo.date
             )
         } else {
             return TodoModel(
                 title: title.value,
                 importance: importance.value,
                 repeatType: repeatType.value,
-                date: "1"
+                date: dateManager.dateToString(Date())
             )
         }
     }

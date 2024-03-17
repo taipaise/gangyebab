@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 protocol AddTodoDelegate: AnyObject {
-    func transferTodo(_ todo: TodoModel)
+    func transferTodo(_ todo: TodoModel, isEditing: Bool)
 }
 
 final class AddTodoViewController: UIViewController {
@@ -112,7 +112,11 @@ extension AddTodoViewController {
                     )
                     .show(self)
                 } else {
-                    self.delegate?.transferTodo(self.viewModel.getTodo())
+                    if viewModel.isEditing {
+                        self.delegate?.transferTodo(self.viewModel.getTodo(), isEditing: true)
+                    } else {
+                        self.delegate?.transferTodo(self.viewModel.getTodo(), isEditing: false)
+                    }
                     self.dismiss(animated: false)
                 }
             }

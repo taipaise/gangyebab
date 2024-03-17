@@ -89,9 +89,9 @@ extension HomeViewController {
                     self?.todoCollectionView.isHidden = false
                     
                     if self?.viewModel.isEditing ?? true {
-                        self?.applyItems(cellModels: cellModels, animating: false)
+                        self?.applyItems(cellModels: cellModels)
                     } else {
-                        self?.applyItems(cellModels: cellModels, animating: true)
+                        self?.applyItems(cellModels: cellModels)
                     }
                     
                 }
@@ -133,12 +133,6 @@ extension HomeViewController {
                 })
                 .store(in: &cancellables)
         }
-        
-        editButton.safeTap
-            .sink { [weak self] _ in
-                self?.viewModel.action(.editTapped)
-            }
-            .store(in: &cancellables)
         
         deleteButton.safeTap
             .sink { [weak self] _ in
@@ -208,14 +202,14 @@ extension HomeViewController {
         dataSource?.apply(snapshot, animatingDifferences: false)
     }
     
-    private func applyItems(cellModels: TodoCellModels, animating: Bool) {
+    private func applyItems(cellModels: TodoCellModels) {
         var snapshot = Snapshot()
         
         snapshot.appendSections([.inProgress, .completed])
         snapshot.appendItems(cellModels.inProgress, toSection: .inProgress)
         snapshot.appendItems(cellModels.completed, toSection: .completed)
         
-        dataSource?.apply(snapshot, animatingDifferences: animating)
+        dataSource?.apply(snapshot, animatingDifferences: false)
     }
     
     private func createCollectionViewLayout() -> UICollectionViewLayout {
@@ -302,7 +296,7 @@ extension HomeViewController: UICollectionViewDelegate {
         let row = indexPath.row
         
         if viewModel.isEditing {
-            viewModel.action(.checkTodo(indexPath))
+//            viewModel.action(.checkTodo(indexPath))
         } else {
             guard section == TodoSection.inProgress.rawValue else { return }
             
@@ -328,7 +322,11 @@ extension HomeViewController: HomeSegmentedControlDelegate {
 
 // MARK: - add todo delegate
 extension HomeViewController: AddTodoDelegate {
-    func transferTodo(_ todo: TodoModel) {
-        viewModel.action(.updateTodo(todo))
+    func transferTodo(_ todo: TodoModel, isEditing: Bool) {
+        if isEditing {
+            viewModel.action(.updateTodo(todo))
+        } else {
+            viewModel.action(.addTodo(todo))
+        }
     }
 }
