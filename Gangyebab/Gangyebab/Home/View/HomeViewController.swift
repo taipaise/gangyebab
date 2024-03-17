@@ -23,6 +23,9 @@ final class HomeViewController: UIViewController {
     @IBOutlet private weak var addImage: UIImageView!
     @IBOutlet private weak var addButton1: UIButton!
     @IBOutlet private weak var addButton2: UIButton!
+    @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var monthLabel: UILabel!
+    @IBOutlet private weak var todayButton: UIButton!
     
     private var doubleTapGestureRecognizer: UITapGestureRecognizer?
     private var dataSource: DataSource?
@@ -47,6 +50,8 @@ extension HomeViewController {
         calendar.headerHeight = 10
         calendar.locale = Locale(identifier: "ko_KR")
         calendar.appearance.weekdayFont = .omyu(size: 18)
+        calendar.delegate = self
+        calendar.select(Date())
         
         doubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(doubleTapTodo(_:)))
         doubleTapGestureRecognizer?.numberOfTapsRequired = 2
@@ -65,8 +70,17 @@ extension HomeViewController {
                 switch type {
                 case .day:
                     self?.calendar.isHidden = true
+                    self?.monthLabel.isHidden = true
+                    self?.dateLabel.isHidden = false
+                    self?.nextButton.isHidden = false
+                    self?.previousButton.isHidden = false
                 case .month:
                     self?.calendar.isHidden = false
+                    self?.calendar.select(self?.viewModel.date.value)
+                    self?.dateLabel.isHidden = true
+                    self?.monthLabel.isHidden = false
+                    self?.nextButton.isHidden = true
+                    self?.previousButton.isHidden = true
                 }
             }
             .store(in: &cancellables)
@@ -85,6 +99,27 @@ extension HomeViewController {
                     self?.todoCollectionView.isHidden = false
                     self?.applyItems(cellModels: cellModels)
                 }
+            }
+            .store(in: &cancellables)
+        
+        viewModel.dateString
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] dateString in
+                self?.dateLabel.text = dateString
+            }
+            .store(in: &cancellables)
+        
+        viewModel.monthString
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] dateString in
+                self?.monthLabel.text = dateString
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$isToday
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] isToday in
+                self?.todayButton.isHidden = isToday
             }
             .store(in: &cancellables)
     }
@@ -113,6 +148,13 @@ extension HomeViewController {
                 })
                 .store(in: &cancellables)
         }
+        
+        todayButton.safeTap
+            .sink { [weak self] _ in
+                self?.viewModel.action(.todayButtonTapped)
+                self?.calendar.select(Date())
+            }
+            .store(in: &cancellables)
     }
 }
 
@@ -284,5 +326,17 @@ extension HomeViewController: AddTodoDelegate {
         } else {
             viewModel.action(.addTodo(todo))
         }
+    }
+}
+
+// MARK: - FS calendar delegate
+extension HomeViewController: FSCalendarDelegate {
+    
+    func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
+        viewModel.action(.calendarSwipe(calendar.currentPage))
+    }
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        viewModel.action(.dateSelected(date))
     }
 }

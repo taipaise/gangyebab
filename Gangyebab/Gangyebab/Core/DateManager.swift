@@ -29,4 +29,9 @@ final class DateManager {
         dateFormatter.dateFormat = "yy.MM.dd (E)"
         return dateFormatter.string(from: date)
     }
+    
+    func dateToStringMonth(_ date: Date) -> String {
+        dateFormatter.dateFormat = "yy년 MM월"
+        return dateFormatter.string(from: date)
+    }
 }
