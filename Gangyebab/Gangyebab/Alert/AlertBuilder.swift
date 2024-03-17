@@ -24,6 +24,7 @@ final class AlertBuilder {
     
     func show(_ viewController: UIViewController) {
         alertViewController.modalPresentationStyle = .overFullScreen
-        viewController.present(alertViewController, animated: false)
+        alertViewController.modalTransitionStyle = .crossDissolve
+        viewController.present(alertViewController, animated: true)
     }
 }
