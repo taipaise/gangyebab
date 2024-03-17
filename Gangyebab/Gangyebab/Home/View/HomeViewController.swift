@@ -140,7 +140,9 @@ extension HomeViewController {
         [addButton1, addButton2].forEach { button in
             button?.safeTap
                 .sink(receiveValue: { [weak self] in
+                    guard let date = self?.viewModel.date.value else { return }
                     let nextVC = AddTodoViewController()
+                    nextVC.configure(date: date, todo: nil)
                     nextVC.delegate = self
                     nextVC.modalPresentationStyle = .overFullScreen
                     nextVC.modalTransitionStyle = .crossDissolve
@@ -300,10 +302,10 @@ extension HomeViewController: UICollectionViewDelegate {
         
         let cellModels = viewModel.inprogressCellModels
         let cellModel = cellModels[row]
-        
+        let date = viewModel.date.value
         let nextVC = AddTodoViewController()
+        nextVC.configure(date: date, todo: cellModel)
         nextVC.delegate = self
-        nextVC.configure(cellModel)
         nextVC.modalPresentationStyle = .overFullScreen
         nextVC.modalTransitionStyle = .crossDissolve
         present(nextVC, animated: true)
