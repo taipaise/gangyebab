@@ -26,6 +26,7 @@ final class AddTodoViewController: UIViewController {
     @IBOutlet private weak var repeatButton: UIButton!
     @IBOutlet private weak var repeatLabel: UILabel!
     @IBOutlet private weak var completeButton: UIButton!
+    @IBOutlet private weak var dateLabel: UILabel!
     
     weak var delegate: AddTodoDelegate?
     private var viewModel = AddTodoViewModel()
@@ -37,9 +38,13 @@ final class AddTodoViewController: UIViewController {
         bindView()
         bindViewModel()
     }
-    
-    func configure(_ todo: TodoModel) {
-        viewModel.configure(todo)
+   
+    func configure(date: Date, todo: TodoModel?) {
+        if let todo = todo {
+            viewModel.configure(date: date, todo: todo)
+        } else {
+            viewModel.configure(date: date, todo: nil)
+        }
     }
 }
 
@@ -142,6 +147,13 @@ extension AddTodoViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] repeatType in
                 self?.repeatLabel.text = repeatType.description
+            }
+            .store(in: &cancellables)
+        
+        viewModel.dateString
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] date in
+                self?.dateLabel.text = date
             }
             .store(in: &cancellables)
     }
