@@ -12,15 +12,21 @@ final class DateManager {
     private var dateFormatter = DateFormatter()
     
     private init() {
-        dateFormatter.dateFormat = "yyyy-MM-dd"
         dateFormatter.locale = Locale(identifier: "ko_KR")
     }
     
-    private func dateToString(_ date: Date) -> String {
+    func dateToString(_ date: Date) -> String {
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.string(from: date)
     }
     
-    private func stringToDate(_ string: String) -> Date {
+    func stringToDate(_ string: String) -> Date {
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.date(from: string) ?? Date()
+    }
+    
+    func dateToStringForHome(_ date: Date) -> String {
+        dateFormatter.dateFormat = "yy.MM.dd (E)"
+        return dateFormatter.string(from: date)
     }
 }
