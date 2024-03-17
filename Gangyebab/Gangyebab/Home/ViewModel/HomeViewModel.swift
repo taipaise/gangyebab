@@ -16,10 +16,9 @@ final class HomeViewModel: ViewModel {
         case previousButton
         case addTodo(_ todo: TodoModel)
         case updateTodo(_ todo: TodoModel)
-        case deleteTodo
+        case deleteTodo(_ indexPath: IndexPath)
     }
     
-    @Published private(set) var isEditing = false
     private(set) var homeType = CurrentValueSubject<HomeType,Never>(.day)
     private(set) var cellModels = CurrentValueSubject<TodoCellModels, Error>(TodoCellModels(inProgress: [], completed: []))
     private(set) var inprogressCellModels: [TodoModel] = []
@@ -41,8 +40,8 @@ final class HomeViewModel: ViewModel {
             print()
         case .addTodo(let todo):
             addTodo(todo)
-        case .deleteTodo:
-            deleteTodo()
+        case .deleteTodo(let indexPath):
+            deleteTodo(indexPath)
         case .updateTodo(let todo):
             updateTodo(todo)
         }
@@ -56,8 +55,6 @@ final class HomeViewModel: ViewModel {
 // MARK: - Action
 extension HomeViewModel {
     private func toggleHomeType() {
-        if isEditing { toggleEditState() }
-        
         if homeType.value == .day {
             homeType.send(.month)
         } else {
@@ -90,15 +87,16 @@ extension HomeViewModel {
         }
     }
     
-    private func deleteTodo() {
-    }
-    
-    private func toggleEditState() {
-        
-    }
-    
-    private func checkTodo(_ indexPath: IndexPath) {
-        
+    private func deleteTodo(_ indexPath: IndexPath) {
+        var item: TodoModel
+        switch indexPath.section {
+        case TodoSection.inProgress.rawValue:
+            item = inprogressCellModels[indexPath.row]
+        default:
+            item = completedCellModels[indexPath.row]
+        }
+        dbManager.deleteTodoData(item.uuid)
+        fetchTodoList(date)
     }
 }
 
