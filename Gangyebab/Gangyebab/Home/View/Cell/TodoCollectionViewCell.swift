@@ -7,20 +7,6 @@
 
 import UIKit
 
-struct TodoCellModel: Hashable, Comparable {
-    var uuid = UUID()
-    let title: String
-    let importance: Importance
-    var isCompleted: Bool = false
-    var repeatType: RepeatType
-    var isEditing: Bool = false
-    var isChecked: Bool = false
-    
-    static func < (lhs: TodoCellModel, rhs: TodoCellModel) -> Bool {
-        return lhs.importance.rawValue > rhs.importance.rawValue
-    }
-}
-
 final class TodoCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet private weak var underLine: UIView!
@@ -41,20 +27,20 @@ final class TodoCollectionViewCell: UICollectionViewCell {
 }
 
 extension TodoCollectionViewCell {
-    func configure(_ cellModel: TodoCellModel) {
+    func configure(_ cellModel: TodoModel) {
         contentLabel.text = cellModel.title
         
-        if cellModel.isEditing {
-            checkImage.isHidden = false
-        } else {
-            checkImage.isHidden = true
-        }
-        
-        if cellModel.isChecked {
-            checkImage.image = UIImage(systemName: "circle.inset.filled")
-        } else {
-            checkImage.image = UIImage(systemName: "circle")
-        }
+//        if cellModel.isEditing {
+//            checkImage.isHidden = false
+//        } else {
+//            checkImage.isHidden = true
+//        }
+//        
+//        if cellModel.isChecked {
+//            checkImage.image = UIImage(systemName: "circle.inset.filled")
+//        } else {
+//            checkImage.image = UIImage(systemName: "circle")
+//        }
         
         switch cellModel.importance {
         case .none:

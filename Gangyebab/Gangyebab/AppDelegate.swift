@@ -10,10 +10,12 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var dbManager = DBManager.shared
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        dbManager.createTodoTable()
+        dbManager.createRepeatTable()
         UIFont.registerCustomFonts()
         return true
     }
