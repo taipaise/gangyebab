@@ -68,6 +68,7 @@ extension DBManager {
                 importance INTEGER,
                 isCompleted INTEGER,
                 repeatType INTEGER,
+                repeatId INTEGER,
                 date TEXT
             );
         """
@@ -222,7 +223,7 @@ extension DBManager {
                     isCompleted: isCompleted,
                     repeatType: repeatType,
                     date: todoDate, 
-                    repeatId: repeatId == -1 ? nil : repeatId
+                    repeatId: repeatId
                 )
                 
                 todos.append(todoData)
