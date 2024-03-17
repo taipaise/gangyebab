@@ -14,8 +14,7 @@ final class HomeViewModel: ViewModel {
         case toggleComplete(_ indexPath: IndexPath)
         case nextButton
         case previousButton
-        case editTapped
-        case checkTodo(_ indexPath: IndexPath)
+        case addTodo(_ todo: TodoModel)
         case updateTodo(_ todo: TodoModel)
         case deleteTodo
     }
@@ -27,6 +26,8 @@ final class HomeViewModel: ViewModel {
     private var completedCellModels: [TodoModel] = []
     private(set) var date = Date()
     private var cancellables: Set<AnyCancellable> = []
+    private let dbManager = DBManager.shared
+    private let dateManager = DateManager.shared
     
     func action(_ input: Input) {
         switch input {
@@ -38,19 +39,17 @@ final class HomeViewModel: ViewModel {
             print()
         case .previousButton:
             print()
-        case .updateTodo(let todo):
-            updateTodo(todo)
+        case .addTodo(let todo):
+            addTodo(todo)
         case .deleteTodo:
             deleteTodo()
-        case .editTapped:
-            toggleEditState()
-        case .checkTodo(let indexPath):
-            checkTodo(indexPath)
+        case .updateTodo(let todo):
+            updateTodo(todo)
         }
     }
     
     init() {
-        makeDummy()
+        fetchTodoList(Date())
     }
 }
 
@@ -67,124 +66,61 @@ extension HomeViewModel {
     }
     
     private func toggleComplete(_ indexPath: IndexPath) {
+        var item: TodoModel
         switch indexPath.section {
         case TodoSection.inProgress.rawValue:
-            var item = inprogressCellModels[indexPath.row]
-            inprogressCellModels = inprogressCellModels.filter {
-                item.uuid != $0.uuid
-            }
-            item.isCompleted = true
-            completedCellModels.append(item)
+            item = inprogressCellModels[indexPath.row]
         default:
-            var item = completedCellModels[indexPath.row]
-            completedCellModels = completedCellModels.filter {
-                item.uuid != $0.uuid
-            }
-            item.isCompleted = false
-            inprogressCellModels.append(item)
-            inprogressCellModels.sort()
+            item = completedCellModels[indexPath.row]
         }
         
-        cellModels.send(TodoCellModels(
-            inProgress: inprogressCellModels,
-            completed: completedCellModels
-        ))
+        item.isCompleted.toggle()
+        updateTodo(item)
+    }
+    
+    private func addTodo(_ todo: TodoModel) {
+        if dbManager.insertTodoData(todo) {
+            fetchTodoList(date)
+        }
     }
     
     private func updateTodo(_ todo: TodoModel) {
-        inprogressCellModels = inprogressCellModels.filter {
-            $0.uuid != todo.uuid
+        if dbManager.updateTodoData(todo) {
+            fetchTodoList(date)
         }
-        inprogressCellModels.append(todo)
-        inprogressCellModels.sort()
-        
-        cellModels.send(TodoCellModels(
-            inProgress: inprogressCellModels,
-            completed: completedCellModels
-        ))
     }
     
     private func deleteTodo() {
-//        inprogressCellModels = inprogressCellModels.filter { !$0.isChecked }
-//        completedCellModels = completedCellModels.filter { !$0.isChecked }
-//        let newCellModels = TodoCellModels(
-//            inProgress: inprogressCellModels,
-//            completed: completedCellModels
-//        )
-//        cellModels.send(newCellModels)
-//        
-//        if isEditing { toggleEditState() }
     }
     
     private func toggleEditState() {
-        isEditing.toggle()
         
-        inprogressCellModels = inprogressCellModels.map {
-            var newCellModel = $0
-//            newCellModel.isEditing = isEditing
-//            newCellModel.isChecked = false
-            return newCellModel
-        }
-        
-        completedCellModels = completedCellModels.map {
-            var newCellModel = $0
-//            newCellModel.isEditing = isEditing
-//            newCellModel.isChecked = false
-            return newCellModel
-        }
-        
-        let newCellModels = TodoCellModels(
-            inProgress: inprogressCellModels,
-            completed: completedCellModels
-        )
-        
-        cellModels.send(newCellModels)
     }
     
     private func checkTodo(_ indexPath: IndexPath) {
-//        if indexPath.section == TodoSection.inProgress.rawValue {
-//            inprogressCellModels[indexPath.row].isChecked.toggle()
-//        } else {
-//            completedCellModels[indexPath.row].isChecked.toggle()
-//        }
-//        
-//        let newCellModels = TodoCellModels(
-//            inProgress: inprogressCellModels,
-//            completed: completedCellModels
-//        )
-//        cellModels.send(newCellModels)
+        
+    }
+}
+
+// MARK: - method
+extension HomeViewModel {
+    private func fetchTodoList(_ date: Date) {
+        let dateString = dateManager.dateToString(date)
+        let todosOfDate = dbManager.readTodoData(dateString)
+        
+        inprogressCellModels = todosOfDate.filter { !$0.isCompleted }.sorted()
+        completedCellModels = todosOfDate.filter { $0.isCompleted }
+        
+        cellModels.send(
+            TodoCellModels(
+                inProgress: inprogressCellModels,
+                completed: completedCellModels
+            )
+        )
     }
 }
 
 struct TodoCellModels: Hashable {
     var inProgress: [TodoModel]
     var completed: [TodoModel]
-}
-
-// MARK: - Dummy
-extension HomeViewModel {
-    func makeDummy() {
-        let progressDummy = [
-            TodoModel(title: "현정이랑 데이트1", importance: .high, isCompleted: false, repeatType: .none, date: "1"),
-            TodoModel(title: "현정이랑 데이트2", importance: .medium, isCompleted: false, repeatType: .none, date: "1"),
-            TodoModel(title: "현정이랑 데이트3", importance: .low, isCompleted: false, repeatType: .none, date: "1"),
-            TodoModel(title: "현정이랑 데이트4", importance: .medium, isCompleted: false, repeatType: .none, date: "1"),
-            TodoModel(title: "현정이랑 데이트5", importance: .none, isCompleted: false, repeatType: .none, date: "1"),
-            TodoModel(title: "현정이랑 데이트6", importance: .high, isCompleted: false, repeatType: .none, date: "1")
-        ]
-    
-        let completeDummy = [
-            TodoModel(title: "현정이랑 데이트7", importance: .high, isCompleted: true, repeatType: .none, date: "1"),
-            TodoModel(title: "현정이랑 데이트8", importance: .none, isCompleted: true, repeatType: .none, date: "1"),
-            TodoModel(title: "현정이랑 데이트9", importance: .low, isCompleted: true, repeatType: .none, date: "1"),
-            TodoModel(title: "현정이랑 데이트10", importance: .medium, isCompleted: true, repeatType: .none, date: "1"),
-            TodoModel(title: "현정이랑 데이트11", importance: .high, isCompleted: true, repeatType: .none, date: "1"),
-            TodoModel(title: "현정이랑 데이트12", importance: .high, isCompleted: true, repeatType: .none, date: "1")
-        ]
-        
-        inprogressCellModels = progressDummy
-        completedCellModels = completeDummy
-        inprogressCellModels.sort()
-        cellModels.send(TodoCellModels(inProgress: inprogressCellModels, completed: completedCellModels))
-    }
 }

@@ -11,6 +11,7 @@ import UIKit
 final class DBManager {
     static let shared = DBManager()
     
+    typealias IsSuccess = Bool
     var db: OpaquePointer?
     var path = "todo.sqlite"
     
@@ -144,7 +145,8 @@ extension DBManager {
 
 // MARK: - DML
 extension DBManager {
-    func insertTodoData(_ todoData: TodoModel) {
+    @discardableResult
+    func insertTodoData(_ todoData: TodoModel) -> IsSuccess {
         let query = "INSERT INTO todo (uuid, title, importance, isCompleted, repeatType, repeatId, date) VALUES (?, ?, ?, ?, ?, ?, ?);"
         var statement: OpaquePointer? = nil
         
@@ -154,7 +156,7 @@ extension DBManager {
             let importance = Int32(todoData.importance.rawValue)
             let isCompleted = todoData.isCompleted ? 1 : 0
             let repeatType = Int32(todoData.repeatType.rawValue)
-            let repeatId = todoData.repeatId ?? -1
+            let repeatId = todoData.repeatId
             let date = todoData.date
             
             sqlite3_bind_text(statement, 1, (uuidString as NSString).utf8String, -1, nil)
@@ -167,17 +169,22 @@ extension DBManager {
             
             if sqlite3_step(statement) == SQLITE_DONE {
                 print("Inserting todo data success")
+                sqlite3_finalize(statement)
+                return true
             } else {
                 print("Failed to insert todo data")
+                sqlite3_finalize(statement)
+                return false
             }
         } else {
             print("Failed to prepare insert statement")
+            sqlite3_finalize(statement)
+            return false
         }
-        
-        sqlite3_finalize(statement)
     }
     
-    func insertRepeatData(_ repeatData: RepeatRuleModel) {
+    @discardableResult
+    func insertRepeatData(_ repeatData: RepeatRuleModel) -> IsSuccess {
         let query = "INSERT INTO rule (title, importance, repeatType, date) VALUES (?, ?, ?, ?);"
         var statement: OpaquePointer? = nil
         
@@ -189,14 +196,18 @@ extension DBManager {
             
             if sqlite3_step(statement) == SQLITE_DONE {
                 print("Inserting repeat data success")
+                sqlite3_finalize(statement)
+                return true
             } else {
                 print("Failed to insert repeat data")
+                sqlite3_finalize(statement)
+                return false
             }
         } else {
             print("Failed to prepare insert statement")
+            sqlite3_finalize(statement)
+            return false
         }
-        
-        sqlite3_finalize(statement)
     }
     
     func readTodoData(_ date: String) -> [TodoModel] {
@@ -233,7 +244,6 @@ extension DBManager {
         }
         
         sqlite3_finalize(statement)
-        
         return todos
     }
     
@@ -269,7 +279,8 @@ extension DBManager {
         return repeatRules
     }
     
-    func deleteTodoData(_ uuid: UUID) {
+    @discardableResult
+    func deleteTodoData(_ uuid: UUID) -> IsSuccess {
         let query = "DELETE FROM todo WHERE uuid = ?;"
         var statement: OpaquePointer? = nil
         
@@ -279,17 +290,22 @@ extension DBManager {
             
             if sqlite3_step(statement) == SQLITE_DONE {
                 print("Delete todo data success")
+                sqlite3_finalize(statement)
+                return true
             } else {
                 print("Delete todo data step fail")
+                sqlite3_finalize(statement)
+                return false
             }
         } else {
             print("Delete todo data prepare fail")
+            sqlite3_finalize(statement)
+            return false
         }
-        
-        sqlite3_finalize(statement)
     }
 
-    func deleteRepeatData(_ repeatId: Int) {
+    @discardableResult
+    func deleteRepeatData(_ repeatId: Int) -> IsSuccess {
         let query = "DELETE FROM repeat WHERE repeatId = ?;"
         var statement: OpaquePointer? = nil
         
@@ -298,17 +314,22 @@ extension DBManager {
             
             if sqlite3_step(statement) == SQLITE_DONE {
                 print("Delete repeat data success")
+                sqlite3_finalize(statement)
+                return true
             } else {
                 print("Delete repeat data step fail")
+                sqlite3_finalize(statement)
+                return false
             }
         } else {
             print("Delete repeat data prepare fail")
+            sqlite3_finalize(statement)
+            return false
         }
-        
-        sqlite3_finalize(statement)
     }
     
-    func updateTodoData(_ todo: TodoModel) {
+    @discardableResult
+    func updateTodoData(_ todo: TodoModel) -> IsSuccess {
         let query = "UPDATE todo SET title = ?, importance = ?, isCompleted = ?, repeatType = ?, repeatId = ?, date = ? WHERE uuid = ?;"
         var statement: OpaquePointer? = nil
         
@@ -317,23 +338,28 @@ extension DBManager {
             sqlite3_bind_int(statement, 2, Int32(todo.importance.rawValue))
             sqlite3_bind_int(statement, 3, todo.isCompleted ? 1 : 0)
             sqlite3_bind_int(statement, 4, Int32(todo.repeatType.rawValue))
-            sqlite3_bind_int(statement, 5, Int32(todo.repeatId ?? -1))
+            sqlite3_bind_int(statement, 5, Int32(todo.repeatId))
             sqlite3_bind_text(statement, 6, (todo.date as NSString).utf8String, -1, nil)
             sqlite3_bind_text(statement, 7, (todo.uuid.uuidString as NSString).utf8String, -1, nil)
             
             if sqlite3_step(statement) == SQLITE_DONE {
                 print("Success: Todo data updated")
+                sqlite3_finalize(statement)
+                return true
             } else {
                 print("Error: Todo data update failed")
+                sqlite3_finalize(statement)
+                return false
             }
         } else {
             print("Error: Prepare statement failed")
+            sqlite3_finalize(statement)
+            return false
         }
-        
-        sqlite3_finalize(statement)
     }
 
-    func updateRepeatData(_ repeatData: RepeatRuleModel) {
+    @discardableResult
+    func updateRepeatData(_ repeatData: RepeatRuleModel) -> IsSuccess {
         let query = "UPDATE repeat SET title = ?, importance = ?, repeatType = ?, date = ? WHERE repeatId = ?;"
         var statement: OpaquePointer? = nil
         
@@ -346,13 +372,17 @@ extension DBManager {
             
             if sqlite3_step(statement) == SQLITE_DONE {
                 print("Success: Repeat data updated")
+                sqlite3_finalize(statement)
+                return true
             } else {
                 print("Error: Repeat data update failed")
+                sqlite3_finalize(statement)
+                return false
             }
         } else {
             print("Error: Prepare statement failed")
+            sqlite3_finalize(statement)
+            return false
         }
-        
-        sqlite3_finalize(statement)
     }
 }

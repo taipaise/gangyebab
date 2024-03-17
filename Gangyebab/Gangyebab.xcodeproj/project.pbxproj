@@ -54,6 +54,7 @@
 		31E9CE842BA6BF7300B52CD8 /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9CE832BA6BF7300B52CD8 /* TodoModel.swift */; };
 		31E9CE862BA6BF7C00B52CD8 /* RepeatRuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9CE852BA6BF7C00B52CD8 /* RepeatRuleModel.swift */; };
 		31E9CE882BA6C04800B52CD8 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9CE872BA6C04800B52CD8 /* DBManager.swift */; };
+		31E9CE8A2BA6DEE000B52CD8 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9CE892BA6DEE000B52CD8 /* DateManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		31E9CE832BA6BF7300B52CD8 /* TodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
 		31E9CE852BA6BF7C00B52CD8 /* RepeatRuleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatRuleModel.swift; sourceTree = "<group>"; };
 		31E9CE872BA6C04800B52CD8 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		31E9CE892BA6DEE000B52CD8 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +268,7 @@
 				3172545E2B99B00700ED3E25 /* TabViewController.swift */,
 				315A9FAF2BA044BD00C1CF63 /* ViewModel.swift */,
 				31E9CE872BA6C04800B52CD8 /* DBManager.swift */,
+				31E9CE892BA6DEE000B52CD8 /* DateManager.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				31D496E52BA019DC001FA5FE /* UIView+extensions.swift in Sources */,
 				3172542B2B99AE2600ED3E25 /* AppDelegate.swift in Sources */,
 				310E78412BA2F52300E24C7E /* SettingViewModel.swift in Sources */,
+				31E9CE8A2BA6DEE000B52CD8 /* DateManager.swift in Sources */,
 				310E78502BA3098B00E24C7E /* CustomAlertViewModel.swift in Sources */,
 				3172542D2B99AE2600ED3E25 /* SceneDelegate.swift in Sources */,
 				315D0DF92BA1B85900F647DB /* RepeatType.swift in Sources */,
