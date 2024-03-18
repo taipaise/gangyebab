@@ -17,6 +17,10 @@ struct TodoModel: Hashable, Comparable {
     var repeatId: Int = -1
     
     static func < (lhs: TodoModel, rhs: TodoModel) -> Bool {
+        if lhs.isCompleted != rhs.isCompleted {
+            return !lhs.isCompleted
+        }
+        
         return lhs.importance.rawValue > rhs.importance.rawValue
     }
 }

@@ -39,6 +39,11 @@ final class HomeViewController: UIViewController {
         bindViewModel()
         bindView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.action(.viewWillAppear)
+    }
 }
 
 // MARK: - UISetting
