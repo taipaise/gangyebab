@@ -42,22 +42,23 @@ extension DBManager {
     func createDB() {
         var db: OpaquePointer? = nil
         do {
-            let filePath = try FileManager.default.url(
-                for: .documentDirectory, in: .userDomainMask,
-                appropriateFor: nil,
-                create: false
-            ).appendingPathComponent(path)
-            
-            if sqlite3_open(filePath.path, &db) == SQLITE_OK {
-                print("Success create db Path")
-                self.db = db
-                return
+            if let appGroupContainerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.gangyebab") {
+                let filePath = appGroupContainerURL.appendingPathComponent("todo.sqlite")
+                
+                if sqlite3_open(filePath.path, &db) == SQLITE_OK {
+                    print("Success create db Path")
+                    self.db = db
+                    return
+                } else {
+                    print("Failed to open database")
+                }
+            } else {
+                print("Failed to get App Group container URL")
             }
+        } catch {
+            print("Error in createDB: \(error.localizedDescription)")
         }
-        catch {
-            print("error in createDB")
-        }
-        print("error in createDB - sqlite3_open")
+        print("Error in createDB - sqlite3_open")
         self.db = nil
     }
     

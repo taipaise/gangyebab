@@ -46,6 +46,7 @@
 		319CF8882BA8172000972DF7 /* RepeatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315D0DF82BA1B85900F647DB /* RepeatType.swift */; };
 		319CF8892BA817D200972DF7 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9CE872BA6C04800B52CD8 /* DBManager.swift */; };
 		319CF88A2BA817D500972DF7 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9CE892BA6DEE000B52CD8 /* DateManager.swift */; };
+		319CF88B2BA81A7500972DF7 /* RepeatRuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9CE852BA6BF7C00B52CD8 /* RepeatRuleModel.swift */; };
 		31B880422B9E0FDE0087A7A8 /* Font+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B880412B9E0FDE0087A7A8 /* Font+Extensions.swift */; };
 		31B880442B9E10770087A7A8 /* NSObject+extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B880432B9E10770087A7A8 /* NSObject+extenstions.swift */; };
 		31D34D5D2BA7FF100022088B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31D34D5C2BA7FF100022088B /* WidgetKit.framework */; };
@@ -146,6 +147,10 @@
 		317696B62BA195B000B2C6BF /* AddTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoViewController.swift; sourceTree = "<group>"; };
 		317696B72BA195B000B2C6BF /* AddTodoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTodoViewController.xib; sourceTree = "<group>"; };
 		319CF8842BA8169400972DF7 /* WidgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewModel.swift; sourceTree = "<group>"; };
+		319CF88C2BA81C1200972DF7 /* GangyebabWidgetExtensionDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GangyebabWidgetExtensionDebug.entitlements; sourceTree = "<group>"; };
+		319CF88D2BA81C1E00972DF7 /* GangyebabDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GangyebabDebug.entitlements; sourceTree = "<group>"; };
+		319CF88E2BA81F2100972DF7 /* GangyebabRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GangyebabRelease.entitlements; sourceTree = "<group>"; };
+		319CF88F2BA8213400972DF7 /* GangyebabWidgetExtensionRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GangyebabWidgetExtensionRelease.entitlements; sourceTree = "<group>"; };
 		31B8803D2B9E0F6C0087A7A8 /* SOYO-Maple-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SOYO-Maple-Regular.otf"; sourceTree = "<group>"; };
 		31B8803E2B9E0F6C0087A7A8 /* SOYO-Maple-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SOYO-Maple-Bold.otf"; sourceTree = "<group>"; };
 		31B8803F2B9E0F8E0087A7A8 /* omyu_pretty.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = omyu_pretty.ttf; sourceTree = "<group>"; };
@@ -262,6 +267,8 @@
 		3172541E2B99AE2600ED3E25 = {
 			isa = PBXGroup;
 			children = (
+				319CF88F2BA8213400972DF7 /* GangyebabWidgetExtensionRelease.entitlements */,
+				319CF88C2BA81C1200972DF7 /* GangyebabWidgetExtensionDebug.entitlements */,
 				317254292B99AE2600ED3E25 /* Gangyebab */,
 				317254402B99AE2800ED3E25 /* GangyebabTests */,
 				3172544A2B99AE2800ED3E25 /* GangyebabUITests */,
@@ -285,6 +292,8 @@
 		317254292B99AE2600ED3E25 /* Gangyebab */ = {
 			isa = PBXGroup;
 			children = (
+				319CF88E2BA81F2100972DF7 /* GangyebabRelease.entitlements */,
+				319CF88D2BA81C1E00972DF7 /* GangyebabDebug.entitlements */,
 				3172542A2B99AE2600ED3E25 /* AppDelegate.swift */,
 				3172542C2B99AE2600ED3E25 /* SceneDelegate.swift */,
 				317254352B99AE2700ED3E25 /* LaunchScreen.storyboard */,
@@ -703,6 +712,7 @@
 				319CF8862BA816FE00972DF7 /* TodoModel.swift in Sources */,
 				319CF88A2BA817D500972DF7 /* DateManager.swift in Sources */,
 				319CF8852BA8169400972DF7 /* WidgetViewModel.swift in Sources */,
+				319CF88B2BA81A7500972DF7 /* RepeatRuleModel.swift in Sources */,
 				319CF8872BA8171A00972DF7 /* Importance.swift in Sources */,
 				31D34D662BA7FF100022088B /* GangyebabWidget.swift in Sources */,
 				319CF8892BA817D200972DF7 /* DBManager.swift in Sources */,
@@ -870,6 +880,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Gangyebab/GangyebabDebug.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -905,6 +916,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Gangyebab/GangyebabRelease.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1015,6 +1027,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = GangyebabWidgetExtensionDebug.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1047,6 +1060,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = GangyebabWidgetExtensionRelease.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
