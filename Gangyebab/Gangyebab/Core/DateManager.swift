@@ -34,4 +34,9 @@ final class DateManager {
         dateFormatter.dateFormat = "yy년 MM월"
         return dateFormatter.string(from: date)
     }
+    
+    func dateToStringWidget(_ date: Date) -> String {
+        dateFormatter.dateFormat = "MM월 dd일"
+        return dateFormatter.string(from: date)
+    }
 }
