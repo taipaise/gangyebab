@@ -42,8 +42,6 @@
 		31B880442B9E10770087A7A8 /* NSObject+extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B880432B9E10770087A7A8 /* NSObject+extenstions.swift */; };
 		31D34D5D2BA7FF100022088B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31D34D5C2BA7FF100022088B /* WidgetKit.framework */; };
 		31D34D5F2BA7FF100022088B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31D34D5E2BA7FF100022088B /* SwiftUI.framework */; };
-		31D34D622BA7FF100022088B /* GangyebabWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D34D612BA7FF100022088B /* GangyebabWidgetBundle.swift */; };
-		31D34D642BA7FF100022088B /* GangyebabWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D34D632BA7FF100022088B /* GangyebabWidgetLiveActivity.swift */; };
 		31D34D662BA7FF100022088B /* GangyebabWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D34D652BA7FF100022088B /* GangyebabWidget.swift */; };
 		31D34D682BA7FF100022088B /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D34D672BA7FF100022088B /* AppIntent.swift */; };
 		31D34D6A2BA7FF110022088B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D34D692BA7FF110022088B /* Assets.xcassets */; };
@@ -147,8 +145,6 @@
 		31D34D5A2BA7FF100022088B /* GangyebabWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GangyebabWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D34D5C2BA7FF100022088B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		31D34D5E2BA7FF100022088B /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		31D34D612BA7FF100022088B /* GangyebabWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GangyebabWidgetBundle.swift; sourceTree = "<group>"; };
-		31D34D632BA7FF100022088B /* GangyebabWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GangyebabWidgetLiveActivity.swift; sourceTree = "<group>"; };
 		31D34D652BA7FF100022088B /* GangyebabWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GangyebabWidget.swift; sourceTree = "<group>"; };
 		31D34D672BA7FF100022088B /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
 		31D34D692BA7FF110022088B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -427,8 +423,6 @@
 		31D34D602BA7FF100022088B /* GangyebabWidget */ = {
 			isa = PBXGroup;
 			children = (
-				31D34D612BA7FF100022088B /* GangyebabWidgetBundle.swift */,
-				31D34D632BA7FF100022088B /* GangyebabWidgetLiveActivity.swift */,
 				31D34D652BA7FF100022088B /* GangyebabWidget.swift */,
 				31D34D672BA7FF100022088B /* AppIntent.swift */,
 				31D34D692BA7FF110022088B /* Assets.xcassets */,
@@ -692,10 +686,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31D34D622BA7FF100022088B /* GangyebabWidgetBundle.swift in Sources */,
 				31D34D682BA7FF100022088B /* AppIntent.swift in Sources */,
 				31D34D662BA7FF100022088B /* GangyebabWidget.swift in Sources */,
-				31D34D642BA7FF100022088B /* GangyebabWidgetLiveActivity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

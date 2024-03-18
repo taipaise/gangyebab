@@ -37,6 +37,7 @@ struct SimpleEntry: TimelineEntry {
     let configuration: ConfigurationAppIntent
 }
 
+
 struct GangyebabWidgetEntryView : View {
     var entry: Provider.Entry
 
@@ -51,6 +52,7 @@ struct GangyebabWidgetEntryView : View {
     }
 }
 
+@main
 struct GangyebabWidget: Widget {
     let kind: String = "GangyebabWidget"
 
