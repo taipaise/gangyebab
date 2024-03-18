@@ -43,9 +43,9 @@
 		31D34D5D2BA7FF100022088B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31D34D5C2BA7FF100022088B /* WidgetKit.framework */; };
 		31D34D5F2BA7FF100022088B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31D34D5E2BA7FF100022088B /* SwiftUI.framework */; };
 		31D34D662BA7FF100022088B /* GangyebabWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D34D652BA7FF100022088B /* GangyebabWidget.swift */; };
-		31D34D682BA7FF100022088B /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D34D672BA7FF100022088B /* AppIntent.swift */; };
 		31D34D6A2BA7FF110022088B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D34D692BA7FF110022088B /* Assets.xcassets */; };
 		31D34D6E2BA7FF110022088B /* GangyebabWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 31D34D5A2BA7FF100022088B /* GangyebabWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		31D34D742BA8002A0022088B /* GangyebabIWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 31D34D732BA800230022088B /* GangyebabIWidget.intentdefinition */; };
 		31D496E12BA017D5001FA5FE /* HomeSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D496E02BA017D5001FA5FE /* HomeSegmentedControl.swift */; };
 		31D496E52BA019DC001FA5FE /* UIView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D496E42BA019DC001FA5FE /* UIView+extensions.swift */; };
 		31D496E72BA01A98001FA5FE /* UIButton+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D496E62BA01A98001FA5FE /* UIButton+extension.swift */; };
@@ -146,9 +146,9 @@
 		31D34D5C2BA7FF100022088B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		31D34D5E2BA7FF100022088B /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		31D34D652BA7FF100022088B /* GangyebabWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GangyebabWidget.swift; sourceTree = "<group>"; };
-		31D34D672BA7FF100022088B /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
 		31D34D692BA7FF110022088B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31D34D6B2BA7FF110022088B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31D34D732BA800230022088B /* GangyebabIWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = GangyebabIWidget.intentdefinition; sourceTree = "<group>"; };
 		31D496E02BA017D5001FA5FE /* HomeSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSegmentedControl.swift; sourceTree = "<group>"; };
 		31D496E42BA019DC001FA5FE /* UIView+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extensions.swift"; sourceTree = "<group>"; };
 		31D496E62BA01A98001FA5FE /* UIButton+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+extension.swift"; sourceTree = "<group>"; };
@@ -423,8 +423,8 @@
 		31D34D602BA7FF100022088B /* GangyebabWidget */ = {
 			isa = PBXGroup;
 			children = (
+				31D34D732BA800230022088B /* GangyebabIWidget.intentdefinition */,
 				31D34D652BA7FF100022088B /* GangyebabWidget.swift */,
-				31D34D672BA7FF100022088B /* AppIntent.swift */,
 				31D34D692BA7FF110022088B /* Assets.xcassets */,
 				31D34D6B2BA7FF110022088B /* Info.plist */,
 			);
@@ -686,8 +686,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31D34D682BA7FF100022088B /* AppIntent.swift in Sources */,
 				31D34D662BA7FF100022088B /* GangyebabWidget.swift in Sources */,
+				31D34D742BA8002A0022088B /* GangyebabIWidget.intentdefinition in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -775,7 +775,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -832,7 +832,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -861,6 +861,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -895,6 +896,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -998,7 +1000,7 @@
 				INFOPLIST_FILE = GangyebabWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = GangyebabWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1026,7 +1028,7 @@
 				INFOPLIST_FILE = GangyebabWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = GangyebabWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
