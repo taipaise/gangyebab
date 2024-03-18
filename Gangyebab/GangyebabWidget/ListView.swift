@@ -10,6 +10,7 @@ import SwiftUI
 struct ListView: View {
     var maxCount: Int
     var todos: [TodoModel]
+    var onTap: (TodoModel) -> Void
     
     var body: some View {
         let items = todos.prefix(maxCount)
@@ -18,18 +19,12 @@ struct ListView: View {
                 ForEach(0..<maxCount) { index in
                     if index < items.count {
                         let item = items[index]
-                        WidgetCell(content: item.title, importance: item.importance)
+                        WidgetCell(todo: item, onTap: onTap)
                     } else {
                         Spacer()
                     }
                 }
         }
-    }
-}
-
-struct ListView_Previews: PreviewProvider {
-    static var previews: some View {
-        ListView(maxCount: 5, todos: [])
     }
 }
 

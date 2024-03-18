@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "gangyebab_small@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "gangyebab (1).png",
+      "filename" : "gangyebab_small@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "gangyebab_small@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

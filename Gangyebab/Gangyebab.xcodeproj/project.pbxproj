@@ -47,6 +47,10 @@
 		319CF8892BA817D200972DF7 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9CE872BA6C04800B52CD8 /* DBManager.swift */; };
 		319CF88A2BA817D500972DF7 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9CE892BA6DEE000B52CD8 /* DateManager.swift */; };
 		319CF88B2BA81A7500972DF7 /* RepeatRuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9CE852BA6BF7C00B52CD8 /* RepeatRuleModel.swift */; };
+		319CF8902BA826B800972DF7 /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A9FA02BA036E900C1CF63 /* String+extension.swift */; };
+		319CF8932BA86F3200972DF7 /* omyu_pretty.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31B8803F2B9E0F8E0087A7A8 /* omyu_pretty.ttf */; };
+		319CF8942BA86F3500972DF7 /* SOYO-Maple-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31B8803E2B9E0F6C0087A7A8 /* SOYO-Maple-Bold.otf */; };
+		319CF8952BA86F3800972DF7 /* SOYO-Maple-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31B8803D2B9E0F6C0087A7A8 /* SOYO-Maple-Regular.otf */; };
 		31B880422B9E0FDE0087A7A8 /* Font+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B880412B9E0FDE0087A7A8 /* Font+Extensions.swift */; };
 		31B880442B9E10770087A7A8 /* NSObject+extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B880432B9E10770087A7A8 /* NSObject+extenstions.swift */; };
 		31D34D5D2BA7FF100022088B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31D34D5C2BA7FF100022088B /* WidgetKit.framework */; };
@@ -643,7 +647,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				319CF8932BA86F3200972DF7 /* omyu_pretty.ttf in Resources */,
 				31D34D6A2BA7FF110022088B /* Assets.xcassets in Resources */,
+				319CF8952BA86F3800972DF7 /* SOYO-Maple-Regular.otf in Resources */,
+				319CF8942BA86F3500972DF7 /* SOYO-Maple-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -717,6 +724,7 @@
 				31D34D662BA7FF100022088B /* GangyebabWidget.swift in Sources */,
 				319CF8892BA817D200972DF7 /* DBManager.swift in Sources */,
 				3139E4052BA802A200CC81F9 /* ListView.swift in Sources */,
+				319CF8902BA826B800972DF7 /* String+extension.swift in Sources */,
 				31D34D742BA8002A0022088B /* GangyebabIWidget.intentdefinition in Sources */,
 				319CF8882BA8172000972DF7 /* RepeatType.swift in Sources */,
 				3139E4022BA8029600CC81F9 /* WidgetCell.swift in Sources */,

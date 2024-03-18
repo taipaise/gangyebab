@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import WidgetKit
 
 final class HomeViewModel: ViewModel {
     enum Input {
@@ -20,6 +21,7 @@ final class HomeViewModel: ViewModel {
         case todayButtonTapped
         case dateSelected(_ date: Date)
         case calendarSwipe(_ date: Date)
+        case viewWillAppear
     }
     
     @Published private(set) var isToday = true
@@ -56,6 +58,8 @@ final class HomeViewModel: ViewModel {
             setDate(date)
         case .calendarSwipe(let date):
             calendarSwipe(date)
+        case .viewWillAppear:
+            fetchTodoList(date.value)
         }
     }
     
@@ -178,6 +182,7 @@ extension HomeViewModel {
                 completed: completedCellModels
             )
         )
+        WidgetCenter.shared.reloadAllTimelines()
     }
 }
 
