@@ -40,6 +40,14 @@
 		317696B92BA195B000B2C6BF /* AddTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317696B62BA195B000B2C6BF /* AddTodoViewController.swift */; };
 		31B880422B9E0FDE0087A7A8 /* Font+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B880412B9E0FDE0087A7A8 /* Font+Extensions.swift */; };
 		31B880442B9E10770087A7A8 /* NSObject+extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B880432B9E10770087A7A8 /* NSObject+extenstions.swift */; };
+		31D34D5D2BA7FF100022088B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31D34D5C2BA7FF100022088B /* WidgetKit.framework */; };
+		31D34D5F2BA7FF100022088B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31D34D5E2BA7FF100022088B /* SwiftUI.framework */; };
+		31D34D622BA7FF100022088B /* GangyebabWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D34D612BA7FF100022088B /* GangyebabWidgetBundle.swift */; };
+		31D34D642BA7FF100022088B /* GangyebabWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D34D632BA7FF100022088B /* GangyebabWidgetLiveActivity.swift */; };
+		31D34D662BA7FF100022088B /* GangyebabWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D34D652BA7FF100022088B /* GangyebabWidget.swift */; };
+		31D34D682BA7FF100022088B /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D34D672BA7FF100022088B /* AppIntent.swift */; };
+		31D34D6A2BA7FF110022088B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D34D692BA7FF110022088B /* Assets.xcassets */; };
+		31D34D6E2BA7FF110022088B /* GangyebabWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 31D34D5A2BA7FF100022088B /* GangyebabWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		31D496E12BA017D5001FA5FE /* HomeSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D496E02BA017D5001FA5FE /* HomeSegmentedControl.swift */; };
 		31D496E52BA019DC001FA5FE /* UIView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D496E42BA019DC001FA5FE /* UIView+extensions.swift */; };
 		31D496E72BA01A98001FA5FE /* UIButton+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D496E62BA01A98001FA5FE /* UIButton+extension.swift */; };
@@ -72,7 +80,28 @@
 			remoteGlobalIDString = 317254262B99AE2600ED3E25;
 			remoteInfo = Gangyebab;
 		};
+		31D34D6C2BA7FF110022088B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3172541F2B99AE2600ED3E25 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 31D34D592BA7FF100022088B;
+			remoteInfo = GangyebabWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		31D34D6F2BA7FF110022088B /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				31D34D6E2BA7FF110022088B /* GangyebabWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		310E78402BA2F52300E24C7E /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
@@ -115,6 +144,15 @@
 		31B8803F2B9E0F8E0087A7A8 /* omyu_pretty.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = omyu_pretty.ttf; sourceTree = "<group>"; };
 		31B880412B9E0FDE0087A7A8 /* Font+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extensions.swift"; sourceTree = "<group>"; };
 		31B880432B9E10770087A7A8 /* NSObject+extenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+extenstions.swift"; sourceTree = "<group>"; };
+		31D34D5A2BA7FF100022088B /* GangyebabWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GangyebabWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		31D34D5C2BA7FF100022088B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		31D34D5E2BA7FF100022088B /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		31D34D612BA7FF100022088B /* GangyebabWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GangyebabWidgetBundle.swift; sourceTree = "<group>"; };
+		31D34D632BA7FF100022088B /* GangyebabWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GangyebabWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		31D34D652BA7FF100022088B /* GangyebabWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GangyebabWidget.swift; sourceTree = "<group>"; };
+		31D34D672BA7FF100022088B /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		31D34D692BA7FF110022088B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		31D34D6B2BA7FF110022088B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31D496E02BA017D5001FA5FE /* HomeSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSegmentedControl.swift; sourceTree = "<group>"; };
 		31D496E42BA019DC001FA5FE /* UIView+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extensions.swift"; sourceTree = "<group>"; };
 		31D496E62BA01A98001FA5FE /* UIButton+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+extension.swift"; sourceTree = "<group>"; };
@@ -148,6 +186,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31D34D572BA7FF100022088B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31D34D5F2BA7FF100022088B /* SwiftUI.framework in Frameworks */,
+				31D34D5D2BA7FF100022088B /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +258,8 @@
 				317254292B99AE2600ED3E25 /* Gangyebab */,
 				317254402B99AE2800ED3E25 /* GangyebabTests */,
 				3172544A2B99AE2800ED3E25 /* GangyebabUITests */,
+				31D34D602BA7FF100022088B /* GangyebabWidget */,
+				31D34D5B2BA7FF100022088B /* Frameworks */,
 				317254282B99AE2600ED3E25 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -221,6 +270,7 @@
 				317254272B99AE2600ED3E25 /* Gangyebab.app */,
 				3172543D2B99AE2800ED3E25 /* GangyebabTests.xctest */,
 				317254472B99AE2800ED3E25 /* GangyebabUITests.xctest */,
+				31D34D5A2BA7FF100022088B /* GangyebabWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -365,6 +415,28 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		31D34D5B2BA7FF100022088B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				31D34D5C2BA7FF100022088B /* WidgetKit.framework */,
+				31D34D5E2BA7FF100022088B /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		31D34D602BA7FF100022088B /* GangyebabWidget */ = {
+			isa = PBXGroup;
+			children = (
+				31D34D612BA7FF100022088B /* GangyebabWidgetBundle.swift */,
+				31D34D632BA7FF100022088B /* GangyebabWidgetLiveActivity.swift */,
+				31D34D652BA7FF100022088B /* GangyebabWidget.swift */,
+				31D34D672BA7FF100022088B /* AppIntent.swift */,
+				31D34D692BA7FF110022088B /* Assets.xcassets */,
+				31D34D6B2BA7FF110022088B /* Info.plist */,
+			);
+			path = GangyebabWidget;
+			sourceTree = "<group>";
+		};
 		31D496F22BA02BB8001FA5FE /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,10 +468,12 @@
 				317254232B99AE2600ED3E25 /* Sources */,
 				317254242B99AE2600ED3E25 /* Frameworks */,
 				317254252B99AE2600ED3E25 /* Resources */,
+				31D34D6F2BA7FF110022088B /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				31D34D6D2BA7FF110022088B /* PBXTargetDependency */,
 			);
 			name = Gangyebab;
 			packageProductDependencies = (
@@ -446,6 +520,23 @@
 			productReference = 317254472B99AE2800ED3E25 /* GangyebabUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		31D34D592BA7FF100022088B /* GangyebabWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 31D34D722BA7FF110022088B /* Build configuration list for PBXNativeTarget "GangyebabWidgetExtension" */;
+			buildPhases = (
+				31D34D562BA7FF100022088B /* Sources */,
+				31D34D572BA7FF100022088B /* Frameworks */,
+				31D34D582BA7FF100022088B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GangyebabWidgetExtension;
+			productName = GangyebabWidgetExtension;
+			productReference = 31D34D5A2BA7FF100022088B /* GangyebabWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -453,7 +544,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1520;
+				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					317254262B99AE2600ED3E25 = {
@@ -466,6 +557,9 @@
 					317254462B99AE2800ED3E25 = {
 						CreatedOnToolsVersion = 15.2;
 						TestTargetID = 317254262B99AE2600ED3E25;
+					};
+					31D34D592BA7FF100022088B = {
+						CreatedOnToolsVersion = 15.3;
 					};
 				};
 			};
@@ -489,6 +583,7 @@
 				317254262B99AE2600ED3E25 /* Gangyebab */,
 				3172543C2B99AE2800ED3E25 /* GangyebabTests */,
 				317254462B99AE2800ED3E25 /* GangyebabUITests */,
+				31D34D592BA7FF100022088B /* GangyebabWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -524,6 +619,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31D34D582BA7FF100022088B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31D34D6A2BA7FF110022088B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +688,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		31D34D562BA7FF100022088B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31D34D622BA7FF100022088B /* GangyebabWidgetBundle.swift in Sources */,
+				31D34D682BA7FF100022088B /* AppIntent.swift in Sources */,
+				31D34D662BA7FF100022088B /* GangyebabWidget.swift in Sources */,
+				31D34D642BA7FF100022088B /* GangyebabWidgetLiveActivity.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -597,6 +711,11 @@
 			isa = PBXTargetDependency;
 			target = 317254262B99AE2600ED3E25 /* Gangyebab */;
 			targetProxy = 317254482B99AE2800ED3E25 /* PBXContainerItemProxy */;
+		};
+		31D34D6D2BA7FF110022088B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 31D34D592BA7FF100022088B /* GangyebabWidgetExtension */;
+			targetProxy = 31D34D6C2BA7FF110022088B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -734,6 +853,7 @@
 		317254522B99AE2800ED3E25 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -767,6 +887,7 @@
 		317254532B99AE2800ED3E25 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
@@ -873,6 +994,62 @@
 			};
 			name = Release;
 		};
+		31D34D702BA7FF110022088B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GangyebabWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GangyebabWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = taipaise.Gangyebab.GangyebabWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		31D34D712BA7FF110022088B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GangyebabWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GangyebabWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = taipaise.Gangyebab.GangyebabWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -908,6 +1085,15 @@
 			buildConfigurations = (
 				317254582B99AE2800ED3E25 /* Debug */,
 				317254592B99AE2800ED3E25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		31D34D722BA7FF110022088B /* Build configuration list for PBXNativeTarget "GangyebabWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31D34D702BA7FF110022088B /* Debug */,
+				31D34D712BA7FF110022088B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
