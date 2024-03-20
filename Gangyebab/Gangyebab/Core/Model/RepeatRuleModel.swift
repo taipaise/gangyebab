@@ -13,4 +13,5 @@ struct RepeatRuleModel {
     var importance: Importance
     var repeatType: RepeatType
     var date: String
+    var isDeleted = false
 }
