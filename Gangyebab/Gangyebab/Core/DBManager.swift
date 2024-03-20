@@ -71,7 +71,8 @@ extension DBManager {
                 isCompleted INTEGER,
                 repeatType INTEGER,
                 repeatId INTEGER,
-                date TEXT
+                date TEXT,
+                isDeleted INTEGER,
             );
         """
         var statement: OpaquePointer? = nil
@@ -95,7 +96,8 @@ extension DBManager {
                  title TEXT,
                  importance INTEGER,
                  repeatType INTEGER,
-                 date TEXT
+                 date TEXT,
+                 isDeleted INTEGER
              );
          """
         var statement: OpaquePointer? = nil
@@ -142,13 +144,18 @@ extension DBManager {
             print("delete repeat table prepare fail")
         }
     }
+    
+    func resetDB() {
+        dropTodoTable()
+        dropRepeatTable()
+    }
 }
 
 // MARK: - DML
 extension DBManager {
     @discardableResult
     func insertTodoData(_ todoData: TodoModel) -> IsSuccess {
-        let query = "INSERT INTO todo (uuid, title, importance, isCompleted, repeatType, repeatId, date) VALUES (?, ?, ?, ?, ?, ?, ?);"
+        let query = "INSERT INTO todo (uuid, title, importance, isCompleted, repeatType, repeatId, date, isDeleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?);"
         var statement: OpaquePointer? = nil
         
         if sqlite3_prepare_v2(self.db, query, -1, &statement, nil) == SQLITE_OK {
@@ -159,6 +166,7 @@ extension DBManager {
             let repeatType = Int32(todoData.repeatType.rawValue)
             let repeatId = todoData.repeatId
             let date = todoData.date
+            let isDeleted = todoData.isDeleted ? 1 : 0
             
             sqlite3_bind_text(statement, 1, (uuidString as NSString).utf8String, -1, nil)
             sqlite3_bind_text(statement, 2, (title as NSString).utf8String, -1, nil)
@@ -167,6 +175,7 @@ extension DBManager {
             sqlite3_bind_int(statement, 5, repeatType)
             sqlite3_bind_int(statement, 6, Int32(repeatId))
             sqlite3_bind_text(statement, 7, (date as NSString).utf8String, -1, nil)
+            sqlite3_bind_int(statement, 8, Int32(isDeleted))
             
             if sqlite3_step(statement) == SQLITE_DONE {
                 print("Inserting todo data success")
@@ -186,14 +195,21 @@ extension DBManager {
     
     @discardableResult
     func insertRepeatData(_ repeatData: RepeatRuleModel) -> IsSuccess {
-        let query = "INSERT INTO rule (title, importance, repeatType, date) VALUES (?, ?, ?, ?);"
+        let query = "INSERT INTO rule (title, importance, repeatType, date, isDeleted) VALUES (?, ?, ?, ?, ?);"
         var statement: OpaquePointer? = nil
         
         if sqlite3_prepare_v2(self.db, query, -1, &statement, nil) == SQLITE_OK {
+            let title = repeatData.title
+            let importance = Int32(repeatData.importance.rawValue)
+            let repeatType = Int32(repeatData.repeatType.rawValue)
+            let date = repeatData.date
+            let isDeleted = repeatData.isDeleted ? 1 : 0
+            
             sqlite3_bind_text(statement, 1, (repeatData.title as NSString).utf8String, -1, nil)
             sqlite3_bind_int(statement, 2, Int32(repeatData.importance.rawValue))
             sqlite3_bind_int(statement, 3, Int32(repeatData.repeatType.rawValue))
             sqlite3_bind_text(statement, 4, (repeatData.date as NSString).utf8String, -1, nil)
+            sqlite3_bind_int(statement, 5, Int32(isDeleted))
             
             if sqlite3_step(statement) == SQLITE_DONE {
                 print("Inserting repeat data success")
@@ -227,6 +243,7 @@ extension DBManager {
                 let repeatType = RepeatType(rawValue: Int(sqlite3_column_int(statement, 4))) ?? .none
                 let repeatId = Int(sqlite3_column_int(statement, 5))
                 let todoDate = String(cString: sqlite3_column_text(statement, 6))
+                let isDeleted =  sqlite3_column_int(statement, 7) == 1 ? true : false
                 
                 let todoData = TodoModel(
                     uuid: UUID(uuidString: uuid) ?? UUID(),
@@ -235,7 +252,8 @@ extension DBManager {
                     isCompleted: isCompleted,
                     repeatType: repeatType,
                     date: todoDate, 
-                    repeatId: repeatId
+                    repeatId: repeatId,
+                    isDeleted: isDeleted
                 )
                 
                 todos.append(todoData)
@@ -260,13 +278,15 @@ extension DBManager {
                 let importance = Int(sqlite3_column_int(statement, 2))
                 let repeatType = Int(sqlite3_column_int(statement, 3))
                 let date = String(cString: sqlite3_column_text(statement, 4))
+                let isDeleted =  sqlite3_column_int(statement, 5) == 1 ? true : false
                 
                 let repeatRule = RepeatRuleModel(
                     repeatId: repeatId,
                     title: title,
                     importance: Importance(rawValue: importance) ?? .low,
                     repeatType: RepeatType(rawValue: repeatType) ?? .none,
-                    date: date
+                    date: date,
+                    isDeleted: isDeleted
                 )
                 
                 repeatRules.append(repeatRule)
@@ -331,7 +351,7 @@ extension DBManager {
     
     @discardableResult
     func updateTodoData(_ todo: TodoModel) -> IsSuccess {
-        let query = "UPDATE todo SET title = ?, importance = ?, isCompleted = ?, repeatType = ?, repeatId = ?, date = ? WHERE uuid = ?;"
+        let query = "UPDATE todo SET title = ?, importance = ?, isCompleted = ?, repeatType = ?, repeatId = ?, date = ?, isDeleted = ? WHERE uuid = ?;"
         var statement: OpaquePointer? = nil
         
         if sqlite3_prepare_v2(self.db, query, -1, &statement, nil) == SQLITE_OK {
@@ -342,6 +362,7 @@ extension DBManager {
             sqlite3_bind_int(statement, 5, Int32(todo.repeatId))
             sqlite3_bind_text(statement, 6, (todo.date as NSString).utf8String, -1, nil)
             sqlite3_bind_text(statement, 7, (todo.uuid.uuidString as NSString).utf8String, -1, nil)
+            sqlite3_bind_int(statement, 8, todo.isDeleted ? 1 : 0)
             
             if sqlite3_step(statement) == SQLITE_DONE {
                 print("Success: Todo data updated")
@@ -361,7 +382,7 @@ extension DBManager {
 
     @discardableResult
     func updateRepeatData(_ repeatData: RepeatRuleModel) -> IsSuccess {
-        let query = "UPDATE repeat SET title = ?, importance = ?, repeatType = ?, date = ? WHERE repeatId = ?;"
+        let query = "UPDATE repeat SET title = ?, importance = ?, repeatType = ?, date = ?, isDeleted = ? WHERE repeatId = ?;"
         var statement: OpaquePointer? = nil
         
         if sqlite3_prepare_v2(self.db, query, -1, &statement, nil) == SQLITE_OK {
@@ -370,6 +391,7 @@ extension DBManager {
             sqlite3_bind_int(statement, 3, Int32(repeatData.repeatType.rawValue))
             sqlite3_bind_text(statement, 4, (repeatData.date as NSString).utf8String, -1, nil)
             sqlite3_bind_int(statement, 5, Int32(repeatData.repeatId))
+            sqlite3_bind_int(statement, 6, repeatData.isDeleted ? 1 : 0)
             
             if sqlite3_step(statement) == SQLITE_DONE {
                 print("Success: Repeat data updated")
