@@ -39,4 +39,11 @@ final class DateManager {
         dateFormatter.dateFormat = "MM월 dd일"
         return dateFormatter.string(from: date)
     }
+    
+    func compareDates(_ dateString1: String, _ dateString2: String) -> Bool {
+        let date1 = stringToDate(dateString1)
+        let date2 = stringToDate(dateString2)
+        
+        return date1 < date2
+    }
 }
