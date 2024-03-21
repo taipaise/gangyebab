@@ -77,15 +77,11 @@ extension HomeViewController {
                     self?.calendar.isHidden = true
                     self?.monthLabel.isHidden = true
                     self?.dateLabel.isHidden = false
-                    self?.nextButton.isHidden = false
-                    self?.previousButton.isHidden = false
                 case .month:
                     self?.calendar.isHidden = false
                     self?.calendar.select(self?.viewModel.date.value)
                     self?.dateLabel.isHidden = true
                     self?.monthLabel.isHidden = false
-                    self?.nextButton.isHidden = true
-                    self?.previousButton.isHidden = true
                 }
             }
             .store(in: &cancellables)
@@ -125,6 +121,13 @@ extension HomeViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isToday in
                 self?.todayButton.isHidden = isToday
+            }
+            .store(in: &cancellables)
+        
+        viewModel.calendarPage
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] date in
+                self?.calendar.setCurrentPage(date, animated: true)
             }
             .store(in: &cancellables)
     }
@@ -368,6 +371,7 @@ extension HomeViewController: AddTodoDelegate {
 extension HomeViewController: FSCalendarDelegate {
     
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
+        print(calendar.currentPage)
         viewModel.action(.calendarSwipe(calendar.currentPage))
     }
     

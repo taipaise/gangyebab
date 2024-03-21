@@ -32,6 +32,7 @@ final class HomeViewModel: ViewModel {
     private(set) var inprogressCellModels: [TodoModel] = []
     private(set) var completedCellModels: [TodoModel] = []
     private(set) var date = CurrentValueSubject<Date, Never>(Date())
+    private(set) var calendarPage = CurrentValueSubject<Date, Never>(Date())
     private var cancellables: Set<AnyCancellable> = []
     private let todoManager = TodoManager.shared
     private let dateManager = DateManager.shared
@@ -129,40 +130,49 @@ extension HomeViewModel {
     }
     
     private func goNextDay() {
+        let calendar = Calendar.current
+        var dateComponents = DateComponents()
+        
         switch homeType.value {
         case .day:
-            let calendar = Calendar.current
-            var dateComponents = DateComponents()
             dateComponents.day = 1
-            
             if let nextDay = calendar.date(byAdding: dateComponents, to: date.value) {
                 date.send(nextDay)
             }
         case .month:
-            print()
+            dateComponents.month = 1
+            if let nextMonth = calendar.date(byAdding: dateComponents, to: calendarPage.value) {
+                calendarPage.send(nextMonth)
+            }
         }
     }
     
     private func goPrevioudDay() {
+        let calendar = Calendar.current
+        var dateComponents = DateComponents()
+        
         switch homeType.value {
         case .day:
-            let calendar = Calendar.current
-            var dateComponents = DateComponents()
             dateComponents.day = -1
             
             if let previousDay = calendar.date(byAdding: dateComponents, to: date.value) {
                 date.send(previousDay)
             }
         case .month:
-            print()
+            dateComponents.month = -1
+            if let nextMonth = calendar.date(byAdding: dateComponents, to: calendarPage.value) {
+                calendarPage.send(nextMonth)
+            }
         }
     }
     
     private func setDate(_ date: Date) {
+        calendarPage.send(date)
         self.date.send(date)
     }
     
     private func calendarSwipe(_ date: Date) {
+        calendarPage.send(date)
         monthString.send(dateManager.dateToStringMonth(date))
     }
 }
