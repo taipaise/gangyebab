@@ -12,15 +12,26 @@ final class AlertBuilder {
         
     init(
         message: String,
-        confirmAction: CustomAlertAction,
-        isCancelNeeded: Bool
+        pointAction: CustomAlertAction
     ) {
         alertViewController.configure(CustomAlertViewModel(
             message: message,
-            confirmAction: confirmAction,
-            isCancelNeeded: isCancelNeeded
+            pointAction: pointAction
         ))
     }
+    
+    init(
+        message: String,
+        pointAction: CustomAlertAction,
+        generalAction: CustomAlertAction?
+    ) {
+        alertViewController.configure(CustomAlertViewModel(
+            message: message,
+            pointAction: pointAction,
+            generalAction: generalAction
+        ))
+    }
+
     
     func show(_ viewController: UIViewController) {
         alertViewController.modalPresentationStyle = .overFullScreen
