@@ -15,6 +15,16 @@ final class DateManager {
         dateFormatter.locale = Locale(identifier: "ko_KR")
     }
     
+    func dateToDayString(_ date: Date) -> String {
+        dateFormatter.dateFormat = "dd"
+        return dateFormatter.string(from: date)
+    }
+    
+    func dateToWeekdayString(_ date: Date) -> String {
+        dateFormatter.dateFormat = "E"
+        return dateFormatter.string(from: date)
+    }
+    
     func dateToString(_ date: Date) -> String {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.string(from: date)
@@ -40,10 +50,29 @@ final class DateManager {
         return dateFormatter.string(from: date)
     }
     
-    func compareDates(_ dateString1: String, _ dateString2: String) -> Bool {
+    func compare(_ dateString1: String, _ dateString2: String) -> Bool {
+        let fromDate = stringToDate(dateString1)
+        let targetDate = stringToDate(dateString2)
+        let compare = targetDate.compare(fromDate)
+        
+        if compare == .orderedAscending {
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    func isMonthly(_ dateString1: String, _ dateString2: String) -> Bool {
         let date1 = stringToDate(dateString1)
         let date2 = stringToDate(dateString2)
         
-        return date1 < date2
+        return dateToDayString(date1) == dateToDayString(date2)
+    }
+    
+    func isWeekly(_ dateString1: String, _ dateString2: String) -> Bool {
+        let date1 = stringToDate(dateString1)
+        let date2 = stringToDate(dateString2)
+        
+        return dateToWeekdayString(date1) == dateToWeekdayString(date2)
     }
 }

@@ -22,7 +22,7 @@ final class WidgetViewModel: ObservableObject {
     
     func fetchTodos() {
         let currentDate = dateManager.dateToString(Date())
-        todos = dbManager.readTodoData(currentDate).sorted()
+        todos = dbManager.readTodoDatas(currentDate).sorted()
         print(todos)
     }
     

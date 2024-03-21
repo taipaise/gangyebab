@@ -227,19 +227,45 @@ extension HomeViewController {
     func createListConfiguration() -> UICollectionLayoutListConfiguration {
         var configuration = UICollectionLayoutListConfiguration(appearance: .plain)
         configuration.leadingSwipeActionsConfigurationProvider = { [weak self] indexPath in
+            guard let self = self else { return .init(actions: []) }
+            
+            let todo: TodoModel
+            
+            if indexPath.section == 0 {
+                todo = self.viewModel.inprogressCellModels[indexPath.row]
+            } else {
+                todo = self.viewModel.completedCellModels[indexPath.row]
+            }
             
             let delete = UIContextualAction(style: .normal, title: nil) { action, view, actionPerformed in
                 AlertBuilder(
                     message: "정말 삭제하시겠습니까?",
-                    confirmAction: CustomAlertAction(
+                    pointAction: CustomAlertAction(
                         text: "확인",
                         action: {
-                            self?.viewModel.action(.deleteTodo(indexPath))
+                            if todo.repeatType == .none {
+                                self.viewModel.action(.deleteTodo(indexPath, deleteAll: false))
+                            } else {
+                                AlertBuilder(
+                                    message: "반복 이벤트입니다.\n모든 이벤트를 모두 삭제할까요?",
+                                    pointAction: CustomAlertAction(
+                                        text: "모두 삭제",
+                                        action: {
+                                            self.viewModel.action(.deleteTodo(indexPath, deleteAll: true))
+                                        }),
+                                    generalAction: CustomAlertAction(
+                                        text: "이 날만 삭제",
+                                        action: {
+                                            self.viewModel.action(.deleteTodo(indexPath, deleteAll: false))
+                                        }
+                                    )
+                                )
+                                .show(self)
+                            }
                         }
-                    ),
-                    isCancelNeeded: true
+                    )
                 )
-                .show(self!)
+                .show(self)
                 
                 actionPerformed(true)
             }
@@ -247,6 +273,7 @@ extension HomeViewController {
             delete.backgroundColor = .red
             return .init(actions: [delete])
         }
+        
         configuration.separatorConfiguration.bottomSeparatorInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 0)
         configuration.separatorConfiguration.color = .stringColor1
         configuration.backgroundColor = .background1
@@ -307,6 +334,7 @@ extension HomeViewController: UICollectionViewDelegate {
         
         let cellModels = viewModel.inprogressCellModels
         let cellModel = cellModels[row]
+        print(cellModel)
         let date = viewModel.date.value
         let nextVC = AddTodoViewController()
         nextVC.configure(date: date, todo: cellModel)
@@ -327,7 +355,7 @@ extension HomeViewController: HomeSegmentedControlDelegate {
 
 // MARK: - add todo delegate
 extension HomeViewController: AddTodoDelegate {
-    func transferTodo(_ todo: TodoModel, isEditing: Bool) {
+    func transferTodo(todo: TodoModel, isEditing: Bool) {
         if isEditing {
             viewModel.action(.updateTodo(todo))
         } else {
