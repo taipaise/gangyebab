@@ -14,7 +14,8 @@ struct TodoModel: Hashable, Comparable {
     var isCompleted: Bool = false
     var repeatType: RepeatType
     var date: String
-    var repeatId: Int = -1
+    var repeatId = -1
+    var isDeleted = false
     
     static func < (lhs: TodoModel, rhs: TodoModel) -> Bool {
         if lhs.isCompleted != rhs.isCompleted {

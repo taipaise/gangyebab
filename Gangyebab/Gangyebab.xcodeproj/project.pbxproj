@@ -51,6 +51,7 @@
 		319CF8932BA86F3200972DF7 /* omyu_pretty.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31B8803F2B9E0F8E0087A7A8 /* omyu_pretty.ttf */; };
 		319CF8942BA86F3500972DF7 /* SOYO-Maple-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31B8803E2B9E0F6C0087A7A8 /* SOYO-Maple-Bold.otf */; };
 		319CF8952BA86F3800972DF7 /* SOYO-Maple-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31B8803D2B9E0F6C0087A7A8 /* SOYO-Maple-Regular.otf */; };
+		31B5C0732BAB3B9D00F13E3E /* TodoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B5C0722BAB3B9D00F13E3E /* TodoManager.swift */; };
 		31B880422B9E0FDE0087A7A8 /* Font+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B880412B9E0FDE0087A7A8 /* Font+Extensions.swift */; };
 		31B880442B9E10770087A7A8 /* NSObject+extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B880432B9E10770087A7A8 /* NSObject+extenstions.swift */; };
 		31D34D5D2BA7FF100022088B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31D34D5C2BA7FF100022088B /* WidgetKit.framework */; };
@@ -155,6 +156,7 @@
 		319CF88D2BA81C1E00972DF7 /* GangyebabDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GangyebabDebug.entitlements; sourceTree = "<group>"; };
 		319CF88E2BA81F2100972DF7 /* GangyebabRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GangyebabRelease.entitlements; sourceTree = "<group>"; };
 		319CF88F2BA8213400972DF7 /* GangyebabWidgetExtensionRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GangyebabWidgetExtensionRelease.entitlements; sourceTree = "<group>"; };
+		31B5C0722BAB3B9D00F13E3E /* TodoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoManager.swift; sourceTree = "<group>"; };
 		31B8803D2B9E0F6C0087A7A8 /* SOYO-Maple-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SOYO-Maple-Regular.otf"; sourceTree = "<group>"; };
 		31B8803E2B9E0F6C0087A7A8 /* SOYO-Maple-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SOYO-Maple-Bold.otf"; sourceTree = "<group>"; };
 		31B8803F2B9E0F8E0087A7A8 /* omyu_pretty.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = omyu_pretty.ttf; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 				315A9FAF2BA044BD00C1CF63 /* ViewModel.swift */,
 				31E9CE872BA6C04800B52CD8 /* DBManager.swift */,
 				31E9CE892BA6DEE000B52CD8 /* DateManager.swift */,
+				31B5C0722BAB3B9D00F13E3E /* TodoManager.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -690,6 +693,7 @@
 				31E9CE882BA6C04800B52CD8 /* DBManager.swift in Sources */,
 				317696B92BA195B000B2C6BF /* AddTodoViewController.swift in Sources */,
 				315A9FA52BA03BA000C1CF63 /* TodoHeaderSupplementaryView.swift in Sources */,
+				31B5C0732BAB3B9D00F13E3E /* TodoManager.swift in Sources */,
 				315A9FA12BA036E900C1CF63 /* String+extension.swift in Sources */,
 				31D496F92BA02CA1001FA5FE /* Importance.swift in Sources */,
 			);

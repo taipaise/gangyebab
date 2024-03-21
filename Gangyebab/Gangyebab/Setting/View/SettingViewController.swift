@@ -54,11 +54,10 @@ extension SettingViewController {
         guard MFMailComposeViewController.canSendMail() else {
             AlertBuilder(
                 message: "이메일을 사용할 수 없습니다.\n이메일 설정을 확인해주세요.",
-                confirmAction: CustomAlertAction(
+                pointAction: CustomAlertAction(
                     text: "확인",
                     action: {}
-                ),
-                isCancelNeeded: false
+                )
             )
             .show(self)
             return
@@ -97,32 +96,29 @@ extension SettingViewController: MFMailComposeViewControllerDelegate {
             print("임시저장")
             AlertBuilder(
                 message: "이메일이 임시 저장되었습니다.",
-                confirmAction: CustomAlertAction(
+                pointAction: CustomAlertAction(
                     text: "확인",
                     action: {}
-                ),
-                isCancelNeeded: false
+                )
             )
             .show(self)
             print(self)
         case .sent:
             AlertBuilder(
                 message: "문의를 성공적으로 보냈습니다.",
-                confirmAction: CustomAlertAction(
+                pointAction: CustomAlertAction(
                     text: "확인",
                     action: {}
-                ),
-                isCancelNeeded: false
+                )
             )
             .show(self)
         case .failed:
             AlertBuilder(
                 message: "이메일 전송이 실패하였습니다.",
-                confirmAction: CustomAlertAction(
+                pointAction: CustomAlertAction(
                     text: "확인",
                     action: {}
-                ),
-                isCancelNeeded: false
+                )
             )
             .show(self)
         @unknown default:

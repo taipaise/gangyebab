@@ -17,7 +17,7 @@ final class HomeViewModel: ViewModel {
         case previousButton
         case addTodo(_ todo: TodoModel)
         case updateTodo(_ todo: TodoModel)
-        case deleteTodo(_ indexPath: IndexPath)
+        case deleteTodo(_ indexPath: IndexPath, deleteAll: Bool)
         case todayButtonTapped
         case dateSelected(_ date: Date)
         case calendarSwipe(_ date: Date)
@@ -30,10 +30,10 @@ final class HomeViewModel: ViewModel {
     private(set) var monthString = CurrentValueSubject<String, Never>("")
     private(set) var cellModels = CurrentValueSubject<TodoCellModels, Error>(TodoCellModels(inProgress: [], completed: []))
     private(set) var inprogressCellModels: [TodoModel] = []
-    private var completedCellModels: [TodoModel] = []
+    private(set) var completedCellModels: [TodoModel] = []
     private(set) var date = CurrentValueSubject<Date, Never>(Date())
     private var cancellables: Set<AnyCancellable> = []
-    private let dbManager = DBManager.shared
+    private let todoManager = TodoManager.shared
     private let dateManager = DateManager.shared
     
     func action(_ input: Input) {
@@ -48,8 +48,8 @@ final class HomeViewModel: ViewModel {
             goPrevioudDay()
         case .addTodo(let todo):
             addTodo(todo)
-        case .deleteTodo(let indexPath):
-            deleteTodo(indexPath)
+        case .deleteTodo(let indexPath, let deleteAll):
+            deleteTodo(indexPath, deleteAll: deleteAll)
         case .updateTodo(let todo):
             updateTodo(todo)
         case .todayButtonTapped:
@@ -105,18 +105,17 @@ extension HomeViewModel {
     }
     
     private func addTodo(_ todo: TodoModel) {
-        if dbManager.insertTodoData(todo) {
-            fetchTodoList(date.value)
-        }
+        todoManager.insertTodo(todo)
+        fetchTodoList(date.value)
     }
     
     private func updateTodo(_ todo: TodoModel) {
-        if dbManager.updateTodoData(todo) {
-            fetchTodoList(date.value)
-        }
+        print("update")
+        todoManager.updateTodo(todo)
+        fetchTodoList(date.value)
     }
     
-    private func deleteTodo(_ indexPath: IndexPath) {
+    private func deleteTodo(_ indexPath: IndexPath, deleteAll: Bool) {
         var item: TodoModel
         switch indexPath.section {
         case TodoSection.inProgress.rawValue:
@@ -124,7 +123,8 @@ extension HomeViewModel {
         default:
             item = completedCellModels[indexPath.row]
         }
-        dbManager.deleteTodoData(item.uuid)
+        
+        todoManager.deleteTodo(todo: item, deleteAll: deleteAll)
         fetchTodoList(date.value)
     }
     
@@ -171,10 +171,10 @@ extension HomeViewModel {
 extension HomeViewModel {
     private func fetchTodoList(_ date: Date) {
         let dateString = dateManager.dateToString(date)
-        let todosOfDate = dbManager.readTodoData(dateString)
+        let todos = todoManager.fetchTodos(dateString)
         
-        inprogressCellModels = todosOfDate.filter { !$0.isCompleted }.sorted()
-        completedCellModels = todosOfDate.filter { $0.isCompleted }
+        inprogressCellModels = todos.filter { !$0.isCompleted && !$0.isDeleted }.sorted()
+        completedCellModels = todos.filter { $0.isCompleted && !$0.isDeleted }
         
         cellModels.send(
             TodoCellModels(

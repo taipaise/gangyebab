@@ -19,6 +19,7 @@ final class AddTodoViewModel: ViewModel {
     private(set) var repeatType = CurrentValueSubject<RepeatType, Never>(.none)
     private(set) var dateString = CurrentValueSubject<String, Never>("")
     private(set) var title = CurrentValueSubject<String, Never>("")
+    private(set) var isRepeated = false
     private(set) var isEditing = false
     private var date: Date = Date()
     private let dateManager = DateManager.shared
@@ -35,6 +36,7 @@ final class AddTodoViewModel: ViewModel {
             importance.send(todo.importance)
             repeatType.send(todo.repeatType)
             isEditing = true
+            if todo.repeatType != .none { isRepeated = true }
         }
     }
     

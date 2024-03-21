@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 protocol AddTodoDelegate: AnyObject {
-    func transferTodo(_ todo: TodoModel, isEditing: Bool)
+    func transferTodo(todo: TodoModel, isEditing: Bool)
 }
 
 final class AddTodoViewController: UIViewController {
@@ -112,17 +112,30 @@ extension AddTodoViewController {
                 if viewModel.title.value.isEmpty {
                     AlertBuilder(
                         message: "할 일을 입력해 주세요.",
-                        confirmAction: CustomAlertAction(text: "확인", action: {}),
-                        isCancelNeeded: false
+                        pointAction: CustomAlertAction(text: "확인", action: {})
                     )
                     .show(self)
                 } else {
-                    if viewModel.isEditing {
-                        self.delegate?.transferTodo(self.viewModel.getTodo(), isEditing: true)
+                    if viewModel.isRepeated {
+                        AlertBuilder(
+                            message: "반복 이벤트입니다.\n수정할까요?",
+                            pointAction: CustomAlertAction(text: "확인", action: {
+                                self.delegate?.transferTodo(
+                                    todo: self.viewModel.getTodo(),
+                                    isEditing: self.viewModel.isEditing
+                                )
+                                self.dismiss(animated: false)
+                            }),
+                            generalAction: CustomAlertAction(text: "취소")
+                        )
+                        .show(self)
                     } else {
-                        self.delegate?.transferTodo(self.viewModel.getTodo(), isEditing: false)
+                        self.delegate?.transferTodo(
+                            todo: self.viewModel.getTodo(),
+                            isEditing: self.viewModel.isEditing
+                        )
+                        self.dismiss(animated: false)
                     }
-                    self.dismiss(animated: false)
                 }
             }
             .store(in: &cancellables)
