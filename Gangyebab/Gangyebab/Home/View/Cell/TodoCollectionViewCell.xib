@@ -23,7 +23,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="346" height="52"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="B1y-hc-FUV">
+                    <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="B1y-hc-FUV">
                         <rect key="frame" x="10" y="17.666666666666668" width="326" height="17.000000000000004"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SX7-AS-bGQ" userLabel="Importance Color">
@@ -33,7 +33,7 @@
                                     <constraint firstAttribute="width" constant="5" id="PsM-He-gX0"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Qc-RF-VKx" userLabel="Content Label">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Qc-RF-VKx" userLabel="Content Label">
                                 <rect key="frame" x="10" y="0.0" width="41.666666666666664" height="17"/>
                                 <fontDescription key="fontDescription" name="SOYO-Maple-Regular" family="SOYO Maple" pointSize="15"/>
                                 <color key="textColor" name="stringColor1"/>

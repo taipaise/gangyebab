@@ -54,12 +54,15 @@ struct MyWidgetEntryView : View {
                 switch self.family {
                 case .systemSmall:
                     VStack {
-                        HStack {
-                            Image(.gangyebab)
-                                .frame(maxWidth: 50)
-                                .scaledToFit()
+                        HStack(spacing: 0) {
                             Text(viewModel.date)
+                                .foregroundColor(.stringColor1)
                                 .font(Font.custom("omyu_pretty", size: 20))
+                                .padding(.trailing, 5)
+                            Image(.gangyebab)
+                                .resizable()
+                                .frame(maxWidth: 30, maxHeight: 30)
+                                .scaledToFit()
                             Spacer()
                         }
                         ListView(
@@ -71,12 +74,15 @@ struct MyWidgetEntryView : View {
                 case .systemMedium:
                     HStack {
                         VStack {
-                            HStack {
-                                Image(.gangyebab)
-                                    .frame(maxWidth: 50)
-                                    .scaledToFit()
+                            HStack(spacing: 0) {
                                 Text(viewModel.date)
+                                    .foregroundColor(.stringColor1)
                                     .font(Font.custom("omyu_pretty", size: 20))
+                                    .padding(.trailing, 5)
+                                Image(.gangyebab)
+                                    .resizable()
+                                    .frame(maxWidth: 30, maxHeight: 30)
+                                    .scaledToFit()
                                 Spacer()
                             }
                             ListView(
@@ -101,12 +107,16 @@ struct MyWidgetEntryView : View {
                 case .systemLarge:
                     HStack {
                         VStack {
-                            HStack {
-                                Image(.gangyebab)
-                                    .frame(maxWidth: 60)
-                                    .scaledToFit()
+                            HStack(spacing: 0) {
                                 Text(viewModel.date)
+                                    .foregroundColor(.stringColor1)
+                                    .foregroundColor(.stringColor1)
                                     .font(Font.custom("omyu_pretty", size: 20))
+                                    .padding(.trailing, 5)
+                                Image(.gangyebab)
+                                    .resizable()
+                                    .frame(maxWidth: 30, maxHeight: 30)
+                                    .scaledToFit()
                                 Spacer()
                             }
                             ListView(
@@ -141,12 +151,15 @@ struct MyWidgetEntryView : View {
                 switch self.family {
                 case .systemSmall:
                     VStack {
-                        HStack {
-                            Image(.gangyebab)
-                                .frame(maxWidth: 50)
-                                .scaledToFit()
+                        HStack(spacing: 0) {
                             Text(viewModel.date)
+                                .foregroundColor(.stringColor1)
                                 .font(Font.custom("omyu_pretty", size: 20))
+                                .padding(.trailing, 5)
+                            Image(.gangyebab)
+                                .resizable()
+                                .frame(maxWidth: 30, maxHeight: 30)
+                                .scaledToFit()
                             Spacer()
                         }
                         ListView(
@@ -158,12 +171,15 @@ struct MyWidgetEntryView : View {
                 case .systemMedium:
                     HStack {
                         VStack {
-                            HStack {
-                                Image(.gangyebab)
-                                    .frame(maxWidth: 50)
-                                    .scaledToFit()
+                            HStack(spacing: 0) {
                                 Text(viewModel.date)
+                                    .foregroundColor(.stringColor1)
                                     .font(Font.custom("omyu_pretty", size: 20))
+                                    .padding(.trailing, 5)
+                                Image(.gangyebab)
+                                    .resizable()
+                                    .frame(maxWidth: 30, maxHeight: 30)
+                                    .scaledToFit()
                                 Spacer()
                             }
                             ListView(
@@ -188,12 +204,15 @@ struct MyWidgetEntryView : View {
                 case .systemLarge:
                     HStack {
                         VStack {
-                            HStack {
-                                Image(.gangyebab)
-                                    .frame(maxWidth: 60)
-                                    .scaledToFit()
+                            HStack(spacing: 0) {
                                 Text(viewModel.date)
+                                    .foregroundColor(.stringColor1)
                                     .font(Font.custom("omyu_pretty", size: 20))
+                                    .padding(.trailing, 5)
+                                Image(.gangyebab)
+                                    .resizable()
+                                    .frame(maxWidth: 30, maxHeight: 30)
+                                    .scaledToFit()
                                 Spacer()
                             }
                             ListView(

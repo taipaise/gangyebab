@@ -23,6 +23,7 @@ struct WidgetCell: View {
                             .background(Color(todo.importance.color))
                         
                         Text("\(todo.title)")
+                            .foregroundColor(.stringColor1)
                             .font(Font.custom("SOYO-Maple-Regular", size: 15))
                             .padding(.leading, 5)
                             .lineLimit(1)
@@ -31,6 +32,7 @@ struct WidgetCell: View {
                 } else {
                     HStack(alignment: .center, spacing: 0) {    
                         Text("\(todo.title)")
+                            .foregroundColor(.stringColor1)
                             .font(Font.custom("SOYO-Maple-Regular", size: 15))
                             .strikethrough(true)
                             .padding(.leading, 5)
