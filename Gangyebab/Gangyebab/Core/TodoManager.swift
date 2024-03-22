@@ -29,6 +29,14 @@ final class TodoManager {
                     deleteItems.append(todo)
                 }
                 
+                if
+                    todo.title != repeatRule.title ||
+                        todo.importance != repeatRule.importance {
+                    deleteItems.append(todo)
+                    appendItems.append(makeTodoByRepeatRule(repeatRule: repeatRule, date: date))
+                }
+                    
+                
             } else { //todo에 repeatId가 없는 경우
                 guard 
                     !repeatRule.isDeleted,
@@ -102,10 +110,10 @@ final class TodoManager {
     }
     
     func updateTodo(_ todo: TodoModel) {
+
         guard let originTodo = dbManager.readTodoByUUID(uuid: todo.uuid) else { return }
         if originTodo == todo { return }
         if originTodo.repeatType == todo.repeatType {
-            
             if originTodo.repeatType != .none {
                 dbManager.updateRepeatData(
                     RepeatRuleModel(
@@ -121,6 +129,7 @@ final class TodoManager {
                 uuid: todo.uuid,
                 title: todo.title,
                 importance: todo.importance,
+                isCompleted: todo.isCompleted,
                 repeatType: todo.repeatType,
                 date: todo.date,
                 repeatId: originTodo.repeatId
