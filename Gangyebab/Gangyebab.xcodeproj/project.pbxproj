@@ -40,6 +40,8 @@
 		3172546C2B99B19200ED3E25 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3172546A2B99B19200ED3E25 /* SettingViewController.xib */; };
 		317696B82BA195B000B2C6BF /* AddTodoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 317696B72BA195B000B2C6BF /* AddTodoViewController.xib */; };
 		317696B92BA195B000B2C6BF /* AddTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317696B62BA195B000B2C6BF /* AddTodoViewController.swift */; };
+		319B8D6F2BAD68EA0033CB3A /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B8D6D2BAD68EA0033CB3A /* DonateViewController.swift */; };
+		319B8D702BAD68EA0033CB3A /* DonateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 319B8D6E2BAD68EA0033CB3A /* DonateViewController.xib */; };
 		319CF8852BA8169400972DF7 /* WidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319CF8842BA8169400972DF7 /* WidgetViewModel.swift */; };
 		319CF8862BA816FE00972DF7 /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9CE832BA6BF7300B52CD8 /* TodoModel.swift */; };
 		319CF8872BA8171A00972DF7 /* Importance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D496F82BA02CA1001FA5FE /* Importance.swift */; };
@@ -151,6 +153,8 @@
 		3172546A2B99B19200ED3E25 /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		317696B62BA195B000B2C6BF /* AddTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoViewController.swift; sourceTree = "<group>"; };
 		317696B72BA195B000B2C6BF /* AddTodoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTodoViewController.xib; sourceTree = "<group>"; };
+		319B8D6D2BAD68EA0033CB3A /* DonateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateViewController.swift; sourceTree = "<group>"; };
+		319B8D6E2BAD68EA0033CB3A /* DonateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DonateViewController.xib; sourceTree = "<group>"; };
 		319CF8842BA8169400972DF7 /* WidgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewModel.swift; sourceTree = "<group>"; };
 		319CF88C2BA81C1200972DF7 /* GangyebabWidgetExtensionDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GangyebabWidgetExtensionDebug.entitlements; sourceTree = "<group>"; };
 		319CF88D2BA81C1E00972DF7 /* GangyebabDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GangyebabDebug.entitlements; sourceTree = "<group>"; };
@@ -276,6 +280,7 @@
 				319CF88F2BA8213400972DF7 /* GangyebabWidgetExtensionRelease.entitlements */,
 				319CF88C2BA81C1200972DF7 /* GangyebabWidgetExtensionDebug.entitlements */,
 				317254292B99AE2600ED3E25 /* Gangyebab */,
+				319B8D6B2BAD67E10033CB3A /* Donate */,
 				317254402B99AE2800ED3E25 /* GangyebabTests */,
 				3172544A2B99AE2800ED3E25 /* GangyebabUITests */,
 				31D34D602BA7FF100022088B /* GangyebabWidget */,
@@ -401,6 +406,23 @@
 			children = (
 				317696B62BA195B000B2C6BF /* AddTodoViewController.swift */,
 				317696B72BA195B000B2C6BF /* AddTodoViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		319B8D6B2BAD67E10033CB3A /* Donate */ = {
+			isa = PBXGroup;
+			children = (
+				319B8D6C2BAD67EF0033CB3A /* View */,
+			);
+			path = Donate;
+			sourceTree = "<group>";
+		};
+		319B8D6C2BAD67EF0033CB3A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				319B8D6D2BAD68EA0033CB3A /* DonateViewController.swift */,
+				319B8D6E2BAD68EA0033CB3A /* DonateViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -621,6 +643,7 @@
 				31D496FB2BA02EAB001FA5FE /* SOYO-Maple-Bold.otf in Resources */,
 				31D496FC2BA02EAB001FA5FE /* SOYO-Maple-Regular.otf in Resources */,
 				317254372B99AE2700ED3E25 /* LaunchScreen.storyboard in Resources */,
+				319B8D702BAD68EA0033CB3A /* DonateViewController.xib in Resources */,
 				310E784C2BA3051F00E24C7E /* CustomAlertViewController.xib in Resources */,
 				315A9FA42BA03BA000C1CF63 /* TodoHeaderSupplementaryView.xib in Resources */,
 				317254342B99AE2700ED3E25 /* Assets.xcassets in Resources */,
@@ -683,6 +706,7 @@
 				315D0DF72BA1A85100F647DB /* AddTodoViewModel.swift in Sources */,
 				315A9FAB2BA0413700C1CF63 /* UICollectionView+extension.swift in Sources */,
 				315A9FB02BA044BD00C1CF63 /* ViewModel.swift in Sources */,
+				319B8D6F2BAD68EA0033CB3A /* DonateViewController.swift in Sources */,
 				31D496E52BA019DC001FA5FE /* UIView+extensions.swift in Sources */,
 				3172542B2B99AE2600ED3E25 /* AppDelegate.swift in Sources */,
 				310E78412BA2F52300E24C7E /* SettingViewModel.swift in Sources */,
