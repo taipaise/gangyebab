@@ -36,6 +36,13 @@ extension SettingViewController {
                 self?.sendMail()
             }
             .store(in: &cancellables)
+        
+        donateButton.safeTap
+            .sink { [weak self] _ in
+                let nextVC = DonateViewController()
+                self?.navigationController?.pushViewController(nextVC, animated: true)
+            }
+            .store(in: &cancellables)
     }
     
     private func bindViewModel() {
