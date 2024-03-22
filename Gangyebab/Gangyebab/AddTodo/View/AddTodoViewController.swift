@@ -116,6 +116,10 @@ extension AddTodoViewController {
                     )
                     .show(self)
                 } else {
+                    if viewModel.isSame {
+                        self.dismiss(animated: true)
+                        return
+                    }
                     if viewModel.isRepeated {
                         AlertBuilder(
                             message: "반복 이벤트입니다.\n수정할까요?",

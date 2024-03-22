@@ -15,6 +15,7 @@ final class AddTodoViewModel: ViewModel {
         case updateTitle(_ title: String)
     }
 
+    private(set) var isSame = false
     private(set) var importance = CurrentValueSubject<Importance, Never>(.none)
     private(set) var repeatType = CurrentValueSubject<RepeatType, Never>(.none)
     private(set) var dateString = CurrentValueSubject<String, Never>("")
@@ -24,6 +25,23 @@ final class AddTodoViewModel: ViewModel {
     private var date: Date = Date()
     private let dateManager = DateManager.shared
     private var todoCellModel: TodoModel?
+    private var cancellables = Set<AnyCancellable>()
+    
+    init() {
+        Publishers.CombineLatest3(importance, repeatType, title)
+            .sink { [weak self] (importance, repeatType, title) in
+                guard let self = self else { return }
+                if let todoCellModel = self.todoCellModel {
+                    let isSame = todoCellModel.importance == importance &&
+                    todoCellModel.repeatType == repeatType &&
+                    todoCellModel.title == title
+                    self.isSame = isSame
+                } else {
+                    self.isSame = false
+                }
+            }
+            .store(in: &cancellables)
+    }
     
     func configure(date: Date, todo: TodoModel?) {
         self.date = date

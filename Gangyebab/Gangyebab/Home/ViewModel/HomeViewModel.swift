@@ -111,7 +111,6 @@ extension HomeViewModel {
     }
     
     private func updateTodo(_ todo: TodoModel) {
-        print("update")
         todoManager.updateTodo(todo)
         fetchTodoList(date.value)
     }

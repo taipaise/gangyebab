@@ -92,7 +92,7 @@
 			remoteGlobalIDString = 317254262B99AE2600ED3E25;
 			remoteInfo = Gangyebab;
 		};
-		31D34D6C2BA7FF110022088B /* PBXContainerItemProxy */ = {
+		3172D8C32BAD5D51000AF73F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3172541F2B99AE2600ED3E25 /* Project object */;
 			proxyType = 1;
@@ -497,7 +497,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				31D34D6D2BA7FF110022088B /* PBXTargetDependency */,
+				3172D8C42BAD5D51000AF73F /* PBXTargetDependency */,
 			);
 			name = Gangyebab;
 			packageProductDependencies = (
@@ -748,10 +748,10 @@
 			target = 317254262B99AE2600ED3E25 /* Gangyebab */;
 			targetProxy = 317254482B99AE2800ED3E25 /* PBXContainerItemProxy */;
 		};
-		31D34D6D2BA7FF110022088B /* PBXTargetDependency */ = {
+		3172D8C42BAD5D51000AF73F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 31D34D592BA7FF100022088B /* GangyebabWidgetExtension */;
-			targetProxy = 31D34D6C2BA7FF110022088B /* PBXContainerItemProxy */;
+			targetProxy = 3172D8C32BAD5D51000AF73F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
