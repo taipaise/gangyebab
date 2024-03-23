@@ -26,21 +26,50 @@
                     <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="B1y-hc-FUV">
                         <rect key="frame" x="10" y="17.666666666666668" width="326" height="17.000000000000004"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BWu-FU-4AP">
+                                <rect key="frame" x="0.0" y="0.0" width="17" height="17"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="T4n-1Y-kFF">
+                                        <rect key="frame" x="0.0" y="0.99999999999999822" width="17" height="15.666666666666666"/>
+                                        <color key="tintColor" name="stringColor1"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmg-b6-V2c">
+                                        <rect key="frame" x="0.0" y="0.0" width="17" height="17"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="checkButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="gYD-2J-62c"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="background1"/>
+                                <constraints>
+                                    <constraint firstItem="jmg-b6-V2c" firstAttribute="leading" secondItem="BWu-FU-4AP" secondAttribute="leading" id="4iy-iX-UjC"/>
+                                    <constraint firstAttribute="trailing" secondItem="jmg-b6-V2c" secondAttribute="trailing" id="7nT-hc-d51"/>
+                                    <constraint firstItem="T4n-1Y-kFF" firstAttribute="top" secondItem="BWu-FU-4AP" secondAttribute="top" id="9sd-Z7-a1r"/>
+                                    <constraint firstItem="T4n-1Y-kFF" firstAttribute="leading" secondItem="BWu-FU-4AP" secondAttribute="leading" id="V6u-ua-ITj"/>
+                                    <constraint firstAttribute="bottom" secondItem="T4n-1Y-kFF" secondAttribute="bottom" id="dKX-jm-bzV"/>
+                                    <constraint firstItem="jmg-b6-V2c" firstAttribute="top" secondItem="BWu-FU-4AP" secondAttribute="top" id="fxe-4V-rJb"/>
+                                    <constraint firstAttribute="bottom" secondItem="jmg-b6-V2c" secondAttribute="bottom" id="iFW-fx-ECz"/>
+                                    <constraint firstAttribute="trailing" secondItem="T4n-1Y-kFF" secondAttribute="trailing" id="iFh-il-amj"/>
+                                    <constraint firstAttribute="width" secondItem="BWu-FU-4AP" secondAttribute="height" multiplier="1:1" id="tbz-pq-3b6"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SX7-AS-bGQ" userLabel="Importance Color">
-                                <rect key="frame" x="0.0" y="0.0" width="5" height="17"/>
+                                <rect key="frame" x="22" y="0.0" width="5" height="17"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="5" id="PsM-He-gX0"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Qc-RF-VKx" userLabel="Content Label">
-                                <rect key="frame" x="10" y="0.0" width="41.666666666666664" height="17"/>
+                                <rect key="frame" x="31.999999999999996" y="0.0" width="41.666666666666657" height="17"/>
                                 <fontDescription key="fontDescription" name="SOYO-Maple-Regular" family="SOYO Maple" pointSize="15"/>
                                 <color key="textColor" name="stringColor1"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HNo-HF-cez">
-                                <rect key="frame" x="56.666666666666657" y="0.0" width="269.33333333333337" height="17"/>
+                                <rect key="frame" x="78.666666666666671" y="0.0" width="247.33333333333331" height="17"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -61,11 +90,15 @@
             <connections>
                 <outlet property="contentLabel" destination="0Qc-RF-VKx" id="tqJ-18-tc4"/>
                 <outlet property="importanceColor" destination="SX7-AS-bGQ" id="Yvg-q9-DJG"/>
+                <outlet property="selectButton" destination="jmg-b6-V2c" id="Ic0-R8-pmg"/>
+                <outlet property="selectButtonView" destination="BWu-FU-4AP" id="bOy-5o-XiI"/>
+                <outlet property="selectImageView" destination="T4n-1Y-kFF" id="RQL-oV-dDX"/>
             </connections>
             <point key="canvasLocation" x="165" y="41"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="circle" catalog="system" width="128" height="123"/>
         <namedColor name="background1">
             <color red="0.99607843137254903" green="0.97254901960784312" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -7,10 +7,19 @@
 
 import UIKit
 
+protocol TodoCellDelegate: AnyObject {
+    func check(_ cellModel: TodoModel)
+}
+
 final class TodoCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet private weak var importanceColor: UIView!
     @IBOutlet private weak var contentLabel: UILabel!
+    @IBOutlet private weak var selectButtonView: UIView!
+    @IBOutlet private weak var selectImageView: UIImageView!
+    @IBOutlet private weak var selectButton: UIButton!
+    private var cellModel: TodoModel?
+    weak var delegate: TodoCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,10 +30,21 @@ final class TodoCollectionViewCell: UICollectionViewCell {
         importanceColor.isHidden = false
         contentLabel.attributedText = nil
     }
+    
+    @IBAction private func checkButtonTapped(_ sender: Any) {
+        guard
+            let cellModel = cellModel,
+            let delegate = delegate
+        else { return }
+        
+        delegate.check(cellModel)
+    }
+    
 }
 
 extension TodoCollectionViewCell {
-    func configure(_ cellModel: TodoModel) {
+    func configure(_ cellModel: TodoModel, isCheckNeed: Bool = false) {
+        self.cellModel = cellModel
         contentLabel.text = cellModel.title
         
         switch cellModel.importance {
@@ -46,5 +66,7 @@ extension TodoCollectionViewCell {
             contentLabel.text = cellModel.title
             contentLabel.textColor = .stringColor1
         }
+        
+        selectButtonView.isHidden = !isCheckNeed
     }
 }
