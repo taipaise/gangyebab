@@ -44,13 +44,6 @@ final class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
         viewModel.action(.refresh)
     }
-    
-    @IBAction func testButtonTapped(_ sender: Any) {
-        let nextVC = SelectTodoViewController()
-        nextVC.delegate = self
-        present(nextVC, animated: true)
-    }
-    
 }
 
 // MARK: - UISetting
@@ -135,6 +128,17 @@ extension HomeViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] date in
                 self?.calendar.setCurrentPage(date, animated: true)
+            }
+            .store(in: &cancellables)
+        
+        viewModel.showYesterday
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] hasToShow in
+                if hasToShow {
+                    let nextVC = SelectTodoViewController()
+                    nextVC.delegate = self
+                    self?.present(nextVC, animated: true)
+                }
             }
             .store(in: &cancellables)
     }

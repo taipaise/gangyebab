@@ -11,7 +11,8 @@ import MessageUI
 
 final class SettingViewController: UIViewController {
 
-    @IBOutlet private weak var notificatinSettingButton: UIButton!
+    
+    @IBOutlet private weak var yesterdaySwitch: UISwitch!
     @IBOutlet private weak var contactButton: UIButton!
     @IBOutlet private weak var reviewButton: UIButton!
     @IBOutlet private weak var licenseButton: UIButton!
