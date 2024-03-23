@@ -21,7 +21,7 @@ final class HomeViewModel: ViewModel {
         case todayButtonTapped
         case dateSelected(_ date: Date)
         case calendarSwipe(_ date: Date)
-        case viewWillAppear
+        case refresh
     }
     
     @Published private(set) var isToday = true
@@ -33,9 +33,18 @@ final class HomeViewModel: ViewModel {
     private(set) var completedCellModels: [TodoModel] = []
     private(set) var date = CurrentValueSubject<Date, Never>(Date())
     private(set) var calendarPage = CurrentValueSubject<Date, Never>(Date())
+    private(set) var showYesterday = CurrentValueSubject<Bool, Never>(false)
     private var cancellables: Set<AnyCancellable> = []
     private let todoManager = TodoManager.shared
     private let dateManager = DateManager.shared
+    private let userdefaultManager = UserDefaultManager.shared
+    
+    init() {
+        fetchTodoList(Date())
+        binding()
+        monthString.send(dateManager.dateToStringMonth(Date()))
+        checkYesterday()
+    }
     
     func action(_ input: Input) {
         switch input {
@@ -59,15 +68,9 @@ final class HomeViewModel: ViewModel {
             setDate(date)
         case .calendarSwipe(let date):
             calendarSwipe(date)
-        case .viewWillAppear:
+        case .refresh:
             fetchTodoList(date.value)
         }
-    }
-    
-    init() {
-        fetchTodoList(Date())
-        binding()
-        monthString.send(dateManager.dateToStringMonth(Date()))
     }
     
     private func binding() {
@@ -192,6 +195,37 @@ extension HomeViewModel {
             )
         )
         WidgetCenter.shared.reloadAllTimelines()
+    }
+    
+    private func checkYesterday() {
+        let switchState = userdefaultManager.getSwitchState()
+        if switchState == false { return }
+        
+        let currentDate = Date()
+        let calendar = Calendar.current
+        var dateComponents = DateComponents()
+        dateComponents.day = -1
+        
+        guard let yesterday = calendar.date(byAdding: dateComponents, to: currentDate)  else { return }
+        
+        let dateString = dateManager.dateToString(yesterday)
+        let yesterdayTodos = todoManager.fetchTodos(dateString)
+        
+        let todos = yesterdayTodos.filter({
+            $0.isCompleted == false
+            && $0.repeatType != .daily
+            && $0.isDeleted == false
+        })
+        
+        guard
+            !todos.isEmpty,
+            UserDefaultManager.shared.isFirstExecute()
+        else {
+            showYesterday.send(false)
+            return
+        }
+        
+        showYesterday.send(true)
     }
 }
 

@@ -42,7 +42,7 @@ final class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.action(.viewWillAppear)
+        viewModel.action(.refresh)
     }
 }
 
@@ -130,6 +130,17 @@ extension HomeViewController {
                 self?.calendar.setCurrentPage(date, animated: true)
             }
             .store(in: &cancellables)
+        
+        viewModel.showYesterday
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] hasToShow in
+                if hasToShow {
+                    let nextVC = SelectTodoViewController()
+                    nextVC.delegate = self
+                    self?.present(nextVC, animated: true)
+                }
+            }
+            .store(in: &cancellables)
     }
     
     private func bindView() {
@@ -194,10 +205,6 @@ extension HomeViewController {
             return cell
         }
         
-        var snapshot = Snapshot()
-        snapshot.appendSections([.inProgress, .completed])
-        snapshot.appendItems([])
-        
         dataSource?.supplementaryViewProvider = { [weak self] view, kind, indexPath in
             let header = self?.todoCollectionView.dequeueReusableSupplementaryView(
                 ofKind: UICollectionView.elementKindSectionHeader,
@@ -213,8 +220,6 @@ extension HomeViewController {
             
             return header
         }
-        
-        dataSource?.apply(snapshot, animatingDifferences: false)
     }
     
     private func applyItems(cellModels: TodoCellModels) {
@@ -377,5 +382,11 @@ extension HomeViewController: FSCalendarDelegate {
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         viewModel.action(.dateSelected(date))
+    }
+}
+
+extension HomeViewController: SelectTodoDelegate {
+    func addComplete() {
+        viewModel.action(.refresh)
     }
 }

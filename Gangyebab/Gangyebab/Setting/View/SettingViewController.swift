@@ -11,7 +11,8 @@ import MessageUI
 
 final class SettingViewController: UIViewController {
 
-    @IBOutlet private weak var notificatinSettingButton: UIButton!
+    
+    @IBOutlet private weak var yesterdaySwitch: UISwitch!
     @IBOutlet private weak var contactButton: UIButton!
     @IBOutlet private weak var reviewButton: UIButton!
     @IBOutlet private weak var licenseButton: UIButton!
@@ -23,8 +24,17 @@ final class SettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUI()
         bindView()
         bindViewModel()
+    }
+    
+    private func setUI() {
+        yesterdaySwitch.setOn(viewModel.switchState, animated: false)
+    }
+    
+    @IBAction private func switchToggle(_ sender: UISwitch) {
+        viewModel.action(.toggle(sender.isOn))
     }
 }
 
@@ -50,6 +60,13 @@ extension SettingViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] version in
                 self?.versionLabel.text = version
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$switchState
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] state in
+                self?.yesterdaySwitch.setOn(state, animated: true)
             }
             .store(in: &cancellables)
     }

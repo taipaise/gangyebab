@@ -16,6 +16,10 @@
 		3139E4022BA8029600CC81F9 /* WidgetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D34D782BA800910022088B /* WidgetCell.swift */; };
 		3139E4052BA802A200CC81F9 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D34D772BA800910022088B /* ListView.swift */; };
 		3139E4072BA8030D00CC81F9 /* RepeatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315D0DF82BA1B85900F647DB /* RepeatType.swift */; };
+		3141E9972BAEBA4A007D4B76 /* SelectTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3141E9952BAEBA4A007D4B76 /* SelectTodoViewController.swift */; };
+		3141E9982BAEBA4A007D4B76 /* SelectTodoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3141E9962BAEBA4A007D4B76 /* SelectTodoViewController.xib */; };
+		31526A832BAEC66D008F165D /* SelectTodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31526A822BAEC66D008F165D /* SelectTodoViewModel.swift */; };
+		31526A852BAEDCF9008F165D /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31526A842BAEDCF9008F165D /* UserDefaultManager.swift */; };
 		315A9FA12BA036E900C1CF63 /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A9FA02BA036E900C1CF63 /* String+extension.swift */; };
 		315A9FA42BA03BA000C1CF63 /* TodoHeaderSupplementaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 315A9FA32BA03BA000C1CF63 /* TodoHeaderSupplementaryView.xib */; };
 		315A9FA52BA03BA000C1CF63 /* TodoHeaderSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A9FA22BA03BA000C1CF63 /* TodoHeaderSupplementaryView.swift */; };
@@ -124,6 +128,10 @@
 		310E784B2BA3051F00E24C7E /* CustomAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAlertViewController.xib; sourceTree = "<group>"; };
 		310E784F2BA3098B00E24C7E /* CustomAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewModel.swift; sourceTree = "<group>"; };
 		310E78512BA312C400E24C7E /* AlertBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBuilder.swift; sourceTree = "<group>"; };
+		3141E9952BAEBA4A007D4B76 /* SelectTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTodoViewController.swift; sourceTree = "<group>"; };
+		3141E9962BAEBA4A007D4B76 /* SelectTodoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectTodoViewController.xib; sourceTree = "<group>"; };
+		31526A822BAEC66D008F165D /* SelectTodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTodoViewModel.swift; sourceTree = "<group>"; };
+		31526A842BAEDCF9008F165D /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		315A9FA02BA036E900C1CF63 /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
 		315A9FA22BA03BA000C1CF63 /* TodoHeaderSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoHeaderSupplementaryView.swift; sourceTree = "<group>"; };
 		315A9FA32BA03BA000C1CF63 /* TodoHeaderSupplementaryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoHeaderSupplementaryView.xib; sourceTree = "<group>"; };
@@ -258,6 +266,32 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		3141E9932BAEBA1E007D4B76 /* SelectTodo */ = {
+			isa = PBXGroup;
+			children = (
+				31526A812BAEC5AA008F165D /* ViewModel */,
+				3141E9942BAEBA3B007D4B76 /* View */,
+			);
+			path = SelectTodo;
+			sourceTree = "<group>";
+		};
+		3141E9942BAEBA3B007D4B76 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3141E9952BAEBA4A007D4B76 /* SelectTodoViewController.swift */,
+				3141E9962BAEBA4A007D4B76 /* SelectTodoViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		31526A812BAEC5AA008F165D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				31526A822BAEC66D008F165D /* SelectTodoViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		315A9FAC2BA0441400C1CF63 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,11 +344,13 @@
 				317254352B99AE2700ED3E25 /* LaunchScreen.storyboard */,
 				317254382B99AE2700ED3E25 /* Info.plist */,
 				317254602B99B00E00ED3E25 /* Core */,
+				31D496F22BA02BB8001FA5FE /* TodoCell */,
 				31B8803B2B9E0F3A0087A7A8 /* Resources */,
 				317254612B99B14100ED3E25 /* Home */,
 				317254622B99B15600ED3E25 /* Setting */,
 				317696B42BA1959B00B2C6BF /* AddTodo */,
 				310E78442BA302C200E24C7E /* Alert */,
+				3141E9932BAEBA1E007D4B76 /* SelectTodo */,
 			);
 			path = Gangyebab;
 			sourceTree = "<group>";
@@ -347,6 +383,7 @@
 				31E9CE872BA6C04800B52CD8 /* DBManager.swift */,
 				31E9CE892BA6DEE000B52CD8 /* DateManager.swift */,
 				31B5C0722BAB3B9D00F13E3E /* TodoManager.swift */,
+				31526A842BAEDCF9008F165D /* UserDefaultManager.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -378,7 +415,6 @@
 				315A9FA82BA03EB900C1CF63 /* HomeSegmentedControl.xib */,
 				315A9FA22BA03BA000C1CF63 /* TodoHeaderSupplementaryView.swift */,
 				315A9FA32BA03BA000C1CF63 /* TodoHeaderSupplementaryView.xib */,
-				31D496F22BA02BB8001FA5FE /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -483,13 +519,13 @@
 			path = GangyebabWidget;
 			sourceTree = "<group>";
 		};
-		31D496F22BA02BB8001FA5FE /* Cell */ = {
+		31D496F22BA02BB8001FA5FE /* TodoCell */ = {
 			isa = PBXGroup;
 			children = (
 				31D496EE2BA02BB4001FA5FE /* TodoCollectionViewCell.swift */,
 				31D496EF2BA02BB4001FA5FE /* TodoCollectionViewCell.xib */,
 			);
-			path = Cell;
+			path = TodoCell;
 			sourceTree = "<group>";
 		};
 		31D496F32BA02C77001FA5FE /* Model */ = {
@@ -641,6 +677,7 @@
 			files = (
 				31D496FA2BA02EAB001FA5FE /* omyu_pretty.ttf in Resources */,
 				31D496FB2BA02EAB001FA5FE /* SOYO-Maple-Bold.otf in Resources */,
+				3141E9982BAEBA4A007D4B76 /* SelectTodoViewController.xib in Resources */,
 				31D496FC2BA02EAB001FA5FE /* SOYO-Maple-Regular.otf in Resources */,
 				317254372B99AE2700ED3E25 /* LaunchScreen.storyboard in Resources */,
 				319B8D702BAD68EA0033CB3A /* DonateViewController.xib in Resources */,
@@ -689,9 +726,11 @@
 			files = (
 				317254662B99B17E00ED3E25 /* HomeViewController.swift in Sources */,
 				310E78432BA2FC2000E24C7E /* UIDevice+extension.swift in Sources */,
+				3141E9972BAEBA4A007D4B76 /* SelectTodoViewController.swift in Sources */,
 				315A9FAE2BA0441F00C1CF63 /* HomeViewModel.swift in Sources */,
 				31D496E12BA017D5001FA5FE /* HomeSegmentedControl.swift in Sources */,
 				31D496E72BA01A98001FA5FE /* UIButton+extension.swift in Sources */,
+				31526A852BAEDCF9008F165D /* UserDefaultManager.swift in Sources */,
 				31E9CE842BA6BF7300B52CD8 /* TodoModel.swift in Sources */,
 				3172545F2B99B00700ED3E25 /* TabViewController.swift in Sources */,
 				31D496F12BA02BB4001FA5FE /* TodoCollectionViewCell.swift in Sources */,
@@ -706,6 +745,7 @@
 				315D0DF72BA1A85100F647DB /* AddTodoViewModel.swift in Sources */,
 				315A9FAB2BA0413700C1CF63 /* UICollectionView+extension.swift in Sources */,
 				315A9FB02BA044BD00C1CF63 /* ViewModel.swift in Sources */,
+				31526A832BAEC66D008F165D /* SelectTodoViewModel.swift in Sources */,
 				319B8D6F2BAD68EA0033CB3A /* DonateViewController.swift in Sources */,
 				31D496E52BA019DC001FA5FE /* UIView+extensions.swift in Sources */,
 				3172542B2B99AE2600ED3E25 /* AppDelegate.swift in Sources */,
