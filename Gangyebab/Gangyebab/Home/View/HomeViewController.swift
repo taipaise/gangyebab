@@ -42,8 +42,15 @@ final class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.action(.viewWillAppear)
+        viewModel.action(.refresh)
     }
+    
+    @IBAction func testButtonTapped(_ sender: Any) {
+        let nextVC = SelectTodoViewController()
+        nextVC.delegate = self
+        present(nextVC, animated: true)
+    }
+    
 }
 
 // MARK: - UISetting
@@ -194,10 +201,6 @@ extension HomeViewController {
             return cell
         }
         
-        var snapshot = Snapshot()
-        snapshot.appendSections([.inProgress, .completed])
-        snapshot.appendItems([])
-        
         dataSource?.supplementaryViewProvider = { [weak self] view, kind, indexPath in
             let header = self?.todoCollectionView.dequeueReusableSupplementaryView(
                 ofKind: UICollectionView.elementKindSectionHeader,
@@ -213,8 +216,6 @@ extension HomeViewController {
             
             return header
         }
-        
-        dataSource?.apply(snapshot, animatingDifferences: false)
     }
     
     private func applyItems(cellModels: TodoCellModels) {
@@ -377,5 +378,11 @@ extension HomeViewController: FSCalendarDelegate {
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         viewModel.action(.dateSelected(date))
+    }
+}
+
+extension HomeViewController: SelectTodoDelegate {
+    func addComplete() {
+        viewModel.action(.refresh)
     }
 }

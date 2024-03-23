@@ -15,9 +15,9 @@ final class TodoCollectionViewCell: UICollectionViewCell {
         var image: UIImage {
             switch self {
             case .checked:
-                return UIImage(systemName: "circle")!
-            case .unchecked:
                 return UIImage(systemName: "circle.inset.filled")!
+            case .unchecked:
+                return UIImage(systemName: "circle")!
             }
         }
     }
@@ -27,7 +27,7 @@ final class TodoCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var selectButtonView: UIView!
     @IBOutlet private weak var selectImageView: UIImageView!
     private var cellModel: TodoModel?
-    private var isChecked: IsChecked?
+    private var isChecked: IsChecked = .unchecked
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -66,10 +66,7 @@ extension TodoCollectionViewCell {
             contentLabel.textColor = .stringColor1
         }
         
-        if isCheckNeed {
-            selectButtonView.isHidden = false
-            isChecked = .unchecked
-        }
+        selectButtonView.isHidden = !isCheckNeed
     }
 }
 
@@ -77,8 +74,6 @@ extension TodoCollectionViewCell {
 extension TodoCollectionViewCell {
     
     func toggleCheck() {
-        guard var isChecked = isChecked else { return }
-        
         switch isChecked {
         case .checked:
             isChecked = .unchecked
@@ -87,6 +82,5 @@ extension TodoCollectionViewCell {
         }
         
         selectImageView.image = isChecked.image
-        self.isChecked = isChecked
     }
 }

@@ -21,7 +21,7 @@ final class HomeViewModel: ViewModel {
         case todayButtonTapped
         case dateSelected(_ date: Date)
         case calendarSwipe(_ date: Date)
-        case viewWillAppear
+        case refresh
     }
     
     @Published private(set) var isToday = true
@@ -59,7 +59,7 @@ final class HomeViewModel: ViewModel {
             setDate(date)
         case .calendarSwipe(let date):
             calendarSwipe(date)
-        case .viewWillAppear:
+        case .refresh:
             fetchTodoList(date.value)
         }
     }
