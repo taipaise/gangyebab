@@ -8,24 +8,95 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="omyu_pretty.ttf">
+            <string>omyu_pretty</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectTodoViewController" customModule="Gangyebab" customModuleProvider="target">
             <connections>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="addButton" destination="K6O-1h-TAB" id="9ew-K9-ajy"/>
+                <outlet property="dismissButton" destination="2k2-DS-LF1" id="Hbb-3n-66O"/>
+                <outlet property="todoCollectionView" destination="1R7-Ze-GbS" id="KF4-Gp-mSU"/>
+                <outlet property="view" destination="46h-N7-XJJ" id="T8v-QW-XE5"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view contentMode="scaleToFill" id="46h-N7-XJJ">
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2k2-DS-LF1">
+                    <rect key="frame" x="343" y="89" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="KDa-cI-wmh"/>
+                        <constraint firstAttribute="height" constant="30" id="wdB-Cm-adA"/>
+                    </constraints>
+                    <color key="tintColor" name="stringColor1"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6O-1h-TAB">
+                    <rect key="frame" x="20" y="767" width="353" height="45"/>
+                    <color key="backgroundColor" name="point1"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="TRw-Ia-7ub"/>
+                    </constraints>
+                    <color key="tintColor" name="gangyeWhite"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="추가하기">
+                        <fontDescription key="titleFontDescription" name="omyu_pretty" family="omyu pretty" pointSize="20"/>
+                    </buttonConfiguration>
+                </button>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="1R7-Ze-GbS">
+                    <rect key="frame" x="20" y="214" width="353" height="533"/>
+                    <color key="backgroundColor" name="background1"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nCd-1g-Lmh">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어제 못 다한 일 중 오늘 추가할 일을 선택해 주세요" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9o-ck-gcY">
+                    <rect key="frame" x="90.333333333333329" y="154" width="212.66666666666669" height="40"/>
+                    <fontDescription key="fontDescription" name="omyu_pretty" family="omyu pretty" pointSize="20"/>
+                    <color key="textColor" name="stringColor1"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="4SN-vc-EPT"/>
             <color key="backgroundColor" name="background1"/>
-            <point key="canvasLocation" x="-24" y="21"/>
+            <constraints>
+                <constraint firstItem="1R7-Ze-GbS" firstAttribute="top" secondItem="E9o-ck-gcY" secondAttribute="bottom" constant="20" id="4Fb-8a-2ZI"/>
+                <constraint firstItem="K6O-1h-TAB" firstAttribute="top" secondItem="1R7-Ze-GbS" secondAttribute="bottom" constant="20" id="4KX-WS-dcK"/>
+                <constraint firstItem="4SN-vc-EPT" firstAttribute="trailing" secondItem="2k2-DS-LF1" secondAttribute="trailing" constant="20" id="54j-ms-rDx"/>
+                <constraint firstItem="2k2-DS-LF1" firstAttribute="top" secondItem="4SN-vc-EPT" secondAttribute="top" constant="30" id="G0h-dS-hng"/>
+                <constraint firstItem="K6O-1h-TAB" firstAttribute="leading" secondItem="4SN-vc-EPT" secondAttribute="leading" constant="20" id="ITX-Ab-xBQ"/>
+                <constraint firstItem="E9o-ck-gcY" firstAttribute="centerX" secondItem="46h-N7-XJJ" secondAttribute="centerX" id="K8a-Sy-f13"/>
+                <constraint firstItem="4SN-vc-EPT" firstAttribute="bottom" secondItem="K6O-1h-TAB" secondAttribute="bottom" constant="6" id="Uvu-Zd-1dF"/>
+                <constraint firstItem="E9o-ck-gcY" firstAttribute="top" secondItem="2k2-DS-LF1" secondAttribute="bottom" constant="35" id="VDj-yk-0Zu"/>
+                <constraint firstItem="4SN-vc-EPT" firstAttribute="trailing" secondItem="1R7-Ze-GbS" secondAttribute="trailing" constant="20" id="ayD-bB-K1k"/>
+                <constraint firstItem="4SN-vc-EPT" firstAttribute="trailing" secondItem="K6O-1h-TAB" secondAttribute="trailing" constant="20" id="fDB-Fg-XGh"/>
+                <constraint firstItem="1R7-Ze-GbS" firstAttribute="leading" secondItem="4SN-vc-EPT" secondAttribute="leading" constant="20" id="mhi-4s-Mft"/>
+            </constraints>
+            <point key="canvasLocation" x="-141.22137404580153" y="14.788732394366198"/>
         </view>
     </objects>
     <resources>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="background1">
             <color red="0.99607843137254903" green="0.97254901960784312" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gangyeWhite">
+            <color red="0.99607843137254903" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="point1">
+            <color red="0.43137254901960786" green="0.27058823529411763" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="stringColor1">
+            <color red="0.34509803921568627" green="0.18823529411764706" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -7,19 +7,27 @@
 
 import UIKit
 
-protocol TodoCellDelegate: AnyObject {
-    func check(_ cellModel: TodoModel)
-}
-
 final class TodoCollectionViewCell: UICollectionViewCell {
+    enum IsChecked {
+        case checked
+        case unchecked
+        
+        var image: UIImage {
+            switch self {
+            case .checked:
+                return UIImage(systemName: "circle")!
+            case .unchecked:
+                return UIImage(systemName: "circle.inset.filled")!
+            }
+        }
+    }
     
     @IBOutlet private weak var importanceColor: UIView!
     @IBOutlet private weak var contentLabel: UILabel!
     @IBOutlet private weak var selectButtonView: UIView!
     @IBOutlet private weak var selectImageView: UIImageView!
-    @IBOutlet private weak var selectButton: UIButton!
     private var cellModel: TodoModel?
-    weak var delegate: TodoCellDelegate?
+    private var isChecked: IsChecked?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,17 +37,8 @@ final class TodoCollectionViewCell: UICollectionViewCell {
         super.prepareForReuse()
         importanceColor.isHidden = false
         contentLabel.attributedText = nil
+        selectImageView.isHidden = true
     }
-    
-    @IBAction private func checkButtonTapped(_ sender: Any) {
-        guard
-            let cellModel = cellModel,
-            let delegate = delegate
-        else { return }
-        
-        delegate.check(cellModel)
-    }
-    
 }
 
 extension TodoCollectionViewCell {
@@ -67,6 +66,27 @@ extension TodoCollectionViewCell {
             contentLabel.textColor = .stringColor1
         }
         
-        selectButtonView.isHidden = !isCheckNeed
+        if isCheckNeed {
+            selectButtonView.isHidden = false
+            isChecked = .unchecked
+        }
+    }
+}
+
+// MARK: - check 시 동작
+extension TodoCollectionViewCell {
+    
+    func toggleCheck() {
+        guard var isChecked = isChecked else { return }
+        
+        switch isChecked {
+        case .checked:
+            isChecked = .unchecked
+        case .unchecked:
+            isChecked = .checked
+        }
+        
+        selectImageView.image = isChecked.image
+        self.isChecked = isChecked
     }
 }
