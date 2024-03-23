@@ -331,6 +331,7 @@
 				317254352B99AE2700ED3E25 /* LaunchScreen.storyboard */,
 				317254382B99AE2700ED3E25 /* Info.plist */,
 				317254602B99B00E00ED3E25 /* Core */,
+				31D496F22BA02BB8001FA5FE /* TodoCell */,
 				31B8803B2B9E0F3A0087A7A8 /* Resources */,
 				317254612B99B14100ED3E25 /* Home */,
 				317254622B99B15600ED3E25 /* Setting */,
@@ -400,7 +401,6 @@
 				315A9FA82BA03EB900C1CF63 /* HomeSegmentedControl.xib */,
 				315A9FA22BA03BA000C1CF63 /* TodoHeaderSupplementaryView.swift */,
 				315A9FA32BA03BA000C1CF63 /* TodoHeaderSupplementaryView.xib */,
-				31D496F22BA02BB8001FA5FE /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -505,13 +505,13 @@
 			path = GangyebabWidget;
 			sourceTree = "<group>";
 		};
-		31D496F22BA02BB8001FA5FE /* Cell */ = {
+		31D496F22BA02BB8001FA5FE /* TodoCell */ = {
 			isa = PBXGroup;
 			children = (
 				31D496EE2BA02BB4001FA5FE /* TodoCollectionViewCell.swift */,
 				31D496EF2BA02BB4001FA5FE /* TodoCollectionViewCell.xib */,
 			);
-			path = Cell;
+			path = TodoCell;
 			sourceTree = "<group>";
 		};
 		31D496F32BA02C77001FA5FE /* Model */ = {
