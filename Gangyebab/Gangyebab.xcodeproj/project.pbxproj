@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		31018A9E2BAF023900848E4D /* SwiftRater in Frameworks */ = {isa = PBXBuildFile; productRef = 31018A9D2BAF023900848E4D /* SwiftRater */; };
+		31018AA32BAF070700848E4D /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31018AA12BAF070700848E4D /* LicenseViewController.swift */; };
+		31018AA42BAF070700848E4D /* LicenseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31018AA22BAF070700848E4D /* LicenseViewController.xib */; };
 		310E78412BA2F52300E24C7E /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310E78402BA2F52300E24C7E /* SettingViewModel.swift */; };
 		310E78432BA2FC2000E24C7E /* UIDevice+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310E78422BA2FC2000E24C7E /* UIDevice+extension.swift */; };
 		310E784C2BA3051F00E24C7E /* CustomAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 310E784B2BA3051F00E24C7E /* CustomAlertViewController.xib */; };
@@ -123,6 +125,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		31018AA12BAF070700848E4D /* LicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseViewController.swift; sourceTree = "<group>"; };
+		31018AA22BAF070700848E4D /* LicenseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LicenseViewController.xib; sourceTree = "<group>"; };
 		310E78402BA2F52300E24C7E /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		310E78422BA2FC2000E24C7E /* UIDevice+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+extension.swift"; sourceTree = "<group>"; };
 		310E784A2BA3051F00E24C7E /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
@@ -233,6 +237,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31018A9F2BAF06EE00848E4D /* License */ = {
+			isa = PBXGroup;
+			children = (
+				31018AA02BAF06F800848E4D /* View */,
+			);
+			path = License;
+			sourceTree = "<group>";
+		};
+		31018AA02BAF06F800848E4D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				31018AA12BAF070700848E4D /* LicenseViewController.swift */,
+				31018AA22BAF070700848E4D /* LicenseViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		310E783F2BA2F51700E24C7E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -317,6 +338,7 @@
 				319CF88C2BA81C1200972DF7 /* GangyebabWidgetExtensionDebug.entitlements */,
 				317254292B99AE2600ED3E25 /* Gangyebab */,
 				319B8D6B2BAD67E10033CB3A /* Donate */,
+				31018A9F2BAF06EE00848E4D /* License */,
 				317254402B99AE2800ED3E25 /* GangyebabTests */,
 				3172544A2B99AE2800ED3E25 /* GangyebabUITests */,
 				31D34D602BA7FF100022088B /* GangyebabWidget */,
@@ -683,6 +705,7 @@
 				31D496FB2BA02EAB001FA5FE /* SOYO-Maple-Bold.otf in Resources */,
 				3141E9982BAEBA4A007D4B76 /* SelectTodoViewController.xib in Resources */,
 				31D496FC2BA02EAB001FA5FE /* SOYO-Maple-Regular.otf in Resources */,
+				31018AA42BAF070700848E4D /* LicenseViewController.xib in Resources */,
 				317254372B99AE2700ED3E25 /* LaunchScreen.storyboard in Resources */,
 				319B8D702BAD68EA0033CB3A /* DonateViewController.xib in Resources */,
 				310E784C2BA3051F00E24C7E /* CustomAlertViewController.xib in Resources */,
@@ -763,6 +786,7 @@
 				315A9FA52BA03BA000C1CF63 /* TodoHeaderSupplementaryView.swift in Sources */,
 				31B5C0732BAB3B9D00F13E3E /* TodoManager.swift in Sources */,
 				315A9FA12BA036E900C1CF63 /* String+extension.swift in Sources */,
+				31018AA32BAF070700848E4D /* LicenseViewController.swift in Sources */,
 				31D496F92BA02CA1001FA5FE /* Importance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
