@@ -53,6 +53,12 @@ extension SettingViewController {
                 self?.navigationController?.pushViewController(nextVC, animated: true)
             }
             .store(in: &cancellables)
+        
+        reviewButton.safeTap
+            .sink { [weak self] in
+                self?.handleReview()
+            }
+            .store(in: &cancellables)
     }
     
     private func bindViewModel() {
@@ -69,6 +75,16 @@ extension SettingViewController {
                 self?.yesterdaySwitch.setOn(state, animated: true)
             }
             .store(in: &cancellables)
+    }
+}
+
+// MARK: - Review
+extension SettingViewController {
+    func handleReview() {
+        guard let url = URL(string: "https://apps.apple.com/app/id6479891778?action=write-review") else 
+        { return }
+        
+        UIApplication.shared.open(url)
     }
 }
 

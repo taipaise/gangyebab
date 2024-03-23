@@ -8,6 +8,7 @@
 import UIKit
 import FSCalendar
 import Combine
+import SwiftRater
 
 final class HomeViewController: UIViewController {
     typealias TodoHeaderView = TodoHeaderSupplementaryView
@@ -43,6 +44,11 @@ final class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.action(.refresh)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        SwiftRater.check()
     }
 }
 

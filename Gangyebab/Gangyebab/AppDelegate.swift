@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftRater
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         dbManager.createTodoTable()
         dbManager.createRepeatTable()
         UIFont.registerCustomFonts()
+        
+        SwiftRater.daysUntilPrompt = 7
+        SwiftRater.usesUntilPrompt = 80
+        SwiftRater.daysBeforeReminding = 10
+        SwiftRater.showLaterButton = true
+        SwiftRater.appLaunched()
+        
         return true
     }
 
