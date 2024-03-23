@@ -59,6 +59,13 @@ extension SettingViewController {
                 self?.handleReview()
             }
             .store(in: &cancellables)
+        
+        licenseButton.safeTap
+            .sink { [weak self] _ in
+                let nextVC = LicenseViewController()
+                self?.navigationController?.pushViewController(nextVC, animated: true)
+            }
+            .store(in: &cancellables)
     }
     
     private func bindViewModel() {

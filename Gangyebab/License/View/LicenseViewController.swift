@@ -24,8 +24,13 @@ extension LicenseViewController {
         buttons.forEach { button in
             button.safeTap
                 .sink { [weak self] in
-                    guard let self = self else { return }
-                    
+                    guard 
+                        let self = self,
+                        let license = License.init(rawValue: button.tag)
+                    else { return }
+                    let nextVC = LicenseDetailViewController()
+                    nextVC.configure(license)
+                    self.navigationController?.pushViewController(nextVC, animated: true)
                 }
                 .store(in: &cancellables)
         }
@@ -37,6 +42,17 @@ enum License: Int {
     case combineCocoa
     case canlendar
     case rater
+    
+    var name: String {
+        switch self {
+        case .combineCocoa:
+            return "CombineCocoa"
+        case .canlendar:
+            return "FSCalendar"
+        case .rater:
+            return "SwiftRater"
+        }
+    }
     
     var detail: String {
         switch self {
