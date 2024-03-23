@@ -50,7 +50,7 @@
                     </buttonConfiguration>
                 </button>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="1R7-Ze-GbS">
-                    <rect key="frame" x="20" y="214" width="353" height="533"/>
+                    <rect key="frame" x="20" y="259" width="353" height="488"/>
                     <color key="backgroundColor" name="background1"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nCd-1g-Lmh">
                         <size key="itemSize" width="128" height="128"/>
@@ -60,8 +60,14 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어제 못 다한 일 중 오늘 추가할 일을 선택해 주세요" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9o-ck-gcY">
-                    <rect key="frame" x="90.333333333333329" y="154" width="212.66666666666669" height="40"/>
+                    <rect key="frame" x="90.333333333333329" y="199" width="212.66666666666669" height="40"/>
                     <fontDescription key="fontDescription" name="omyu_pretty" family="omyu pretty" pointSize="20"/>
+                    <color key="textColor" name="stringColor1"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="할 일 추가하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggu-Ky-ITk">
+                    <rect key="frame" x="122.33333333333333" y="149" width="148.66666666666669" height="30"/>
+                    <fontDescription key="fontDescription" name="omyu_pretty" family="omyu pretty" pointSize="30"/>
                     <color key="textColor" name="stringColor1"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -75,8 +81,10 @@
                 <constraint firstItem="2k2-DS-LF1" firstAttribute="top" secondItem="4SN-vc-EPT" secondAttribute="top" constant="30" id="G0h-dS-hng"/>
                 <constraint firstItem="K6O-1h-TAB" firstAttribute="leading" secondItem="4SN-vc-EPT" secondAttribute="leading" constant="20" id="ITX-Ab-xBQ"/>
                 <constraint firstItem="E9o-ck-gcY" firstAttribute="centerX" secondItem="46h-N7-XJJ" secondAttribute="centerX" id="K8a-Sy-f13"/>
+                <constraint firstItem="ggu-Ky-ITk" firstAttribute="centerX" secondItem="46h-N7-XJJ" secondAttribute="centerX" id="SPI-nX-OIH"/>
                 <constraint firstItem="4SN-vc-EPT" firstAttribute="bottom" secondItem="K6O-1h-TAB" secondAttribute="bottom" constant="6" id="Uvu-Zd-1dF"/>
-                <constraint firstItem="E9o-ck-gcY" firstAttribute="top" secondItem="2k2-DS-LF1" secondAttribute="bottom" constant="35" id="VDj-yk-0Zu"/>
+                <constraint firstItem="E9o-ck-gcY" firstAttribute="top" secondItem="ggu-Ky-ITk" secondAttribute="bottom" constant="20" id="VDj-yk-0Zu"/>
+                <constraint firstItem="ggu-Ky-ITk" firstAttribute="top" secondItem="2k2-DS-LF1" secondAttribute="bottom" constant="30" id="Vwl-FA-tJ4"/>
                 <constraint firstItem="4SN-vc-EPT" firstAttribute="trailing" secondItem="1R7-Ze-GbS" secondAttribute="trailing" constant="20" id="ayD-bB-K1k"/>
                 <constraint firstItem="4SN-vc-EPT" firstAttribute="trailing" secondItem="K6O-1h-TAB" secondAttribute="trailing" constant="20" id="fDB-Fg-XGh"/>
                 <constraint firstItem="1R7-Ze-GbS" firstAttribute="leading" secondItem="4SN-vc-EPT" secondAttribute="leading" constant="20" id="mhi-4s-Mft"/>
