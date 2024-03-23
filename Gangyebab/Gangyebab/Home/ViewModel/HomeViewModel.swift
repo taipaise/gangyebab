@@ -37,6 +37,7 @@ final class HomeViewModel: ViewModel {
     private var cancellables: Set<AnyCancellable> = []
     private let todoManager = TodoManager.shared
     private let dateManager = DateManager.shared
+    private let userdefaultManager = UserDefaultManager.shared
     
     init() {
         fetchTodoList(Date())
@@ -197,6 +198,9 @@ extension HomeViewModel {
     }
     
     private func checkYesterday() {
+        let switchState = userdefaultManager.getSwitchState()
+        if switchState == false { return }
+        
         let currentDate = Date()
         let calendar = Calendar.current
         var dateComponents = DateComponents()

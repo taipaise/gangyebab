@@ -22,6 +22,14 @@ final class UserDefaultManager {
         return userDefaults.string(forKey: "DATE")
     }
     
+    func getSwitchState() -> Bool {
+        return userDefaults.bool(forKey: "SWITCH")
+    }
+    
+    func saveSwitchState(_ isOn: Bool) {
+        userDefaults.set(isOn, forKey: "SWITCH")
+    }
+    
     func isFirstExecute() -> Bool {
         let todayString = DateManager.shared.dateToString(Date())
 

@@ -63,6 +63,9 @@
                                     </constraints>
                                     <color key="onTintColor" name="point1"/>
                                     <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <connections>
+                                        <action selector="switchToggle:" destination="-1" eventType="valueChanged" id="oqm-3H-2fj"/>
+                                    </connections>
                                 </switch>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="매일 앱 첫 실행 시, 어제 못한 일을 확인할 수 있습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRB-ar-4hN">
                                     <rect key="frame" x="10" y="32" width="222" height="12"/>
