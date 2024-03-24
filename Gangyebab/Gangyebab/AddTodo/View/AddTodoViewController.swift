@@ -122,7 +122,7 @@ extension AddTodoViewController {
                     }
                     if viewModel.isRepeated {
                         AlertBuilder(
-                            message: "반복 이벤트입니다.\n수정할까요?",
+                            message: "반복 이벤트를 수정하면\n이전 반복 이벤트가 모두 삭제됩니다.",
                             pointAction: CustomAlertAction(text: "확인", action: {
                                 self.delegate?.transferTodo(
                                     todo: self.viewModel.getTodo(),
