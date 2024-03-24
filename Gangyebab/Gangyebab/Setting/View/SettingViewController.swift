@@ -140,7 +140,6 @@ extension SettingViewController: MFMailComposeViewControllerDelegate {
         case .cancelled:
             break
         case .saved:
-            print("임시저장")
             AlertBuilder(
                 message: "이메일이 임시 저장되었습니다.",
                 pointAction: CustomAlertAction(
@@ -149,7 +148,6 @@ extension SettingViewController: MFMailComposeViewControllerDelegate {
                 )
             )
             .show(self)
-            print(self)
         case .sent:
             AlertBuilder(
                 message: "문의를 성공적으로 보냈습니다.",

@@ -21,28 +21,27 @@ final class TodoManager {
         var todos = dbManager.readTodoDatas(date)
         var appendItems: [TodoModel] = []
         var deleteItems: [TodoModel] = []
-        
+    
         for repeatRule in repeatRules {
             //todo에 repeatId가 있는 경우
             if let todo = todos.first(where: { $0.repeatId == repeatRule.repeatId} ) {
                 if repeatRule.isDeleted {
                     deleteItems.append(todo)
                 }
-                
+
                 if
-                    todo.title != repeatRule.title ||
-                        todo.importance != repeatRule.importance {
+                    todo.title != repeatRule.title
+                    || todo.importance != repeatRule.importance {
                     deleteItems.append(todo)
                     appendItems.append(makeTodoByRepeatRule(repeatRule: repeatRule, date: date))
                 }
-                    
-                
             } else { //todo에 repeatId가 없는 경우
-                guard 
+
+                guard
                     !repeatRule.isDeleted,
                     dateManager.compare(repeatRule.date, date)
                 else { continue }
-                
+
                 var newTodo: TodoModel?
                 switch repeatRule.repeatType {
                 case .none:
@@ -68,16 +67,13 @@ final class TodoManager {
         }
         
         appendItems.forEach { todo in
-            print("ㅋ 다시 추가함: \(todo)")
             dbManager.insertTodoData(todo)
         }
-        
         return dbManager.readTodoDatas(date)
     }
     
     func deleteTodo(todo: TodoModel, deleteAll: Bool) {
         
-        print("삭제할 todo: \(todo)")
         guard todo.repeatType != .none else {
             dbManager.deleteTodoData(todo.uuid)
             return
@@ -113,18 +109,10 @@ final class TodoManager {
 
         guard let originTodo = dbManager.readTodoByUUID(uuid: todo.uuid) else { return }
         if originTodo == todo { return }
-        if originTodo.repeatType == todo.repeatType {
-            if originTodo.repeatType != .none {
-                dbManager.updateRepeatData(
-                    RepeatRuleModel(
-                        repeatId: originTodo.repeatId,
-                        title: todo.title,
-                        importance: todo.importance,
-                        repeatType: todo.repeatType,
-                        date: todo.date
-                    )
-                )
-            }
+        if
+            todo.repeatType == .none,
+            originTodo.repeatType == todo.repeatType
+        {
             dbManager.updateTodoData(TodoModel(
                 uuid: todo.uuid,
                 title: todo.title,
