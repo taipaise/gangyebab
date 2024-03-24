@@ -16,6 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LicenseViewController" customModule="Gangyebab" customModuleProvider="target">
             <connections>
+                <outlet property="dismissButton" destination="6tU-Te-IAV" id="lYP-FE-h1J"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="buttons" destination="D3F-4R-ol9" collectionClass="NSMutableArray" id="2tX-oL-l7I"/>
                 <outletCollection property="buttons" destination="GB5-FK-hBh" collectionClass="NSMutableArray" id="mLh-ed-32q"/>

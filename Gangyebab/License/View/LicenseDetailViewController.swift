@@ -12,12 +12,14 @@ final class LicenseDetailViewController: UIViewController {
 
     @IBOutlet private weak var licenseNameLabel: UILabel!
     @IBOutlet private weak var textView: UITextView!
+    @IBOutlet private weak var dismissButton: UIButton!
     private var viewModel = LicenseDetailViewModel()
     private var cancellables = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
+        bindView()
         setUI()
     }
     
@@ -44,6 +46,14 @@ extension LicenseDetailViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] detail in
                 self?.textView.text = detail
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func bindView() {
+        dismissButton.safeTap
+            .sink { [weak self] _ in
+                self?.navigationController?.popViewController(animated: true)
             }
             .store(in: &cancellables)
     }
