@@ -16,6 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LicenseDetailViewController" customModule="Gangyebab" customModuleProvider="target">
             <connections>
+                <outlet property="dismissButton" destination="D0M-X1-QeL" id="UC8-nx-dLL"/>
                 <outlet property="licenseNameLabel" destination="ftA-Tl-a0U" id="kr4-qi-6W3"/>
                 <outlet property="textView" destination="Yl6-bn-YH5" id="y9O-Tp-Bfj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
