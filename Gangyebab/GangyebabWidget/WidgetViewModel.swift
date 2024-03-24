@@ -23,10 +23,9 @@ final class WidgetViewModel: ObservableObject {
     func fetchTodos() {
         let currentDate = dateManager.dateToString(Date())
         todos = dbManager.readTodoDatas(currentDate).sorted()
-        print(todos)
     }
     
     func todoTap(_ todo: TodoModel) {
-        print("todo 탭")
+
     }
 }

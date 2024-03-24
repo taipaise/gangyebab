@@ -53,7 +53,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="fW4-k1-7ij">
                             <rect key="frame" x="20" y="98" width="253" height="45"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EgZ-Qh-2vg">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EgZ-Qh-2vg">
                                     <rect key="frame" x="0.0" y="0.0" width="111.66666666666667" height="45"/>
                                     <color key="backgroundColor" name="background2"/>
                                     <color key="tintColor" name="gangyeBlack"/>
@@ -67,7 +67,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHY-uL-9pe">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHY-uL-9pe">
                                     <rect key="frame" x="141.66666666666666" y="0.0" width="111.33333333333334" height="45"/>
                                     <color key="backgroundColor" name="point1"/>
                                     <color key="tintColor" name="gangyeWhite"/>

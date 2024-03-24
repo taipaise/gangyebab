@@ -261,7 +261,7 @@ extension HomeViewController {
                                 self.viewModel.action(.deleteTodo(indexPath, deleteAll: false))
                             } else {
                                 AlertBuilder(
-                                    message: "반복 이벤트입니다.\n모든 이벤트를 모두 삭제할까요?",
+                                    message: "반복 이벤트입니다.\n모든 이벤트를 삭제할까요?",
                                     pointAction: CustomAlertAction(
                                         text: "모두 삭제",
                                         action: {
@@ -305,6 +305,7 @@ extension HomeViewController {
                 using: configuration ?? UICollectionLayoutListConfiguration(appearance: .plain),
                 layoutEnvironment: layoutEnvironment
             )
+        
             section.contentInsets = NSDirectionalEdgeInsets(
                 top: 5,
                 leading: 0,
@@ -348,7 +349,6 @@ extension HomeViewController: UICollectionViewDelegate {
         
         let cellModels = viewModel.inprogressCellModels
         let cellModel = cellModels[row]
-        print(cellModel)
         let date = viewModel.date.value
         let nextVC = AddTodoViewController()
         nextVC.configure(date: date, todo: cellModel)
@@ -382,7 +382,6 @@ extension HomeViewController: AddTodoDelegate {
 extension HomeViewController: FSCalendarDelegate {
     
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
-        print(calendar.currentPage)
         viewModel.action(.calendarSwipe(calendar.currentPage))
     }
     
