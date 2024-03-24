@@ -11,6 +11,7 @@ import Combine
 final class LicenseViewController: UIViewController {
 
     @IBOutlet private var buttons: [UIButton]!
+    @IBOutlet private weak var dismissButton: UIButton!
     private var cancellables = Set<AnyCancellable>()
     
     override func viewDidLoad() {
@@ -34,6 +35,12 @@ extension LicenseViewController {
                 }
                 .store(in: &cancellables)
         }
+        
+        dismissButton.safeTap
+            .sink { [weak self] _ in
+                self?.navigationController?.popViewController(animated: true)
+            }
+            .store(in: &cancellables)
     }
 }
 
