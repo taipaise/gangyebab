@@ -306,6 +306,17 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		312A10852BB1301800518CED /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				31E9CE872BA6C04800B52CD8 /* DBManager.swift */,
+				31E9CE892BA6DEE000B52CD8 /* DateManager.swift */,
+				31B5C0722BAB3B9D00F13E3E /* TodoManager.swift */,
+				31526A842BAEDCF9008F165D /* UserDefaultManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		3141E9932BAEBA1E007D4B76 /* SelectTodo */ = {
 			isa = PBXGroup;
 			children = (
@@ -385,6 +396,7 @@
 				317254352B99AE2700ED3E25 /* LaunchScreen.storyboard */,
 				317254382B99AE2700ED3E25 /* Info.plist */,
 				317254602B99B00E00ED3E25 /* Core */,
+				312A10852BB1301800518CED /* Manager */,
 				31D496F22BA02BB8001FA5FE /* TodoCell */,
 				31B8803B2B9E0F3A0087A7A8 /* Resources */,
 				317254612B99B14100ED3E25 /* Home */,
@@ -421,10 +433,6 @@
 				3172545C2B99AFC800ED3E25 /* NavigationViewController.swift */,
 				3172545E2B99B00700ED3E25 /* TabViewController.swift */,
 				315A9FAF2BA044BD00C1CF63 /* ViewModel.swift */,
-				31E9CE872BA6C04800B52CD8 /* DBManager.swift */,
-				31E9CE892BA6DEE000B52CD8 /* DateManager.swift */,
-				31B5C0722BAB3B9D00F13E3E /* TodoManager.swift */,
-				31526A842BAEDCF9008F165D /* UserDefaultManager.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
