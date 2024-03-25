@@ -19,6 +19,8 @@
 		310E784D2BA3051F00E24C7E /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310E784A2BA3051F00E24C7E /* CustomAlertViewController.swift */; };
 		310E78502BA3098B00E24C7E /* CustomAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310E784F2BA3098B00E24C7E /* CustomAlertViewModel.swift */; };
 		310E78522BA312C400E24C7E /* AlertBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310E78512BA312C400E24C7E /* AlertBuilder.swift */; };
+		312A10872BB1305900518CED /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312A10862BB1305900518CED /* IAPManager.swift */; };
+		312A10892BB130A200518CED /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312A10882BB130A200518CED /* StoreKit.framework */; };
 		3139E4022BA8029600CC81F9 /* WidgetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D34D782BA800910022088B /* WidgetCell.swift */; };
 		3139E4052BA802A200CC81F9 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D34D772BA800910022088B /* ListView.swift */; };
 		3139E4072BA8030D00CC81F9 /* RepeatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315D0DF82BA1B85900F647DB /* RepeatType.swift */; };
@@ -139,6 +141,8 @@
 		310E784B2BA3051F00E24C7E /* CustomAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAlertViewController.xib; sourceTree = "<group>"; };
 		310E784F2BA3098B00E24C7E /* CustomAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewModel.swift; sourceTree = "<group>"; };
 		310E78512BA312C400E24C7E /* AlertBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBuilder.swift; sourceTree = "<group>"; };
+		312A10862BB1305900518CED /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
+		312A10882BB130A200518CED /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3141E9952BAEBA4A007D4B76 /* SelectTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTodoViewController.swift; sourceTree = "<group>"; };
 		3141E9962BAEBA4A007D4B76 /* SelectTodoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectTodoViewController.xib; sourceTree = "<group>"; };
 		31526A822BAEC66D008F165D /* SelectTodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTodoViewModel.swift; sourceTree = "<group>"; };
@@ -214,6 +218,7 @@
 				31018A9E2BAF023900848E4D /* SwiftRater in Frameworks */,
 				31D496EA2BA01AF4001FA5FE /* CombineCocoa in Frameworks */,
 				31D496ED2BA021E2001FA5FE /* FSCalendar in Frameworks */,
+				312A10892BB130A200518CED /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +318,7 @@
 				31E9CE892BA6DEE000B52CD8 /* DateManager.swift */,
 				31B5C0722BAB3B9D00F13E3E /* TodoManager.swift */,
 				31526A842BAEDCF9008F165D /* UserDefaultManager.swift */,
+				312A10862BB1305900518CED /* IAPManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -548,6 +554,7 @@
 		31D34D5B2BA7FF100022088B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				312A10882BB130A200518CED /* StoreKit.framework */,
 				31D34D5C2BA7FF100022088B /* WidgetKit.framework */,
 				31D34D5E2BA7FF100022088B /* SwiftUI.framework */,
 			);
@@ -793,6 +800,7 @@
 				31B880422B9E0FDE0087A7A8 /* Font+Extensions.swift in Sources */,
 				310E78522BA312C400E24C7E /* AlertBuilder.swift in Sources */,
 				315A9FA72BA03D0F00C1CF63 /* TodoSection.swift in Sources */,
+				312A10872BB1305900518CED /* IAPManager.swift in Sources */,
 				31E9CE862BA6BF7C00B52CD8 /* RepeatRuleModel.swift in Sources */,
 				31B880442B9E10770087A7A8 /* NSObject+extenstions.swift in Sources */,
 				310E784D2BA3051F00E24C7E /* CustomAlertViewController.swift in Sources */,
