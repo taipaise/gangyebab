@@ -19,6 +19,9 @@
 		310E784D2BA3051F00E24C7E /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310E784A2BA3051F00E24C7E /* CustomAlertViewController.swift */; };
 		310E78502BA3098B00E24C7E /* CustomAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310E784F2BA3098B00E24C7E /* CustomAlertViewModel.swift */; };
 		310E78522BA312C400E24C7E /* AlertBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310E78512BA312C400E24C7E /* AlertBuilder.swift */; };
+		312A10872BB1305900518CED /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312A10862BB1305900518CED /* IAPManager.swift */; };
+		312A10892BB130A200518CED /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312A10882BB130A200518CED /* StoreKit.framework */; };
+		312A108C2BB1693500518CED /* DonateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312A108B2BB1693500518CED /* DonateViewModel.swift */; };
 		3139E4022BA8029600CC81F9 /* WidgetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D34D782BA800910022088B /* WidgetCell.swift */; };
 		3139E4052BA802A200CC81F9 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D34D772BA800910022088B /* ListView.swift */; };
 		3139E4072BA8030D00CC81F9 /* RepeatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315D0DF82BA1B85900F647DB /* RepeatType.swift */; };
@@ -139,6 +142,9 @@
 		310E784B2BA3051F00E24C7E /* CustomAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAlertViewController.xib; sourceTree = "<group>"; };
 		310E784F2BA3098B00E24C7E /* CustomAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewModel.swift; sourceTree = "<group>"; };
 		310E78512BA312C400E24C7E /* AlertBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBuilder.swift; sourceTree = "<group>"; };
+		312A10862BB1305900518CED /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
+		312A10882BB130A200518CED /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		312A108B2BB1693500518CED /* DonateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateViewModel.swift; sourceTree = "<group>"; };
 		3141E9952BAEBA4A007D4B76 /* SelectTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTodoViewController.swift; sourceTree = "<group>"; };
 		3141E9962BAEBA4A007D4B76 /* SelectTodoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectTodoViewController.xib; sourceTree = "<group>"; };
 		31526A822BAEC66D008F165D /* SelectTodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTodoViewModel.swift; sourceTree = "<group>"; };
@@ -214,6 +220,7 @@
 				31018A9E2BAF023900848E4D /* SwiftRater in Frameworks */,
 				31D496EA2BA01AF4001FA5FE /* CombineCocoa in Frameworks */,
 				31D496ED2BA021E2001FA5FE /* FSCalendar in Frameworks */,
+				312A10892BB130A200518CED /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +313,26 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		312A10852BB1301800518CED /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				31E9CE872BA6C04800B52CD8 /* DBManager.swift */,
+				31E9CE892BA6DEE000B52CD8 /* DateManager.swift */,
+				31B5C0722BAB3B9D00F13E3E /* TodoManager.swift */,
+				31526A842BAEDCF9008F165D /* UserDefaultManager.swift */,
+				312A10862BB1305900518CED /* IAPManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		312A108A2BB1692600518CED /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				312A108B2BB1693500518CED /* DonateViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		3141E9932BAEBA1E007D4B76 /* SelectTodo */ = {
 			isa = PBXGroup;
 			children = (
@@ -385,6 +412,7 @@
 				317254352B99AE2700ED3E25 /* LaunchScreen.storyboard */,
 				317254382B99AE2700ED3E25 /* Info.plist */,
 				317254602B99B00E00ED3E25 /* Core */,
+				312A10852BB1301800518CED /* Manager */,
 				31D496F22BA02BB8001FA5FE /* TodoCell */,
 				31B8803B2B9E0F3A0087A7A8 /* Resources */,
 				317254612B99B14100ED3E25 /* Home */,
@@ -421,10 +449,6 @@
 				3172545C2B99AFC800ED3E25 /* NavigationViewController.swift */,
 				3172545E2B99B00700ED3E25 /* TabViewController.swift */,
 				315A9FAF2BA044BD00C1CF63 /* ViewModel.swift */,
-				31E9CE872BA6C04800B52CD8 /* DBManager.swift */,
-				31E9CE892BA6DEE000B52CD8 /* DateManager.swift */,
-				31B5C0722BAB3B9D00F13E3E /* TodoManager.swift */,
-				31526A842BAEDCF9008F165D /* UserDefaultManager.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -490,6 +514,7 @@
 		319B8D6B2BAD67E10033CB3A /* Donate */ = {
 			isa = PBXGroup;
 			children = (
+				312A108A2BB1692600518CED /* ViewModel */,
 				319B8D6C2BAD67EF0033CB3A /* View */,
 			);
 			path = Donate;
@@ -540,6 +565,7 @@
 		31D34D5B2BA7FF100022088B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				312A10882BB130A200518CED /* StoreKit.framework */,
 				31D34D5C2BA7FF100022088B /* WidgetKit.framework */,
 				31D34D5E2BA7FF100022088B /* SwiftUI.framework */,
 			);
@@ -785,10 +811,12 @@
 				31B880422B9E0FDE0087A7A8 /* Font+Extensions.swift in Sources */,
 				310E78522BA312C400E24C7E /* AlertBuilder.swift in Sources */,
 				315A9FA72BA03D0F00C1CF63 /* TodoSection.swift in Sources */,
+				312A10872BB1305900518CED /* IAPManager.swift in Sources */,
 				31E9CE862BA6BF7C00B52CD8 /* RepeatRuleModel.swift in Sources */,
 				31B880442B9E10770087A7A8 /* NSObject+extenstions.swift in Sources */,
 				310E784D2BA3051F00E24C7E /* CustomAlertViewController.swift in Sources */,
 				315D0DF72BA1A85100F647DB /* AddTodoViewModel.swift in Sources */,
+				312A108C2BB1693500518CED /* DonateViewModel.swift in Sources */,
 				315A9FAB2BA0413700C1CF63 /* UICollectionView+extension.swift in Sources */,
 				315A9FB02BA044BD00C1CF63 /* ViewModel.swift in Sources */,
 				31526A832BAEC66D008F165D /* SelectTodoViewModel.swift in Sources */,
