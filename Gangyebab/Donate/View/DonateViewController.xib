@@ -22,6 +22,10 @@
                 <outlet property="donate5000Button" destination="3dt-zc-Hbk" id="Ona-qV-IpL"/>
                 <outlet property="donte15000button" destination="roC-ZR-Qmz" id="RtZ-CZ-iUf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="donateButtons" destination="DUR-SA-47Z" collectionClass="NSMutableArray" id="cel-PW-tUT"/>
+                <outletCollection property="donateButtons" destination="3dt-zc-Hbk" collectionClass="NSMutableArray" id="IZF-U0-9KA"/>
+                <outletCollection property="donateButtons" destination="dxW-Zs-sTt" collectionClass="NSMutableArray" id="Qmt-xy-IfW"/>
+                <outletCollection property="donateButtons" destination="roC-ZR-Qmz" collectionClass="NSMutableArray" id="ma5-TU-EeJ"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -56,7 +60,7 @@
                                         <constraint firstAttribute="width" constant="20" id="jEk-eg-qIw"/>
                                     </constraints>
                                 </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUR-SA-47Z">
+                                <button opaque="NO" tag="3000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUR-SA-47Z">
                                     <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" title="Button"/>
@@ -103,7 +107,7 @@
                                         <constraint firstAttribute="height" constant="20" id="szX-cv-8Mq"/>
                                     </constraints>
                                 </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dt-zc-Hbk">
+                                <button opaque="NO" tag="5000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dt-zc-Hbk">
                                     <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" title="Button"/>
@@ -150,7 +154,7 @@
                                         <constraint firstAttribute="height" constant="20" id="taT-ql-EvD"/>
                                     </constraints>
                                 </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxW-Zs-sTt">
+                                <button opaque="NO" tag="10000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxW-Zs-sTt">
                                     <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" title="Button"/>
@@ -197,7 +201,7 @@
                                         <constraint firstAttribute="width" constant="20" id="oWQ-dL-jCr"/>
                                     </constraints>
                                 </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roC-ZR-Qmz">
+                                <button opaque="NO" tag="15000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roC-ZR-Qmz">
                                     <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" title="Button"/>
