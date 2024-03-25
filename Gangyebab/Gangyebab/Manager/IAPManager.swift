@@ -10,15 +10,23 @@ import StoreKit
 
 public typealias ProductsRequestCompletionHandler = (_ success: Bool, _ products: [SKProduct]?) -> Void
 
+protocol IAPDelegate: AnyObject {
+    func showResult(_ result: Bool)
+}
+
 final class IAPManager: NSObject {
-    private let productsId: Set<String>
+    private let productIdentifiers: Set<String>
     private var productsRequest: SKProductsRequest?
     private var productsRequestCompletionHandler: ProductsRequestCompletionHandler?
-    private let viewController: UIViewController
+    weak var delegate: IAPDelegate?
     
-    init(productIds: Set<String>, viewController: UIViewController) {
-        self.productsId = productIds
-        self.viewController = viewController
+    override init() {
+        self.productIdentifiers = [
+            DonateProduct.ball.id,
+            DonateProduct.snack.id,
+            DonateProduct.cake.id,
+            DonateProduct.cloth.id
+        ]
         super.init()
         SKPaymentQueue.default().add(self)
         addNotificationCenter()
@@ -28,10 +36,10 @@ final class IAPManager: NSObject {
         removeNotificationCenter()
     }
     
-    private func loadProductsRequest(_ completionHandler: @escaping ProductsRequestCompletionHandler) {
+    func loadProductsRequest(_ completionHandler: @escaping ProductsRequestCompletionHandler) {
         productsRequest?.cancel()
         productsRequestCompletionHandler = completionHandler
-        productsRequest = SKProductsRequest(productIdentifiers: productsId)
+        productsRequest = SKProductsRequest(productIdentifiers: productIdentifiers)
         productsRequest?.delegate = self
         productsRequest?.start()
     }
@@ -79,25 +87,7 @@ extension IAPManager {
     @objc private func handlePurchaseNotification(_ notification: Notification) {
         guard let result = notification.object as? Bool else { return }
         
-        if result {
-            AlertBuilder(
-                message: "후원해 주셔서 감사합니다.\n오늘도 좋은 하루 되시길 바랍니다!.",
-                pointAction: CustomAlertAction(
-                    text: "확인",
-                    action: {}
-                )
-            )
-            .show(viewController)
-        } else {
-            AlertBuilder(
-                message: "구매 중 오류가 발생했습니다.",
-                pointAction: CustomAlertAction(
-                    text: "확인",
-                    action: {}
-                )
-            )
-            .show(viewController)
-        }
+        delegate?.showResult(result)
     }
 
 }
